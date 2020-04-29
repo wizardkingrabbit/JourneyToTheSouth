@@ -3,31 +3,25 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define e = Character("Eileen")
-
+define you = Character("you")
+define daughter = Character("Anny")
+define unk = Character("Unknown")
+define jailer = Character("jailer")
 
 # The game starts here.
 
 label start:
-
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
-
-    scene bg room
-
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
-
+    daughter "Daddy!"
+    "Look at this little cutie. She is my daughter."
+    "And this beautiful woman is my wife. Together we live in this little shack."
+    "not a very good place to live in I know. But I'll do anything to support my family."
+    unk "Hey! You there, wake up!"
+    scene bg room with vpunch
     show eileen happy
+    jailer "Somebody wants to see you. Get to the meeting room quickly."
+    menu:
+        "Go to the meeting room":
+            jump meeting
 
-    # These display lines of dialogue.
-
-    e "You've created a new Ren'Py game."
-
-    e "Once you add a story, pictures, and music, you can release it to the world!"
-
-    # This ends the game.
-
-    return
+label meeting:
+    "You see a man in black suit. He wares a joker mask"
