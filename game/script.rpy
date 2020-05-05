@@ -3,6 +3,8 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
+# test
+
 define you = Character("you")
 define daughter = Character("Anny")
 define unk = Character("Unknown")
