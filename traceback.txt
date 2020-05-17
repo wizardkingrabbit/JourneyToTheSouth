@@ -1,0 +1,22 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/script.rpy", line 37, in script
+    "In the meeting room, you see a man with suit and a joker mask. ‘%(playerName), I know you’, he speaks peacefully."
+ValueError: unsupported format character ',' (0x2c) at index 77
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/script.rpy", line 37, in script
+    "In the meeting room, you see a man with suit and a joker mask. ‘%(playerName), I know you’, he speaks peacefully."
+  File "D:\study\renpy-7.3.5-sdk\renpy\ast.py", line 708, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+  File "D:\study\renpy-7.3.5-sdk\renpy\exports.py", line 1334, in say
+    what = what % tag_quoting_dict
+ValueError: unsupported format character ',' (0x2c) at index 77
+
+Windows-8-6.2.9200
+Ren'Py 7.3.5.606
+JourneyToTheSouth 1.0
+Mon May 18 00:37:25 2020
