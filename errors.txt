@@ -2,9 +2,25 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 39: choice menuitem expects a non-empty block.
-    "Remain silence":
-                     ^
+File "game/script.rpy", line 88: expected ':' not found.
+    label transfer
+                  ^
+
+File "game/script.rpy", line 99: expected statement.
+    GoodTalks += 1
+              ^
+
+File "game/script.rpy", line 107: expected statement.
+    GoodTalks += 1
+              ^
+
+File "game/script.rpy", line 115: expected statement.
+    GoodTalks += 1
+              ^
+
+File "game/script.rpy", line 123: expected statement.
+    GoodTalks += 1
+              ^
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Mon May 18 00:41:18 2020
+Thu May 21 14:43:42 2020

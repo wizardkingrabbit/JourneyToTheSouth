@@ -1,22 +1,26 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 37, in script
-    "In the meeting room, you see a man with suit and a joker mask. ‘%(playerName), I know you’, he speaks peacefully."
-ValueError: unsupported format character ',' (0x2c) at index 77
+  File "game/script.rpy", line 99, in script
+    $ GoodTalks += 1
+  File "game/script.rpy", line 99, in <module>
+    $ GoodTalks += 1
+NameError: name 'GoodTalks' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 37, in script
-    "In the meeting room, you see a man with suit and a joker mask. ‘%(playerName), I know you’, he speaks peacefully."
-  File "D:\study\renpy-7.3.5-sdk\renpy\ast.py", line 708, in execute
-    renpy.exports.say(who, what, *args, **kwargs)
-  File "D:\study\renpy-7.3.5-sdk\renpy\exports.py", line 1334, in say
-    what = what % tag_quoting_dict
-ValueError: unsupported format character ',' (0x2c) at index 77
+  File "game/script.rpy", line 99, in script
+    $ GoodTalks += 1
+  File "D:\study\renpy-7.3.5-sdk\renpy\ast.py", line 914, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "D:\study\renpy-7.3.5-sdk\renpy\python.py", line 2028, in py_exec_bytecode
+    exec bytecode in globals, locals
+  File "game/script.rpy", line 99, in <module>
+    $ GoodTalks += 1
+NameError: name 'GoodTalks' is not defined
 
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
 JourneyToTheSouth 1.0
-Mon May 18 00:37:25 2020
+Thu May 21 14:45:26 2020

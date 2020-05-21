@@ -4,16 +4,19 @@
 # name of the character.
 
 # test
-$ GEthresh = 3
-$ GoodTalks = 0
-$ GoodEnding = True
-$ BurnPlantation = True
+define GEthresh = 3
+define GoodTalks = 0
+define GoodEnding = True
+define BurnPlantation = True
 
 define you = Character("you")
 define daughter = Character("Anny")
 define unk = Character("Unknown")
 define jailer = Character("jailer")
 define MM = Character("Mysterious Man")
+define mount = Character("Mount")
+define tsing = Character("Tsing")
+define Buenos = Character("Buenos")
 
 # The game starts here.
 
@@ -80,10 +83,92 @@ label start:
             jump gameEnd
         "Get on Your way":
             "You stare at the mysterious man but you decide not to shoot him. He watches you geting into the car with a creepy smile on his face. You move your gaze away from his face and step on the gas. A few seconds later, he disappears in the rearview."
-            jump SanFrancisco
+            jump transfer
+
+label transfer:
+    "Driving on the California freeway, the old days comes back to you mind"
+    "You and three of your most trustful friends once ruled the dark side of Los Angelas. Mr. Mount was your best fighter, also a good sniper. He helped you assasinate a few of your opponent and protected you from countless dangers. You would surely rescue him out of the prison"
+    "Mr. Tsing is your engineer and navigator. He was the only person in your team who has a college degree. He once worked for the Geographical department of US, he has investigated numerous US-Mexican tunnels that were built for drug smuggling. You already forgot the location of those tunnels. Therefore, you need him to find you a safe path to Mexico"
+    "Mr. Buenos is from Catalonia, and he was your translator. You have other gang members who can also speak Spanish, but you prefer Buenos."
+    "Your first stop would be prison of San Francisco. Mr. Mount is there"
+    jump SanFrancisco
 
 label SanFrancisco:
-    "Driving on the California freeway, the old days comes back to you mind again."
+    "You park the car in front of the prison of San Francisco. The gray, towering wall and closed gate were all you can see"
+    menu:
+        "Shoot at the gate":
+            "Because of this hostile action, polices in this prison come to you and try to arrest you. You want to show them the paper from state governor. However, they see the gun in your hands, and decide to shoot you."
+            jump gameEnd
+        "Knock knock":
+            "The gate is opened. You see a thin, short jail guard looking at you behind the gate."
+    you "Hello sir, I am sent by the state governor. He issued an executive order to move a prisoner here to another place. *hand him the paper from the mysterious man*"
+    ""
+    ""
+    ""
+    ""
+    menu:
+        "Talk to trouble":
+            $ GoodTalks += 1
+            jump Sacramento
+        "Kill the trouble":
+            jump Sacramento
+
+label Sacramento:
+    menu:
+        "Talk to trouble":
+            $ GoodTalks += 1
+            jump SanDiego
+        "Kill the trouble":
+            jump SanDiego
+
+label SanDiego:
+    menu:
+        "Talk to trouble":
+            $ GoodTalks += 1
+            jump border
+        "Kill the trouble":
+            jump border
+
+label border:
+    menu:
+        "Talk to trouble":
+            $ GoodTalks += 1
+            jump Mexico
+        "Kill the trouble":
+            jump Mexico
+
+label Mexico:
+    menu:
+        "Burn the plantation":
+            if GoodTalks > GEthresh:
+                jump ending1
+            else:
+                jump ending2
+        "Leave the plantation":
+            if GoodTalks > GEthresh:
+                jump ending3
+            else:
+                jump ending4
+
+label ending1:
+    "ending 1"
+    "Burn the plantation, do a lot of good talk"
+    return
+
+label ending2:
+    "ending 2"
+    "Burn the plantation, do no good talk"
+    return
+
+label ending3:
+    "ending 3"
+    "Leave the plantation, do a lot of good talk"
+    return
+
+label ending4:
+    "ending 4"
+    "Leave the plantation, do no good talk"
+    return
 
 label gameEnd:
     "You were so close to your freedom and your family, but now you fall in your own blood. Hope you have a better luck next time."
