@@ -3,11 +3,16 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-# test
+# Endings
 define GEthresh = 3
 define GoodTalks = 0
 define GoodEnding = True
 define BurnPlantation = True
+
+# Check which places you've gone to
+define SF = False
+define S = False
+define SD = False
 
 define you = Character("you")
 define daughter = Character("Anny")
@@ -74,18 +79,18 @@ label start:
         "I cannot do it alone.":
             pass
     mm "Of course not! You won't be fighting alone. See this paper? We will allow you to recruit three prisoners from any prison in California. Let this be an opportunity to meet with your old companions and work together with them again!"
-    "Maybe I can found out what really happened back then..."
+    "A sudden thought comes across your mind: maybe I can found out what really happened back then..."
     menu:
         "Why do you trust me?":
             mm "You have the experience. And you have family. I know you aren't a killer, or am I wrong? Right now, you are the best choice for us."
         "Why should I trust you?":
             mm "You are always free to decline my offer! That is, if you want to stay in this prison, and NEVER reunite with your family."
     "The mysterious man brings you out of the prison. You see a white Ford car parked in front of the prison gate."
-    mm "That car is for you. We left a fake ID in the passenger seat. You're still convicted prisoner until this mission is complete, so try to stay low. And remember, we'll be keeping an eye on you."
+    mm "That car is for you. We left a fake ID in the passenger seat. You're still convicted prisoner until this mission is complete, so try to stay low. And remember, we'll be keeping an eye on you as well as your beloved daughter."
     mm "Oh, and I almost forgot! Thing is also for you. Try not use this, will you?"
     "He throws you a pistol. You catch it and can immediately tell that it is loaded."
     menu:
-        "Shoot Him":
+        "Shoot him":
             "You raise the gun and point it at this mysterious man. However, before you pull the trigger, you had no time to react to a bullet that instantly pierced your head."
             mm "Sigh, how stupid."
             jump gameEnd
@@ -100,6 +105,8 @@ label transfer:
     "Driving on the California freeway, your mind is all over the place."
     "What the hell just happened?"
     "One moment you were a prisoner with lifetime imprisonment, and now you're an escapee on a mission to be freed from conviction."
+    you "Shit, I'll have to be careful with what I do from now on."
+    "Any wrong move will put both you and Anna in danger."
     "Your thoughts take you back to the past, back when you were managing the drug business four years ago."
     "It all started with you and three of your most trustful friends, ruling the dark side of Los Angeles."
     "Mr. Mount was your best fighter and also an amazing sniper. He protected you from countless dangers and made sure their clients knew what they were dealing with. This is a man that you would surely want on your team."
