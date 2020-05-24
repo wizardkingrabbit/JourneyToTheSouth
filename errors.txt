@@ -2,25 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 88: expected ':' not found.
-    label transfer
-                  ^
+File "game/script.rpy", line 169: expected statement.
+    sf_bribe = True
+             ^
 
-File "game/script.rpy", line 99: expected statement.
-    GoodTalks += 1
-              ^
-
-File "game/script.rpy", line 107: expected statement.
-    GoodTalks += 1
-              ^
-
-File "game/script.rpy", line 115: expected statement.
-    GoodTalks += 1
-              ^
-
-File "game/script.rpy", line 123: expected statement.
-    GoodTalks += 1
+File "game/script.rpy", line 182: expected statement.
+    sf_threat = True
               ^
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Thu May 21 14:43:42 2020
+Mon May 25 05:15:50 2020
