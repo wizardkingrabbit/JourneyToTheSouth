@@ -15,7 +15,7 @@ define sf_threat = False
 define sf_headlock = False
 
 define you = Character("you")
-define mark = Character("big Mark")
+define mark = Character("Big Mark")
 define daughter = Character("Anny")
 define unk = Character("???")
 define guard = Character("Prison Guard")
@@ -64,7 +64,7 @@ label start:
             mm "Do you think I'd really tell you if I was wearing this mask?. You will know who I am in the future anyway."
     mm "Four years ago, you were the leader of the White Fog Gang in Los Angeles, and you controlled over 80 percent of drug dealing business in Los Angeles. If not for killing two policemen, you would not have been here for this long."
     you "I didn't kill those policemen. As wrong as my business is, we don't kill with intent. The last thing I knew was that I was the last person left behind."
-    mm "Is that really the case? Well, that doesn’t matter. It’s not important to me at all."
+    mm "Is that really the case? Well, that doesn’t matter. It’s not important to me at all." 
     mm "Anyways, how much longer are you staying in this dump? Oh right, lifetime, correct? It is such a sad story you'll never see your daughter in person. Did you know that she's be going to middle school this fall?"
     you "What the hell did you do to her!" with hpunch
     mm "Nothing at all, relax! I just wanted to remind you of your family."
@@ -78,9 +78,9 @@ label start:
     menu:
         "This mission is practically impossible":
             pass
-        "I cannot do it alone":
+        "I can't do it alone":
             pass
-    mm "Of course not! You won't be fighting alone. See this paper? We will allow you to recruit three prisoners from any prison in California. Let this be an opportunity to meet with your old companions and work together with them again!"
+    mm "Of course not! You won't be fighting alone. See this fancy paper? We will allow you to recruit three prisoners from any prison in California. Let this be an opportunity to meet with your old companions and work together with them again!"
     "A sudden thought comes across your mind: maybe I can found out what really happened back then..."
     menu:
         "Why trust me?":
@@ -90,7 +90,7 @@ label start:
     "The mysterious man brings you out of the prison. You see a white Ford car parked in front of the prison gate."
     mm "That car is for you. There's also a fake ID and a credit card in the back seat. You're still convicted prisoner until this mission is complete, so try to stay low. And remember, we'll be keeping an eye on you as well as your beloved daughter."
     mm "Oh, and I almost forgot! Thing is also for you. Try not use this, will you?"
-    "He throws you a pistol. You catch it and can immediately tell that it is loaded."
+    "He throws you a pistol with a silencer on it. You catch it and can immediately tell that it is loaded."
     menu:
         "Shoot him":
             "You raise the gun and point it at this mysterious man. However, before you pull the trigger, you had no time to react to a bullet that instantly pierced your head."
@@ -101,7 +101,7 @@ label start:
             jump transfer
 
             
- # Chapter 2 (Jingtian Li & Johnny Ngo) (Transfer->San Francisco)          
+ # Chapter 2 (Johnny Ngo & Jingtian Li) (Transfer->San Francisco->Transfer2)          
  
 label transfer:
     "Driving on the California freeway, your mind is all over the place."
@@ -184,11 +184,11 @@ label sf_2:
     $ sf_bribe = True
     "You habitually reach inside your pocket for a wallet, but then you remember that the only money you have is the credit card back in the car."
     menu:
-        "Go back to car":
+        "Go back to the car":
             "You tell them you have money in car and then see a wretched smile climbing up his face. A few minutes later, you return with a credit card in your hand."
-        "Threat him verbally":
+        "Threaten him verbally":
             jump sf_3
-        "Threat him with your gun":
+        "Threaten him with your gun":
             jump sf_4
     officer "Damn idiot, you think we do credit card transactions for this type of business? Either you bring me cash or you get the hell out of my office."
     "Seems like you have to try another way, and walking away isn't going to be an option."
@@ -216,130 +216,171 @@ label sf_5:
     officer "Shit! Okay, okay. Just tell me who's the prisoner you're trying to get out of here."
     you "Mr. Mount."
     officer "Alright, easy there man. Let me make the call."
-    "The chief makes an annoucement over the intercom to escort you to Mr. Mount for the transfer."
+    "The chief makes an annoucement over the intercom for someone to escort you to Mr. Mount for the transfer."
     if (sf_headlock):
         "You release him from your headlock and push him into the corner of the room. He's quivering in fear."
     else:
         "You drive the chief into the corner of his office. He's shaking in fear of your gun."
+    officer "P-please, you can lock me in here and take my phone. I'm begging you, don't kill me!"
     menu:
         "Kill him":
             $ GoodTalks -= 1
-            "Jail officer looks frightened. That is a good sign. He will always obey you as long as you have your gun in your hands"
-        "How can I make sure you would not run around and call cops":
-            officer "this office can be locked from outside and no one except me usually comes here. you just need to take away his phone and leave him alone."
+            "You point your gun towards the chief and shoot. He's dead."
+            jump sf_5a
+        "Tie him up":
+            "You use whatever you could find in his office to restrain his arms and legs. You also gag his mouth with his own sock."
+            you "These restraints might not hold, maybe I should have some extra insurance..."
     menu:
-        "Sounds good to me":
-            "you follow the officer's suggestion. The officer seems to calm down a little bit. after a few minutes, you arrive at the prison area. prisoners here all start to laugh when they see the officer"
-        "I actually have a better idea (shoot his legs)":
+        "Leave him in the office":
+            "You leave the room, making sure the door was locked from the inside. Before you left, the chief seemed relieved that nothing happened to him."
+            jump sf_5b
+        "Shoot his leg":
             $ GoodTalks -= 1
-            "that is surely a good plan. the guard loses consciousness immediately. Jail officer looks frightened, but he still leads you to the prison area. prisoners here all start to laugh when they see the officer"
-    "You see Mount in a really big cell. He sees you at the same moment. the grief on his face suddenly disappears"
-    you "Yoooooo, long long no see. #fist bump# Let me release you from this cell"
-    mount "No need boss. The door is not locked"
-    you "what?"
-    mount "This officer is bribed by one of the prisoner. #walk out of the cell# We call him big Mark. Mark forced this officer not to lock our door and provide him good food, drugs, smart phones and internet. then he used these resources to bribe prisoners here. Oh by the way, please do not think that I got bribed by him. I decided to quit drug since I was here"
-    "You peek at the officer. he shrugs, with a bitter smile"
-    officer "I thought about refusing him, but he offered too much."
-    you "then why do you still stay here for 4 years. sounds like you can just leave"
-    "A burst of laughter comes to you from behind. You see a guy who's even stronger than Mr. Mount standing there. And many other prisoners also walk out of their cells. Obviously, that strong man is big Mark"
-    mark "I thought you were really a government envoy. Now it seems there is nothing we need to be afraid of"
-    you "I am a government envoy"
-    mark "You think I am idiot? I never saw a prisoner call a goverment guy boss"
-    you "Whatever. we are leaving"
-    mark "If you are a government guy, I shall let you leave. But so unlucky, you are a retard who don't even know how to lie about it."
+            "As another layer of precaution, you shoot his leg. This way, you know he won't be going anywhere. The chief immediately loses consciousness from the shock."
+            jump sf_5a
+        
+label sf_5a:
+    "Despite the noise reduction from the silencer, the prison guard from earlier knocks from outside the office."
+    "You quickly open the door and pull him in, making sure he sees the gun pointed at him."
+    you "Now, I don't want you to end up like your chief over there, so it'd be best to follow my orders."
+    "The guard definitely looks frightened. That's a good sign for you at least. You know he won't be causing any trouble as long as you got your eye on him."
+    jump sf_5b
+
+label sf_5b:
+    "He escorts you to the northern cell block, presumably where Mr. Mount is. As you're passing by, you can hear the hysterical noises from the inmates."
+    "You spot Mount in a cell slightly bigger than most. His gaze locks onto yours and you can see a mixture of both relief and happiness in his eyes."
+    mount "Boss...is that you?"
+    you "Long no see, buddy. I got some questions for you, but let's get you out of here first. Hey guard, open this cell up."
+    mount "Ah, no need boss. This cell isn't locked."
+    you "Huh?"
+    "Mount stands up from his bed and casually slides open the door himself."
+    mount "This isn't just any cell block. A prisoner by the name of Big Mark controls this entire section, and he's even got policemen working for him. Hell, I bet he's got a leash on the chief officer."
+    mount "He created this bribing system as well as a hierarchy here. The strong reaps the most rewards. Delicious food, drugs, phones, you name it."
+    "You look at the prison guard. Seeing how weak he is, he'd really be an easy pushover."
+    officer "Hey, don't look at me like that, if you knew who Big Mark was, you'd be pummeled to bits."
+    you "Mount, its already been four years. Isn't it time to leave? What happened to us?"
+    mount "You know I'm a fighter, boss. This place is my heaven now, and you were in jail. Plus, even if I wanted to leave, Big Mark is the only person standing in my way."
+    "A burst of laughter comes out from behind. You turn around and see a guy who's even bigger than Mr. Mount. He's also accompanied with other prisoners."
+    you "Ah, you must be Big Mark."
+    mark "And I thought you were a government envoy. Now it seems like there's nothing to be afraid of."
+    you "The hell you talking about? I am a government envoy."
+    mark "You think I am idiot? In all my years I've never heard a prisoner call a government official his boss."
+    you "That's none of your business. Mount, let's go."
+    "Big Mark blocks you from the exit."
+    mark "If you really were sent by the government, then show me some proof. I doubt you are anyways. You're just a retard who doesn't even know how to bluff."
     menu:
         "Kill Mark":
             $ GoodTalks -= 1
-            "You put a bloody hole between Mark's eyes. everyone is shocked, even Mount. The next moment, almost every prisoner rushes to you and tries to tear you apart. But you have Mount to protect you. Finally you and Mount jumped into the car. those thugs can never touch you again."
-            jump Sacramento
+            jump sf_markdead
         "Show your paper":
-            mark "This signature is from state governor, incredible. But since you already know the secret of this prison, I still cannot let you leave."
-    you "Don't push me to kill you, sir. I can promise you I shall not tell the secret of this prison to anyone. You just need to let us leave peacefully"
-    "Mark seems to parse for a while"
-    mark "Fine. You leave me no choice. I have to let you go. But before you leave, I want you to pay some prices"
-    you "What's the price"
-    mark "I want a duel with Mount"
-    you "WTF"
-    "You feel Mount pulling your sleeve"
-    mount "#whisper# This man is crazy. he wants to have a duel with me since I got here. I really do not think I can defeat this guy and I cannot know what would happen if I get defeated"
-    you "So, Mark, you kept my friend here for 4 years merely to have a fight with him? Don't you think that is childish?"
-    mark "That is only part of the reason. I kept everyone who should be here, so that government would not know I corrupted this prison. But besides that, I do like having duel with other strong budies"
-    mark "So, Mount, would you accept the duel or not"
-    mount "#pulling your sleeve# #whisper# No. we should think another way out"
+            "Big Mark yanks the paper out of your hands. This guy is dangerous."
+            mark "I must say, this signature does look legitimate. But then I dont quite trust you won't report any of this to the higher powers, I can't let you leave this building."
+    you "Hey look man, I'm not trying to start anything here, and I sure as hell won't tell a soul."
+    "Mount comes stands beside me with his vouch. The prisoners next to Big Mark seems to awknowledge Mount's approval."
+    "Big Mark thinks about it.."
+    mark "Let make a deal then. "
+    you "And what is this deal?"
+    mark "I want a fistfight with that big fella right next to you. If he beats me, you're free to go. If not, well, you'll find out later."
+    "Mount pulls on your shoulder and whispers to you."
+    mount "This guy's a nut job. He's been itching to fight me for the past four years, and I've been talking my way out of it ever since. To be frank, I really don't think I could handle him. At the same time, I dont even want to imagine what will happen if he wins."
+    you "So, Mark, all it takes is one fight to let us go? Is that why you kept Mount in here? Isn't that a bit childish?"
+    mark "That's only part of the reason. I keep everyone here and make sure there's no snitching going on towards this corrupted prison. But besides that, I just want to see what this man can do to me."
+    "The prisoners start to slowly surround you. Your chances of escaping peacefully are getting lower."
+    mount "Boss, what should we do here?"
     menu:
         "Kill Mark":
-            $ GoodTalks -= 1
-            "You put a bloody hole on Mark's chest. everyone is shocked, even Mount. The next moment, almost every prisoner rushes to you and tries to tear you apart. But you have Mount to protect you. Finally you and Mount jumped into the car. those thugs can never touch you again."
-            jump Sacramento
-        "Accept the duel for Mount":
-            mount "Are you trying to kill me. this is not the solution. I cannot beat him. Are you deaf or something."
-        "Violence is always not a correct thing to do, Mark":
+            jump sf_markdead
+        "Accept the duel on Mount's behalf":
+            you "We'll take you up on your offer."
+            mark "Haha! That's what we're talking about!"
+            "Mount pulls me over again. For a veteran fighter, he seems to be shaking a little."
+            mount "I don't think this is the solution, boss. This guy is more vicious than you think he is."
+        "Talk your way out of this":
             jump sf_6
+            
+    you "I have plan. He's not going to be able to beat you, and I need you to trust me on that."
+    you "Believe in yourself. You're only thinking you can't beat him because you're not believing. Give yourself some more confidence."
+    "Big Mark and other prisoners lead you to the main hall of the prison. The prison guard comes foward to act as the referee."
+    "The duel begins without a moment of preperation. Mount's expression still lacks determination." 
+    "Big Mark charges in, delivering heavy punches to Mount without him being able to retaliate."
     menu:
-        "I have plan.":
-            you "You are not going to be beaten. Trust me."
-        "Believe in yourself":
-            you "You cannot defeat him simply because you do not believe you can. But you can do that. believe in yourself. Just do it"
-    "Mark and other prisoners lead you to the main hall of the prison. the chief officer is made to be the judge of this duel"
-    "The battle begins. Mount seems lack determination. Mark punches Mount heavily while Mount gives no effective strike back"
+        "Kill Big Mark":
+            jump sf_markdead
+        "Support Mount":
+            you "Mount, listen to me. He only got you by surprise. Focus. You're not my bodyguard for nothing."
+            "Mount stabilizes his breath. He then successfully dodges a few hits from Big Mark second barrage. After finding an opening, Mount launches his counter attack, breaking through Big Mark's defense."
+            "Both of them land hits on each other, but Mount suffered more damage due to the weight difference."
     menu:
-        "Kill Mark":
+        "Kill Big Mark":
+            jump sf_markdead
+        "Support Mount":
+            you "C'mon Mount! Don't let those punches anywhere near you buddy. He has no idea what's coming to him!"
+            "Mark's aggresive assault becomes harsher and harsher. Finally, a successful blow past Mount's defense dropped him to the ground. But Mark doesn't stop here. He starts delivering punishing kicks onto Mount."
+            guard "Hey! You can't do that!"
+            mark "Like hell I can't, Did you forget who's the boss here?."
+            "Big Mark pushes the thin guard with ease and continues his one-sided beatdown."
+    menu:
+        "Kill Big Mark":
             $ GoodTalks -= 1
-            "You put a bloody hole on Mark's chest. everyone is shocked, even Mount. The next moment, almost every prisoner rushes to you and tries to tear you apart. But you have Mount to protect you. Finally you and Mount jumped into the car. those thugs can never touch you again"
-            jump Sacramento
-        "Cheer for Mount":
-            "Mount stabilizes his breath. Then he successfully dodges a few hits from Mark. However, when Mount launches the counter attack, his defence is broken through. Both of them hit each other, but Mount suffers harder"
-    menu:
-        "Kill Mark":
-            $ GoodTalks -= 1
-            "You put a bloody hole on Mark's chest. everyone is shocked, even Mount. The next moment, almost every prisoner rushes to you and tries to tear you apart. But you have Mount to protect you. Finally you and Mount jumped into the car. those thugs can never touch you again"
-            jump Sacramento
-        "Cheer for Mount":
-            "Mark's attack becomes harsher and harsher. Finally, Mount fell to ground. But Mark does not stop. He kicks and stomps on Mount"
-    menu:
-        "Kill Mark":
-            $ GoodTalks -= 1
-            "You are so sad that you miss your first shot. Then prisoners overwhelm you. You are killed by big Mark"
-        "Do Nothing":
-            mark "Oops, It looks like I accidently killed your little friend. Trust me I really wish I did not do this but I just get carried away sometimes when fighting. Now since leting you out possibly lead no good result. I now decide to kill you here"
+            "You pull out your pistol and try to aim at Big Mark. Unfortunately, the crowd became too aggresive at this point made your shot miss its mark."
+            "Seeing you miss, the prisoners overwhelm you by force. You are eventually killed by Big Mark."
+        "Stop the beatdown":
+            "The raging crowd tossed you back and forth from getting to the middle of the fight. After what seemed like an eternity, you managed to push your way through."
+            "The only thing you can see is Mount's lifeless body."
+            you "You...you bastard!" with hpunch
+            mark "Oops, It looks like I accidentally killed your little friend. Sorry kiddo, I sometimes get carried away when fighting. Now since this toy has finally run out of use, I guess you're next."
+            "All you can do is hold onto Mount's body and mourn for him. Big Mark personally takes you to where Mount is."
     jump gameEnd
 
 label sf_6:
-    mark "What are you talking about. I know Mount used to kill people for living yet he is still you companion"
-    you "He is doing that because he needs to protect himself and others. Why do you use violence? To satisfy your pervert mind?"
-    mark "Hey, do not judge me. I was abused by my parents when I was young. One day I had it enough and killed them with my bare hands. Since then I like to fight"
-    you "This is not even explanatory. Normal people would feel disgusting after doing such things"
-    mark "Because I got their inheritance after I killed them. Even after I killed them I still get to keep their money"
-    you "But you can get your parents' inheritance anyway. Everyone will die someday. It is still wrong to use violence, especially to kill people"
-    mark "But you are not the one who was abused. If... if you were abused before, you would be obsessed with violence too"
+    you "Violence not always the right thing to do, Mark. Believe me."
+    mark "Who the hell are you to be saying that. Just look at your buddy Mount. I know he used to kill anyone that got in your way, am I wrong?"
+    you "It was his job to do what he needs to do to protect me and my gang. And why do you use violence? Just for the hell of it?"
+    mark "Hey, I don't need some kid to be judging me. I killed my parents after all the beatings they've given me. Ever since then, fighting is all I know."
+    you "That's not a reason, Big Mark. I'm sorry that happened to you, but why throw that anger onto Mount? He hasn't done anything to you."
+    mark "You wouldn't understand. If you were abused, you would have end up as obsessed with violence as I am."
     menu:
-        "Enough of your bullshit":
-            $ GoodTalks -= 1
-            "You put a bloody hole on Mark's chest. everyone is shocked, even Mount. The next moment, almost every prisoner rushes to you and tries to tear you apart. But you have Mount to protect you. Finally you and Mount jumped into the car. those thugs can never touch you again."
-            jump Sacramento
-        "Oh really?":
-            you "#show the scar on your waist# see this? My mother once sold my kidney for drug when I was a kid. Do you think that is not enough to be called abusement?"
-    mark "fuck. Sorry I do not know you have such tragic past"
-    you "Now you know, so get out of my face and let us leave"
-    mark "but hey, why should that matter? why should I find a reason for being obsessed with violence? I just want to fight. I will not let you leave without a fight anyway"
-    you "because you are losing your true self. Think about it, when you abused by your parents for the first time, have you ever thought about killing them?"
-    mark "... No, I cannot really remember"
-    you "The answer is no. You though about how to make them forgive you, Mark. Every kid who gets abused by parents think that way at beginning."
-    mark "OK if you are right, why the hell did I kill them at last"
-    you "Because they changed you. That is their purpose don't you see? They want you to be a shitty person like them"
-    mark "So... so they succeeded?"
-    you "No. But if today you insist to have the duel with Mount, they will succeed"
-    mark "But I already killed them. Isn't that the sign that they transformed me successfully."
-    you "that is only half way to their goal, idiot. That is a trap. They lured you to kill them so you can be more degenerated in prison. Now it is your chance to step out of this trap and be a new person after your sentences. Or you can continue to be slave of two dead people in the rest of your life"
-    "Big Mark sits on ground with tear on his face"
-    you "Now can we leave?"
-    mark "Yes, yes. Sure, leave me alone"
-    "You stride through the crowd, with Mount following behind you"
-    mount "#whisper# damn, pal, I did not even know you had such sad past"
-    you "#whisper# because I do not. I got that scar when I fought other drug dealers when I was in community college"
-    "When you got into the car, Mount finally bursts out his laugh. You also can no longer hold back your laughter"
-    mount "Oh man, look at him sitting there crying. Boss, you really help me solve a real big trouble"
-    "With laughters and tears, the car is rolling to your next destination"
+        "Kill Big Mark":
+            you "I've had enough of your bullshit."
+            jump sf_markdead
+        "Is that so?":
+            "You pull up your shirt and reveal a scar next to your waist."
+            you "You see this shit? My own, damn mother sold my kidney just to get some drugs. I really wanted to do what you did, but I couldn't. And It wasn't because I was weak. It was because she was the only family I had back then."
+    mark "Shit. Sorry to hear that little fella."
+    mark "But so what? Why should that matter? Why should give up this fighting obsession? I just want to fight. I enjoy the fight."
+    you "Because everytime you do, you lose something. You are losing your true self. Think about it, do you even remember the first time you did anything with your parents?"
+    mark "...No. I can't remember."
+    you "That's right, Mark. This was the life you gave away. You lost a family."
+    mark "And so what if I killed them. What does this have to do with my fight with Mount?"
+    you "Because they changed you. That is their purpose, can't you see? They are the ones that are turning you into a shitty person."
+    mark "So...so they succeeded? Am I one?"
+    you "It depends. I don't think you are. But if you're still insisting on having the duel with Mount, then you might be making the wrong life decision."
+    mark "I already killed my family. It's already too late for me."
+    you "Idiot, you're not even close to being late. It's never too late to stop. Now, you have the chance to step out of this trap and be a new person after your sentences, or continue to be the slave of two dead people for the rest of your life."
+    "Big Mark falls to the ground, weeping and defeated."
+    you "Mount, I think we're done here."
+    "You stride through the crowd, with Mount following right behind you."
+    "The two of you exit the prison without much damage."
+    mount "Damn, buddy, I didn't know you had such a tragic past."
+    menu:
+        "It was the truth":
+            you "I usually don't like talking about it, but you're the first person to hear my story, Mount"
+            "You can feel your bond with Mount become as strong as it was back then"
+        "It was a lie":
+            you "Because I don't. I actually got that scar from fighting other drug dealers while I was rising to the top."
+            "Mount bursts into laugher"
+            mount "Now thats the %(playerName)s I know. Anyways, thanks for helping me out boss. I'll definitely return the favor."
+    "With laughs and tears, the white Ford car heads towards the next destination: Sacramento"
+    jump transfer2
+    
+label sf_markdead:
+    $ GoodTalks -= 1
+    "You put a bloody hole between Mark's eyes. In that moment, everyone was shocked, including Mount. The next thing you remember was everybody clawing towards you to tear you apart. But Mount was there to protect you. He was on your side."
+    "With some scratches and bruises, the two of you managed to get out of prison before anyone can catch you."
+    "You and Mount jumped into the car and booked it."    
+    jump transfer2
+    
+label transfer2:
     jump Sacramento
 
  # Chapter 3 (Jason Iino) <- das me :>

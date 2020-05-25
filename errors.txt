@@ -2,9 +2,13 @@
 errors listed below, and try again.
 
 
-The label sf_5 is defined twice, at
-  File "game/script.rpy", line 204 and
-  File "game/script.rpy", line 296.
+File "game/script.rpy", line 403: Line is followed by a block, despite not being a menu choice. Did you forget a colon at the end of the line?
+    "Accept offer"
+                  ^
+
+File "game/script.rpy", line 420: expected menuitem
+    jump sac_sneak
+    ^
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Sun May 24 19:57:46 2020
+Mon May 25 06:59:52 2020
