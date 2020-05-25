@@ -61,7 +61,7 @@ label start:
         "Remain silent":
             pass
         "Who the hell are you?":
-            mm "Do you think I'd really tell you if I was wearing this mask?. You will know who I am in the future anyway."
+            mm "Do you think I'd really tell you if I was wearing this mask? You will know who I am in the future anyway."
     mm "Four years ago, you were the leader of the White Fog Gang in Los Angeles, and you controlled over 80 percent of drug dealing business in Los Angeles. If not for killing two policemen, you would not have been here for this long."
     you "I didn't kill those policemen. As wrong as my business is, we don't kill with intent. The last thing I knew was that I was the last person left behind."
     mm "Is that really the case? Well, that doesn’t matter. It’s not important to me at all."
@@ -86,10 +86,10 @@ label start:
         "Why trust me?":
             mm "You have the experience. And you have family. I know you aren't a killer, or am I wrong? Right now, you are the best choice for us."
         "Why should I trust you?":
-            mm "You are always free to decline my offer! That is, if you want to stay in this prison, and NEVER reunite with your family."
+            mm "You are always free to decline my offer! That is, if you want to stay in this prison, lose your daughter, and never reunite with your family."
     "The mysterious man brings you out of the prison. You see a white Ford car parked in front of the prison gate."
     mm "That car is for you. There's also a fake ID and a credit card in the back seat. You're still convicted prisoner until this mission is complete, so try to stay low. And remember, we'll be keeping an eye on you as well as your beloved daughter."
-    mm "Oh, and I almost forgot! Thing is also for you. Try not use this, will you?"
+    mm "Oh, and I almost forgot! This thing is also for you. Try not use this, will you?"
     "He throws you a pistol with a silencer on it. You catch it and can immediately tell that it is loaded."
     menu:
         "Shoot him":
@@ -138,7 +138,7 @@ label SanFrancisco:
     "You take out the paper that the mysterious man gave you and hand it over to the chief officer."
     officer "Hm. Usually we need to do some investigations on these kind of requests. That means it would take a few weeks to verify and get back to you. But..."
     "The officer makes sure no one is watching and makes a gesture that you know all too well."
-    "This guy is definitely dirty. At least some good may come out of this."
+    "Yep, this guy is definitely dirty. At least some good may come out of this."
     jump sf_1
 
 label sf_1:
@@ -199,7 +199,7 @@ label sf_2:
 
 label sf_3:
     $ sf_threat = True
-    you "You better help me right now motherfucker, or I will twist your head off right here, right now."
+    you "You damn motherfucker. Either you help me, or I will twist your head off right here, right now."
     officer "Ha! I'd like to see you try. Enough bluffing. I suggest you wait for, I don't know, a week or two untill we find out if this document really came from the state governor."
     "You're running out of options."
     if (sf_bribe):
@@ -274,7 +274,7 @@ label sf_5b:
             jump sf_markdead
         "Show your paper":
             "Big Mark yanks the paper out of your hands. This guy is dangerous."
-            mark "I must say, this signature does look legitimate. But then I dont quite trust you won't report any of this to the higher powers, I can't let you leave this building."
+            mark "I must say, this signature does look legitimate. But then I dont quite trust you won't report any of this to the higher powers. In the end, I can't let you leave this building."
     you "Hey look man, I'm not trying to start anything here, and I sure as hell won't tell a soul."
     "Mount comes stands beside me with his vouch. The prisoners next to Big Mark seems to awknowledge Mount's approval."
     "Big Mark thinks about it.."
@@ -347,16 +347,16 @@ label sf_6:
             "You pull up your shirt and reveal a scar next to your waist."
             you "You see this shit? My own, damn mother sold my kidney just to get some drugs. I really wanted to do what you did, but I couldn't. And It wasn't because I was weak. It was because she was the only family I had back then."
     mark "Shit. Sorry to hear that little fella."
-    mark "But so what? Why should that matter? Why should give up this fighting obsession? I just want to fight. I enjoy the fight."
-    you "Because everytime you do, you lose something. You are losing your true self. Think about it, do you even remember the first time you did anything with your parents?"
+    mark "But so what? Why should that matter? Why should I give up this fighting obsession? I just want to fight. I enjoy the fight."
+    you "Because everytime you do, you lose something. You are losing your true self. Do you even remember the first time you did anything with your parents?"
     mark "...No. I can't remember."
     you "That's right, Mark. This was the life you gave away. You lost a family."
     mark "And so what if I killed them. What does this have to do with my fight with Mount?"
-    you "Because they changed you. That is their purpose, can't you see? They are the ones that are turning you into a shitty person."
+    you "Because your parents changed you. That is their purpose, can't you see? They are the ones that are turning you into a shitty person."
     mark "So...so they succeeded? Am I one?"
     you "It depends. I don't think you are. But if you're still insisting on having the duel with Mount, then you might be making the wrong life decision."
     mark "I already killed my family. It's already too late for me."
-    you "Idiot, you're not even close to being late. It's never too late to stop. Now, you have the chance to step out of this trap and be a new person after your sentences, or continue to be the slave of two dead people for the rest of your life."
+    you "Idiot, you're not even close to being late. It's never too late to stop. Now, you have the chance to step out of this trap and be a new person after your sentences, or continue to be a slave of the two dead people for the rest of your life."
     "Big Mark falls to the ground, weeping and defeated."
     you "Mount, I think we're done here."
     "You stride through the crowd, with Mount following right behind you."
@@ -364,13 +364,13 @@ label sf_6:
     mount "Damn, buddy, I didn't know you had such a tragic past."
     menu:
         "It was the truth":
-            you "I usually don't like talking about it, but you're the first person to hear my story, Mount"
-            "You can feel your bond with Mount become as strong as it was back then"
+            you "I usually don't like talking about it, but you're the first person to hear my story, Mount."
+            "You can feel your bond with Mount become as strong as it was back then."
         "It was a lie":
             you "Because I don't. I actually got that scar from fighting other drug dealers while I was rising to the top."
-            "Mount bursts into laugher"
+            "Mount bursts into laugher."
             mount "Now thats the %(playerName)s I know. Anyways, thanks for helping me out boss. I'll definitely return the favor."
-    "With laughs and tears, the white Ford car heads towards the next destination: Sacramento"
+    "With laughs and tears, the white Ford car heads towards the next destination: Sacramento."
     jump transfer2
 
 label sf_markdead:
