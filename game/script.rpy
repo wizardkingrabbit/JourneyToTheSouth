@@ -64,7 +64,7 @@ label start:
             mm "Do you think I'd really tell you if I was wearing this mask?. You will know who I am in the future anyway."
     mm "Four years ago, you were the leader of the White Fog Gang in Los Angeles, and you controlled over 80 percent of drug dealing business in Los Angeles. If not for killing two policemen, you would not have been here for this long."
     you "I didn't kill those policemen. As wrong as my business is, we don't kill with intent. The last thing I knew was that I was the last person left behind."
-    mm "Is that really the case? Well, that doesn’t matter. It’s not important to me at all." 
+    mm "Is that really the case? Well, that doesn’t matter. It’s not important to me at all."
     mm "Anyways, how much longer are you staying in this dump? Oh right, lifetime, correct? It is such a sad story you'll never see your daughter in person. Did you know that she's be going to middle school this fall?"
     you "What the hell did you do to her!" with hpunch
     mm "Nothing at all, relax! I just wanted to remind you of your family."
@@ -100,9 +100,9 @@ label start:
             "You stare at the mysterious man but you decide not to shoot him. He watches you geting into the car with a creepy smile on his face. Revving up the Ford, you step on the gas. A few seconds later, he disappears from the rearview mirror."
             jump transfer
 
-            
- # Chapter 2 (Johnny Ngo & Jingtian Li) (Transfer->San Francisco->Transfer2)          
- 
+
+ # Chapter 2 (Johnny Ngo & Jingtian Li) (Transfer->San Francisco->Transfer2)
+
 label transfer:
     "Driving on the California freeway, your mind is all over the place."
     "What the hell just happened?"
@@ -118,7 +118,7 @@ label transfer:
     you "I guess everybody is in prison nowadays."
     "You choose to drive to the closest person: Mr. Mount, holed up at a prison located in San Francisco."
     jump SanFrancisco
-        
+
 label SanFrancisco:
     "After parking the car in front of the San Francisco prison, all you can see in front of you is the gray, towering wall and a massive closed gate."
     "You tuck the gun behind your back and walk towards the gate."
@@ -169,7 +169,7 @@ label sf_1b:
             jump sf_5
         "Threaten him with your gun":
             jump sf_4
-            
+
 label sf_1c:
     menu:
         "Overpower him":
@@ -179,7 +179,7 @@ label sf_1c:
             jump sf_5
         "Threaten him with your gun":
             jump sf_4
-            
+
 label sf_2:
     $ sf_bribe = True
     "You habitually reach inside your pocket for a wallet, but then you remember that the only money you have is the credit card back in the car."
@@ -211,7 +211,7 @@ label sf_4:
     "You end up pulling out the gun and pointing it towards the chief. His face turns pale. Hell, he's even peeing himself."
     you "One last chance, or I'll be pointlessly talking to a dead body."
     jump sf_5
-    
+
 label sf_5:
     officer "Shit! Okay, okay. Just tell me who's the prisoner you're trying to get out of here."
     you "Mr. Mount."
@@ -238,7 +238,7 @@ label sf_5:
             $ GoodTalks -= 1
             "As another layer of precaution, you shoot his leg. This way, you know he won't be going anywhere. The chief immediately loses consciousness from the shock."
             jump sf_5a
-        
+
 label sf_5a:
     "Despite the noise reduction from the silencer, the prison guard from earlier knocks from outside the office."
     "You quickly open the door and pull him in, making sure he sees the gun pointed at him."
@@ -297,11 +297,11 @@ label sf_5b:
             mount "I don't think this is the solution, boss. This guy is more vicious than you think he is."
         "Talk your way out of this":
             jump sf_6
-            
+
     you "I have plan. He's not going to be able to beat you, and I need you to trust me on that."
     you "Believe in yourself. You're only thinking you can't beat him because you're not believing. Give yourself some more confidence."
     "Big Mark and other prisoners lead you to the main hall of the prison. The prison guard comes foward to act as the referee."
-    "The duel begins without a moment of preperation. Mount's expression still lacks determination." 
+    "The duel begins without a moment of preperation. Mount's expression still lacks determination."
     "Big Mark charges in, delivering heavy punches to Mount without him being able to retaliate."
     menu:
         "Kill Big Mark":
@@ -372,14 +372,14 @@ label sf_6:
             mount "Now thats the %(playerName)s I know. Anyways, thanks for helping me out boss. I'll definitely return the favor."
     "With laughs and tears, the white Ford car heads towards the next destination: Sacramento"
     jump transfer2
-    
+
 label sf_markdead:
     $ GoodTalks -= 1
     "You put a bloody hole between Mark's eyes. In that moment, everyone was shocked, including Mount. The next thing you remember was everybody clawing towards you to tear you apart. But Mount was there to protect you. He was on your side."
     "With some scratches and bruises, the two of you managed to get out of prison before anyone can catch you."
-    "You and Mount jumped into the car and booked it."    
+    "You and Mount jumped into the car and booked it."
     jump transfer2
-    
+
 label transfer2:
     jump Sacramento
 
@@ -400,11 +400,13 @@ label Sacramento:
     to do the things he does, but feels he needs to for the greater good"
 
     menu:
-        "Accept offer"
+        "Accept offer":
             jump sac_accept
-        "Decline offer"
+
+        "Decline offer":
             jump sac_decline
-        "Shoot"
+
+        #"Shoot":
             #do something
 
 
@@ -416,11 +418,11 @@ label Sacramento:
         "Baites seems dissapointed, and tells you to be on you way, swatting you out the gate with his tail"
 
     menu:
-        "Try to sneak in and extract Buenos"
-        jump sac_sneak
+        "Try to sneak in and extract Buenos":
+            jump sac_sneak
 
-        "Try to bargain with guards"
-        jump sac_bargain
+        "Try to bargain with guards":
+            jump sac_bargain
 
 
     label sac_sneak:
