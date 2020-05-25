@@ -68,7 +68,7 @@ label start:
             mm "Do you think I'd really tell you if I was wearing this mask?. You will know who I am in the future anyway."
     mm "Four years ago, you were the leader of the White Fog Gang in Los Angeles, and you controlled over 80 percent of drug dealing business in Los Angeles. If not for killing two policemen, you would not have been here for this long."
     you "I didn't kill those policemen. As wrong as my business is, we don't kill with intent. The last thing I knew was that I was the last person left behind."
-    mm "Is that really the case? Well, that doesn’t matter. It’s not important to me at all." 
+    mm "Is that really the case? Well, that doesn’t matter. It’s not important to me at all."
     mm "Anyways, how much longer are you staying in this dump? Oh right, lifetime, correct? It is such a sad story you'll never see your daughter in person. Did you know that she's be going to middle school this fall?"
     you "What the hell did you do to her!" with hpunch
     mm "Nothing at all, relax!. I just wanted to remind you of your family."
@@ -104,10 +104,10 @@ label start:
             "You stare at the mysterious man but you decide not to shoot him. He watches you geting into the car with a creepy smile on his face. Revving up the Ford, you step on the gas. A few seconds later, he disappears in the rearview mirror."
             jump transfer
 
-            
- # Chapter 2 (Jingtian Li & Johnny Ngo) (Transfer->San Francisco)          
+
+ # Chapter 2 (Jingtian Li & Johnny Ngo) (Transfer->San Francisco)
  # I am against the idea that player can choose the order because we have never discuessed how the order gonna influence the gameplay/conversation. By Jingtian Li
- 
+
 label transfer:
     "Driving on the California freeway, your mind is all over the place."
     "What the hell just happened?"
@@ -127,7 +127,7 @@ menu:
        jump Sacramento
     "Mr. Buenos, the translator":
         jump SanDiego
-        
+
 label SanFrancisco:
     "You park the car in front of the prison of San Francisco. All you can see in front of you is the gray, towering wall and a massive closed gate"
     menu:
@@ -316,15 +316,78 @@ label sf_5:
     "With laughters and tears, the car is rolling to your next destination"
     jump Sacramento
 
- # Chapter 3 (Jason Iino)
+ # Chapter 3 (Jason Iino) <- das me :>
 label Sacramento:
+    define baites = Character("Charles Baites")
+
+    #I'll clean up dialogue/actually write dialogue later, just laying out framework
+    "Approach jail, which consists of tall buildings"
+    "Greeted by Rebublican mayor Charles Baites, is a large civilized cobra"
+    "Tells you got a call from the governor about your quest"
+    "Expresses distrust for governor, but notes doesn't necessarily have ill will towards you"
+
+    "Offers to give you Buenos in exchange for the drug"
+    "Talks about how civil unrest has been high in Sacremento as of late"
+    "He believes that the drug could help to calm his citizens if they could analyze and reproduce it"
+    "Basically make him look desperate and be a tragic villain who doesn't want
+    to do the things he does, but feels he needs to for the greater good"
+
+    menu:
+        "Accept offer"
+            jump sac_accept
+        "Decline offer"
+            jump sac_decline
+        "Shoot"
+            #do something
+
+
+    label sac_accept:
+        "Governor kills you"
+        jump gameEnd
+
+    label sac_decline:
+        "Baites seems dissapointed, and tells you to be on you way, swatting you out the gate with his tail"
+
+    menu:
+        "Try to sneak in and extract Buenos"
+        jump sac_sneak
+
+        "Try to bargain with guards"
+        jump sac_bargain
+
+
+    label sac_sneak:
+        #set of decisions that involve not raising an alarm variable, making decisions to not get caught
+        $ alarm = 0
+        $ max_alarm = 4
+
+        jump sac_boss
+
+
+    label sac_bargain:
+        #try to bargain with guards, might just cut this and do sneak, or make it so
+        #that you if you suceed you do the sneak section with a higher max alarm (turns a blind eye)
+        jump sac_boss
+
+
+    label sac_boss:
+        #baites confronts you at the gate, starts stressing, as he feels he's letting down his constituients
+        #bites and poisons you in an attempt to stop you
+        #must make a series of decisions to reason with baites (calm, encourage, reason, ect.)
+        #must choose one depending on what hes saying to calm him down so he can give you anti venom
+        #must make so many right decisions in a few turns before you die
+
+        $ turns = 0 #How many turns until you perish
+        $ stress = 6 #variable of how many times you must make the right decision with Baites
+
+
     menu:
         "Talk to trouble":
             $ GoodTalks += 1
             jump SanDiego
         "Kill the trouble":
             jump SanDiego
-            
+
 
  # Chapter 4 (Michael Kahn)
 label SanDiego:
@@ -335,7 +398,7 @@ label SanDiego:
         "Kill the trouble":
             jump border
 
-            
+
 # Chapter 5 (Fredlin?)
 label border:
     menu:
@@ -345,7 +408,7 @@ label border:
         "Kill the trouble":
             jump Mexico
 
-            
+
 # Chapter 6 (Ian Maynard)
 label Mexico:
     menu:
@@ -360,7 +423,7 @@ label Mexico:
             else:
                 jump ending4
 
-# Endings (Guozheng Yang)              
+# Endings (Guozheng Yang)
 label ending1:
     "ending 1"
     "Burn the plantation, do a lot of good talk"
