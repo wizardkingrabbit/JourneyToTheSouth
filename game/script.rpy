@@ -9,21 +9,17 @@ define GoodTalks = 0
 define GoodEnding = True
 define BurnPlantation = True
 
-# Check which places you've gone to
-define SF = False
-define S = False
-define SD = False
-
 # some flags use within a Chapter
 define sf_bribe = False
 define sf_threat = False
+define sf_headlock = False
 
 define you = Character("you")
 define mark = Character("big Mark")
 define daughter = Character("Anny")
 define unk = Character("???")
 define guard = Character("Prison Guard")
-define officer = Character("Officer")
+define officer = Character("Chief Officer")
 define mm = Character("Mysterious Man")
 define mount = Character("Mount")
 define tsing = Character("Tsing")
@@ -39,10 +35,10 @@ label start:
     "She looks beautiful with her long, curly hair."
     $ playerName = renpy.input("You hear her calling your name: ")
     "Her voice is so sweet."
-    "And then you see your wife, doing household chores. You want to speak with her, but you just can't bring your mouth to open."
-    "Suddenly you hear your own voice shouting, 'I have to do this!’" with vpunch
+    "You see your wife in the background, doing household chores. You want to speak with her, but you just can't bring your mouth to open."
+    "Suddenly you hear your own voice shouting, 'I have to do this!'" with vpunch
     "'I do all I can to support this family!’ How tragic, your wife and daughter are frightened by your voice and you can't even stop it."
-    "You hear another voice thrusting into your dream, ‘Hey bastard, wake up.' This voice is from reality."
+    "You hear another voice, a voice from reality, thrusting into your dream, ‘Hey bastard, wake up.'"
     unk "Somebody wants to see you."
     menu:
         "Wake up":
@@ -71,28 +67,28 @@ label start:
     mm "Is that really the case? Well, that doesn’t matter. It’s not important to me at all."
     mm "Anyways, how much longer are you staying in this dump? Oh right, lifetime, correct? It is such a sad story you'll never see your daughter in person. Did you know that she's be going to middle school this fall?"
     you "What the hell did you do to her!" with hpunch
-    mm "Nothing at all, relax!. I just wanted to remind you of your family."
+    mm "Nothing at all, relax! I just wanted to remind you of your family."
     mm "And maybe offer you an opportunity of seeing your daughter wearing her middle school uniform."
-    "You hear him giggling. A part of you knows where this is going, but you let him continue."
+    "You hear him chuckle. A part of you already knows where this is going, but you let him continue."
     mm "I was sent by someone with high authority, someone so powerful that I was suprised myself by the request. Let's assume that this person just is as powerful as the current state governor."
     mm "He wants a special kind of drug that can only be produced in Mexico. US law forbids this drug, but he needs it. Rather than getting his hands dirty, he wants to hire a professional in that field."
     mm "Luckily there's one person in front of me that fulfills the requirements! We came here to offer you a chance to get your life back. We just need you to go to Mexico and get that drug for him."
     mm "In return, we'll take you off the grid. That means complete freedom in California and essentially a new life. After that, you can do whatever the hell you want."
     "The mysterious man hands you a note with address and name of a plantation. Even after all the drug smuggling you've done over these years, this plantation is one that you've never heard of."
     menu:
-        "This mission is practically impossible.":
+        "This mission is practically impossible":
             pass
-        "I cannot do it alone.":
+        "I cannot do it alone":
             pass
     mm "Of course not! You won't be fighting alone. See this paper? We will allow you to recruit three prisoners from any prison in California. Let this be an opportunity to meet with your old companions and work together with them again!"
     "A sudden thought comes across your mind: maybe I can found out what really happened back then..."
     menu:
-        "Why do you trust me?":
+        "Why trust me?":
             mm "You have the experience. And you have family. I know you aren't a killer, or am I wrong? Right now, you are the best choice for us."
         "Why should I trust you?":
             mm "You are always free to decline my offer! That is, if you want to stay in this prison, and NEVER reunite with your family."
     "The mysterious man brings you out of the prison. You see a white Ford car parked in front of the prison gate."
-    mm "That car is for you. We left a fake ID in the passenger seat. You're still convicted prisoner until this mission is complete, so try to stay low. And remember, we'll be keeping an eye on you as well as your beloved daughter."
+    mm "That car is for you. There's also a fake ID and a credit card in the back seat. You're still convicted prisoner until this mission is complete, so try to stay low. And remember, we'll be keeping an eye on you as well as your beloved daughter."
     mm "Oh, and I almost forgot! Thing is also for you. Try not use this, will you?"
     "He throws you a pistol. You catch it and can immediately tell that it is loaded."
     menu:
@@ -101,13 +97,12 @@ label start:
             mm "Sigh, how stupid."
             jump gameEnd
         "Get on your way":
-            "You stare at the mysterious man but you decide not to shoot him. He watches you geting into the car with a creepy smile on his face. Revving up the Ford, you step on the gas. A few seconds later, he disappears in the rearview mirror."
+            "You stare at the mysterious man but you decide not to shoot him. He watches you geting into the car with a creepy smile on his face. Revving up the Ford, you step on the gas. A few seconds later, he disappears from the rearview mirror."
             jump transfer
 
-
- # Chapter 2 (Jingtian Li & Johnny Ngo) (Transfer->San Francisco)
- # I am against the idea that player can choose the order because we have never discuessed how the order gonna influence the gameplay/conversation. By Jingtian Li
-
+            
+ # Chapter 2 (Jingtian Li & Johnny Ngo) (Transfer->San Francisco)          
+ 
 label transfer:
     "Driving on the California freeway, your mind is all over the place."
     "What the hell just happened?"
@@ -118,61 +113,85 @@ label transfer:
     "It all started with you and three of your most trustful friends, ruling the dark side of Los Angeles."
     "Mr. Mount was your best fighter and also an amazing sniper. He protected you from countless dangers and made sure their clients knew what they were dealing with. This is a man that you would surely want on your team."
     "Mr. Tsing was both your dedicated engineer and navigator. He previously worked for the US government and has investigated numerous US-Mexican tunnels that were built for drug smuggling. Finding a safe path to Mexico with him would be a piece of cake."
-    "Mr. Buenos is from Catalonia, and he was your translator. Altough you had other gang members who can also speak Spanish, Buenos stood out for some reason. He was always there when you needed him the most."
-    "Who should we pick up first?"
-menu:
-    "Mr. Mount, the bodyguard and fighter":
-        jump SanFrancisco
-    "Mr. Tsing, the technicial and navigator":
-       jump Sacramento
-    "Mr. Buenos, the translator":
-        jump SanDiego
-
+    "Mr. Buenos is from Catalonia, and he was your translator. Although you had other gang members who can also speak Spanish, Buenos stood out for some reason. He was always there when you needed him the most."
+    "You look at the paper and notice that all three of your trusted partners are prisoners at different locations."
+    you "I guess everybody is in prison nowadays."
+    "You choose to drive to the closest person: Mr. Mount, holed up at a prison located in San Francisco."
+    jump SanFrancisco
+        
 label SanFrancisco:
-    "You park the car in front of the prison of San Francisco. All you can see in front of you is the gray, towering wall and a massive closed gate"
+    "After parking the car in front of the San Francisco prison, all you can see in front of you is the gray, towering wall and a massive closed gate."
+    "You tuck the gun behind your back and walk towards the gate."
     menu:
         "Shoot at the sky":
-            "Within seconds after you soon, policemen swarm outside and surround you. You want to show them the paper from state governor. However, all they can see is the gun in your hands, and so they decide to shoot you."
+            "Within seconds after you shoot, policemen swarm outside and surround you. You want to show them the paper from state governor. However, all they can see is the gun in your hands, and so they decide to shoot you."
             jump gameEnd
         "Knock on the door":
-            "The gate is opened. You see a thin, short jail guard looking at you behind the gate."
-    you "Hello sir, I am sent by the state governor. He issued an executive order to move a prisoner here to another place."
-    guard "Oh sure. why don't you come in and let our chief officer see the order"
-    "The guard bring you to the chief officer of this jail, the officer skims over the paper"
-    officer "This document says you have the power to choose who to be transferred. That is strange. Usually we need to do some investigations on such strange orders. But if... You know..."
+            "A voice calls above you. You see a thin, short jail guard looking at you at the top of the gate."
+    you "Good evening sir, I am sent by the state governor. He issued an executive order to move a prisoner here to another place. I've got the papers with me."
+    "The prison guard eyes you suspiciously for only a second before lowering his guard."
+    "Years of working in the shady business has refined your improvisation skills indeed."
+    guard "I see. Our chief officer will need to see the paperwork. I'll take you over to him."
+    "The guard opens the gate and brings you to the chief's office. You see the chief sitting on his chair enjoying a cup of black coffee."
+    guard "This guy says he's here to conduct a prisoner transfer."
+    officer "Sigh, this better be important. I'll take it from here."
+    "You take out the paper that the mysterious man gave you and hand it over to the chief officer."
+    officer "Hm. Usually we need to do some investigations on these kind of requests. That means it would take a few weeks to verify and get back to you. But..."
+    "The officer makes sure no one is watching and makes a gesture that you know all too well."
+    "This guy is definitely dirty. At least some good may come out of this."
     jump sf_1
 
 label sf_1:
     menu:
         "Bribe him":
             jump sf_2
-        "Threat him orally":
+        "Threaten him verbally":
             jump sf_3
-        "Threat him with gun":
+        "Threaten him with your gun":
             jump sf_4
 
 label sf_1a:
     menu:
-        "Threat him orally":
+        "Threaten him verbally":
             jump sf_3
-        "Threat him with gun":
+        "Threaten him with your gun":
             jump sf_4
 
 label sf_1b:
     menu:
         "Bribe him":
             jump sf_2
-        "Threat him with gun":
+        "Overpower him":
+            $ sf_headlock = True
+            "Despite the years of being holed up in prison, you've been maintaining your physique whenever possible."
+            "You quickly rush right behind the chief and put him into a headlock before he can even react."
+            you "One last chance, or I'll be pointlessly talking to a dead body."
+            jump sf_5
+        "Threaten him with your gun":
             jump sf_4
-
+            
+label sf_1c:
+    menu:
+        "Overpower him":
+            $ sf_headlock = True
+            "Despite the years of being holed up in prison, you've been maintaining your physique whenever possible."
+            "You quickly rush right behind the chief and put him into a headlock before he can even react."
+            jump sf_5
+        "Threaten him with your gun":
+            jump sf_4
+            
 label sf_2:
     $ sf_bribe = True
-    "You habitually reach your hand to the inside pocket for wallet but then you realize all the money you have now is in a credit card from the mysterious man. and that card is left in the car"
+    "You habitually reach inside your pocket for a wallet, but then you remember that the only money you have is the credit card back in the car."
     menu:
-        "go back to car":
-            "You tell them you have money in car and then see wertched smile climbs up their faces. Five minutes later, you return with a credit card."
-    officer "no no no. we only accept cash. using credit card is risky don't you know, idiot?"
-    "seems you have to try another way."
+        "Go back to car":
+            "You tell them you have money in car and then see a wretched smile climbing up his face. A few minutes later, you return with a credit card in your hand."
+        "Threat him verbally":
+            jump sf_3
+        "Threat him with your gun":
+            jump sf_4
+    officer "Damn idiot, you think we do credit card transactions for this type of business? Either you bring me cash or you get the hell out of my office."
+    "Seems like you have to try another way, and walking away isn't going to be an option."
     if (sf_threat):
         jump sf_4
     else:
@@ -180,21 +199,28 @@ label sf_2:
 
 label sf_3:
     $ sf_threat = True
-    you "You better help me right now motherfucker, or I will twist your head off and feed it to your dying mother"
-    officer "easy big guy, easy. No boasting, but I am quite familiar with such bluff. I suggest you wait for, I don't know, a week till we find out if this document really came out of our governor's hands."
-    "seems you have to try another way."
+    you "You better help me right now motherfucker, or I will twist your head off right here, right now."
+    officer "Ha! I'd like to see you try. Enough bluffing. I suggest you wait for, I don't know, a week or two untill we find out if this document really came from the state governor."
+    "You're running out of options."
     if (sf_bribe):
-        jump sf_4
+        jump sf_1c
     else:
         jump sf_1b
 
 label sf_4:
-    "You pull out the gun. their faces suddenly turn deathly pale. you see pee dripping out from the guard's pants"
-    you "Help me, or die"
-    officer "ok, ok. Who do you want to bring out"
+    "You end up pulling out the gun and pointing it towards the chief. His face turns pale. Hell, he's even peeing himself."
+    you "One last chance, or I'll be pointlessly talking to a dead body."
+    jump sf_5
+    
+label sf_5:
+    officer "Shit! Okay, okay. Just tell me who's the prisoner you're trying to get out of here."
     you "Mr. Mount."
-    officer "Yeah sure you can.  Let me lead you to his cell"
-    "You turn to the guard. he is sitting on ground, quivering"
+    officer "Alright, easy there man. Let me make the call."
+    "The chief makes an annoucement over the intercom to escort you to Mr. Mount for the transfer."
+    if (sf_headlock):
+        "You release him from your headlock and push him into the corner of the room. He's quivering in fear."
+    else:
+        "You drive the chief into the corner of his office. He's shaking in fear of your gun."
     menu:
         "Kill him":
             $ GoodTalks -= 1
@@ -248,7 +274,7 @@ label sf_4:
         "Accept the duel for Mount":
             mount "Are you trying to kill me. this is not the solution. I cannot beat him. Are you deaf or something."
         "Violence is always not a correct thing to do, Mark":
-            jump sf_5
+            jump sf_6
     menu:
         "I have plan.":
             you "You are not going to be beaten. Trust me."
@@ -278,7 +304,7 @@ label sf_4:
             mark "Oops, It looks like I accidently killed your little friend. Trust me I really wish I did not do this but I just get carried away sometimes when fighting. Now since leting you out possibly lead no good result. I now decide to kill you here"
     jump gameEnd
 
-label sf_5:
+label sf_6:
     mark "What are you talking about. I know Mount used to kill people for living yet he is still you companion"
     you "He is doing that because he needs to protect himself and others. Why do you use violence? To satisfy your pervert mind?"
     mark "Hey, do not judge me. I was abused by my parents when I was young. One day I had it enough and killed them with my bare hands. Since then I like to fight"

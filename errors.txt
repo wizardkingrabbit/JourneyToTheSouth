@@ -2,13 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 169: expected statement.
-    sf_bribe = True
-             ^
-
-File "game/script.rpy", line 182: expected statement.
-    sf_threat = True
-              ^
+The label sf_5 is defined twice, at
+  File "game/script.rpy", line 204 and
+  File "game/script.rpy", line 296.
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Mon May 25 05:15:50 2020
+Sun May 24 19:57:46 2020
