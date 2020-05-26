@@ -65,7 +65,7 @@ label start:
         "Who the hell are you?":
             mm "Do you think I'd really tell you if I was wearing this mask? You will know who I am in the future anyway."
     mm "Four years ago, you were the leader of the White Fog Gang in Los Angeles, and you controlled over 80 percent of drug dealing business in Los Angeles. If not for killing two policemen, you would not have been here for this long."
-    you "I didn't kill those policemen. As wrong as my business is, we don't kill with intent. The last thing I knew was that I was the last person left behind."
+    you "I didn't kill them. And as wrong as my business is, we've never killed anyone before. The last thing I knew was that I was the last person left behind."
     mm "Is that really the case? Well, that doesn’t matter. It’s not important to me at all."
     mm "Anyways, how much longer are you staying in this dump? Oh right, lifetime, correct? It is such a sad story you'll never see your daughter in person. Did you know that she's be going to middle school this fall?"
     you "What the hell did you do to her!" with hpunch
@@ -319,7 +319,7 @@ label sf_5b:
             you "C'mon Mount! Don't let those punches anywhere near you buddy. He has no idea what's coming to him!"
             "Mark's aggresive assault becomes harsher and harsher. Finally, a successful blow past Mount's defense dropped him to the ground. But Mark doesn't stop here. He starts delivering punishing kicks onto Mount."
             guard "Hey! You can't do that!"
-            mark "Like hell I can't, Did you forget who's the boss here?."
+            mark "Like hell I can't, Did you forget who's the boss here?"
             "Big Mark pushes the thin guard with ease and continues his one-sided beatdown."
     menu:
         "Kill Big Mark":
@@ -383,6 +383,41 @@ label sf_markdead:
     jump transfer2
 
 label transfer2:
+    "After getting away from San Francisco, you finally get the chance to talk to Mount."
+    you "Hey, Mount. I've been meaning to ask, but what happened to everybody back then? Why did you and everybody leave me?"
+    "Mount doesn't say anything for a moment. You glance over and notice that he's clutching his hands tightly."
+    mount "...it was my fault, boss. I was the one who killed those policemen. You know, that was actually my first time getting my hands dirty."
+    mount "I'm a experienced sniper and fighter, yet the worse thing I did was shoot to threaten. That was all. This time, it was different. Everybody didn't know what to do, so we all ran..."
+    #Entering Mount's flashback
+    tsing "Mount...mount! Check if the other one is breathing!"
+    "After shooting two policemen, Mount dropped his gun. He was shaking."
+    "Tsing was the only one who had the courage to go up to them. Because of our countless, successful operations, this was really the first time dealing with a dead body."
+    mount "H-how?"
+    tsing "Put a finger under his nose, or just check his pulse! Hurry, we don't have much time left!"
+    mount "He's not breathing, Tsing..."
+    tsing "Shit. Agh, damnit! Where the hell did these guys come from?"
+    "Tsing tries to think for a moment. Everything was going haywire at this point."
+    tsing "Mount, we need to get everybody we can, and get out of here. That's the best option we could do right now."
+    mount "W-what about the boss? We can't just leave him back there!"
+    tsing "I'm sure he''ll understand why we need to go. It's now or never, Mount."
+    mount "But I have to save my bos-"
+    tsing "You can't do anything to save anyone right now!" with hpunch
+    "Tsing grabs Mount, as well as the other members, and escapes. By the end of the raid, you were the only one there."
+    #End of flashback
+    menu:
+        "I understand, Mount":
+            you "If you guys hadn't left, this would have been the end for all of us. Tsing made the most reasonable choice."
+            you "This was all my fault. I should have made sure this operation was completely safe,"
+            you "Everybody got hurt because of me. I didn't want anyone to die that day."
+            mount "%(playerName)s, It's not your fault. Even if it is, we're not going to blame you. We all carry the sin of leaving you. We regret that forever, so stop beating yourself up." 
+        "How could you, Tsing":
+            $ GoodTalks -= 1
+            you "I thought I could trust you guys. I sure as hell didn't expect everybody to leave their own leader."
+            you "This is all his fault. If we had everybody guarding each post, then we all would have been able to escape."
+            "All you can do is slam on the car horn. Mount waits patiently until blew off your steam."
+            you "It doesn't matter anymore. The past is in the past now."
+            mount "I'm sorry, boss. Everything we did was shit."
+        you "Sigh. Anyways, let's just get going. Our next stop is Sacramento. Tsing, We're coming to you."
     jump Sacramento
 
  # Chapter 3 (Jason Iino) <- das me :>
