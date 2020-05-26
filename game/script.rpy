@@ -24,6 +24,8 @@ define mm = Character("Mysterious Man")
 define mount = Character("Mount")
 define tsing = Character("Tsing")
 define buenos = Character("Buenos")
+define greta = Character("Greta")
+define gates = Character("Mr Gates")
 
 # The game starts here.
 
@@ -468,17 +470,60 @@ label SanDiego:
             jump border
 
 
-# Chapter 5 (Fredlin?)
+# Chapter 5 (Ian Maynard)
 label border:
+    "Riding down the 5 the air starts to get warmer. You see the border just over the horizon"
+    you "Finally"
+    Buenos "What was that?"
+    you "I see the border... and..."
+    "Squinting your eyes as you get off the highway, you see a large crowd near the entrance to the underground passage"
+    you "Oh give me a fuckin break..."
+    "You and the team park the car and get out to approach the crowd. They appear to be protesting something. Imagine having that kind of time"
+    "You seem to spot their leader, a tall nordic looking woman"
+    you "Excuse me, what exactly is goin on here?"
+    greta "We are protesting the absolutely ABSURD notion that Techro needs any more office buildings in this part of town. They already have 3 on this street alone!"
+    greta "To make matters worse, they plan on making this bigger and ,as a result, more environmentally hazardous than their previous offices"
+    greta "We refuse to stand by as these corparate douchebags try and ruin our planet!"
+    you "Peace, love, and all that. Can me and my friends just squeeze past those barricades?"
+    greta "Not happening. We dont know who you are or WHO you work for!"
+    "The woman eyes the men in suits around 20 feet away. They are glued to their cell phones"
+
     menu:
-        "Talk to trouble":
+        "Convince Greta and the group to leave":
+            you "Wait aren't you that lady from the news? Greta Scottson right? Funny seeing you here given whats happening in LA just a couple hours away"
+            greta "What the hell are you going on about!? Whats in Los Angeles?"
+            you "Oh you didnt hear? Extron is building a new pipeline right through the heart of Los Angeles under a lower class neighborhood!"
+            greta "Oh yeah which one then smart guy?"
+            "You remember in your days of hustling that you once delivered to a real shady neighborhood in LA once. You are able to name an adress almost immediately"
+            "Greta is shocked"
+            greta "Wow I had no idea! We should head there right away!"
+            "Greta signals to the rest of the protesters who scramble to their cars, your team travels through the passage amongst the chaos..."
             $ GoodTalks += 1
             jump Mexico
-        "Kill the trouble":
+        "Help the Greta with the suits":
+            you "What if we tried to talk to these so called Douchebags for you?"
+            greta "Be our guest"
+            "Greta laughs and goes back to chanting with the crowd"
+            jump confront_gates
+        "Shoot Greta and run for the Passage":
+            you "Alright screw it, we are so close I dont have time for this"
+            "You pull out your gun and shoot the woman, amongst the chaos your team travels through the passage"
+            "Buenos glares at you but says nothing"
             jump Mexico
 
+label confront_gates:
+    # talk to gates, dude is an absolute nut job. the idea of extraterrestrial life is not crazy but this dude absolutely is
+    # cant be convinced to go stop the project
+    # if you try to kill him his bodyguard kills you before you get the chance
+    # back to greta loop below
+        menu:
+            "Convince Greta and the group to leave":
+                $ GoodTalks += 1
 
-# Chapter 6 (Ian Maynard)
+                jump Mexico
+            "Shoot Greta and run for the Passage":
+                jump Mexico
+# Chapter 6 (???)
 label Mexico:
     menu:
         "Burn the plantation":
