@@ -1,4 +1,4 @@
-﻿# The script of the game goes in this file.
+# The script of the game goes in this file.
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
@@ -574,24 +574,97 @@ label Mexico:
 
 # Endings (Guozheng Yang)
 label ending1:
-    "ending 1"
-    "Burn the plantation, do a lot of good talk"
+    "You choose to attack the plantation owner, and all your friend choose to help you."
+    "You rescue the children and ask your team to bring these kids to US while you take the underground railway alone."
+    "when you see the governor, he tells you that all kids are treated as illegal immigrants and sent back to Mexico."
+    "He asks you to give him the drug and the pistol. You lose your pistol in the underground railway, so for this branch, you can only obey him."
+    "He told you that you can go back to your home and you are free now."
+    "When you go back to your home, you see your wife and daughter waiting for you come back."
+    "After all those, you finally can enjoy the free time with you family."
     return
 
 label ending2:
-    "ending 2"
-    "Burn the plantation, do no good talk"
-    return
+    "With the fire of the plantation,you see more and more people come to surround your teams."
+    Buenos "you are killing too many people,I’m done with you"
+    "But they still need some time to be here. You want to kill Buenos, because Buenos know every bold in your hand and you cannot accept betray"
+    Tsing "we must leave right now! They are almost here."
+    menu:
+        "Kill Buenos, then leave":
+            "You killed Buenos, but you are surround by enemies. Because you burn the plantation,You were caught back and tortured to death."
+            jump gameEnd
+        "Leave right now":
+            you "Let’s go"
+            "During your retreat, the enemy caught up with you. After a gun fight, Tsing and Mount were shot by the enemy. Fortunately, you flew back to the US with the drug."
+
+    "When you came out of the airport, the governor ’s people found you and took you to the governor."
+    "Governor ask you to give him the drug and the pistol. But you see governor do not bring a gun, you are thinking to kill the governor and sell the drug"
+
+    menu:
+        "Shoot Governor":
+            you "Go fuck yourself!"
+            "You pull out your gun and prepare to target the governor."
+            "Before you shoot governor, his bodyguards kill you immediately"
+            "You are so close to you freedom and your family, but finally you choose the wrong step and fall in blood."
+            return
+        "Give him the drug and the pistol.":
+            "The governor nodded and asked the bodyguard to send you home."
+            "After a few days, the governor sent some money and informed you that your files had been cleaned up."
+            "Finally, you can enjoy your life with your family"
+            return
 
 label ending3:
-    "ending 3"
-    "Leave the plantation, do a lot of good talk"
-    return
+    "You choose to convince the plantation owner, but he still refuse."
+    "But he give you some money to make you leave."
+    "Your still want to convince the owner, but you see him is angry."
+    menu:
+        "Continue convince him":
+            "Plantation owner took out a gun and shoot you and your team"
+            "You and your team try to fight back, but owner's bodyguards arrive soon. And kill all of your team."
+            return
+        "Accept the money and leave":
+            you"Let's go, I'm going to ask the state governor to take care of this."
+            Buenos"Shut up, this plantation is protected by the governor. We gonna leave you after arriving home"
+            "You and your team flew back to the US with the drug."
+    "When you and your team came out of the airport, your team leave you."
+    "The governor ’s people found you and took you to the governor."
+    "Governor ask you to give him the drug and the pistol. But you see governor is alone and do not bring a gun, you are thinking to kill the governor and sell the drug"
+    menu:
+        "Shoot Governor":
+            you "Go fuck yourself!"
+            "You pull out your gun and prepare to target the governor."
+            "Before you shoot governor, his bodyguards kill you immediately"
+            "You are so close to you freedom and your family, but finally you choose the wrong step and fall in blood."
+            return
+        "Give him the drug and the pistol.":
+            "The governor nodded and asked the bodyguard to send you home."
+            "After a few days, the governor sent some money and informed you that your files had been cleaned up."
+            "Finally, you can enjoy your life with your family"
+            return
+
 
 label ending4:
-    "ending 4"
-    "Leave the plantation, do no good talk"
-    return
+    "Because you kill too many people, the plantation owner do not trust you."
+    "He think you are a joker, and told you leave right now."
+    "However, you need to close the plantation or destroy it."
+    "But plantation owner have lots of bodyguards."
+    menu:
+        "Kill the plantation owner":
+            "You took out a gun and killed Owner, but then his bodyguard arrived and killed all of you"
+            jump gameEnd
+        "Leave the plantation":
+            "You and your team go back to US with drugs"
+    "When you came out of the airport, the governor ’s person found you and took you to the governor."
+    "Governor ask you to give him the drug and the pistol."
+    "He appreciates that you kill many troublemakers along your journey, so he offers you to stay and work for him."
+    menu:
+        "Refuse the work":
+            "Governor said you kill too many people, and know too much thing about me"
+            "He told his bodyguards to kill you"
+            return
+        "Accept the job":
+            "You accept the job."
+            "However, because you work for governor, you cannot see your family forever."
+            return
 
 label gameEnd:
     "You were so close to your freedom and your family, but now you fall in your own blood. Hope you have a better luck next time."
