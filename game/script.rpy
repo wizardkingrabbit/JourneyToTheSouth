@@ -409,7 +409,7 @@ label transfer2:
             you "If you guys hadn't left, this would have been the end for all of us. Tsing made the most reasonable choice."
             you "This was all my fault. I should have made sure this operation was completely safe,"
             you "Everybody got hurt because of me. I didn't want anyone to die that day."
-            mount "%(playerName)s, It's not your fault. Even if it is, we're not going to blame you. We all carry the sin of leaving you. We regret that forever, so stop beating yourself up." 
+            mount "%(playerName)s, It's not your fault. Even if it is, we're not going to blame you. We all carry the sin of leaving you. We regret that forever, so stop beating yourself up."
         "How could you, Tsing":
             $ GoodTalks -= 1
             you "I thought I could trust you guys. I sure as hell didn't expect everybody to leave their own leader."
@@ -420,9 +420,12 @@ label transfer2:
         you "Sigh. Anyways, let's just get going. Our next stop is Sacramento. Tsing, We're coming to you."
     jump Sacramento
 
+
+
  # Chapter 3 (Jason Iino) <- das me :>
 label Sacramento:
     define baites = Character("Charles Baites")
+    define alfred = Character("Alfred")
 
     #I'll clean up dialogue/actually write dialogue later, just laying out framework
     "Approach jail, which consists of tall buildings"
@@ -467,25 +470,297 @@ label Sacramento:
         $ alarm = 0
         $ max_alarm = 4
 
-        jump sac_boss
+        jump sac_buenos
 
 
     label sac_bargain:
         #try to bargain with guards, might just cut this and do sneak, or make it so
         #that you if you suceed you do the sneak section with a higher max alarm (turns a blind eye)
-        jump sac_boss
+        jump sac_buenos
+
+
+    label sac_buenos:
+        "You approach the cell the guard told you Buenos was in"
+        "You see a man slumped over on the prison bed, not noticing your presence"
+
+        menu:
+            "Knock on the bars":
+                jump sac_alert1
+
+            "Call his name":
+                jump sac_alert2
+
+
+    label sac_alert1:
+        "You knock on the bars to get Buenos' attention"
+        "He slowly turns his head towards you, making little effort to get up"
+        "His eyes then slowly come up, causing his face to light up, as he finally realizes who it is visiting him"
+        jump sac_alert_done
+
+
+    label sac_alert2:
+        "You call Buenos' name to get his attention"
+        "His eyes widen, as he immediately darts up out of his hunched posture, hearing a familiar voice after so long"
+        jump sac_alert_done
+
+
+    label sac_alert_done:
+        buenos "%(playerName)s, is that really you?"
+        "He approaches the bars, a wide smile covering his previosly sulken face as he snacs you head to toe"
+        buenos "It is! But-but how? You got a lifetime sentence."
+
+        "You explain to Buenos everything that's happened over the past few days"
+        "The mysterious man, your family, the mission..."
+        "...and why you've come to see him"
+        "Suddenly, the joy drains from Buenos' face, being replaced by a look of dejection once more"
+        "He slowly walks away from the bars, and falls into the same hunched state on the bed as when you first entered"
+
+        buenos "I see..."
+        buenos "..."
+        buenos "..."
+        buenos "%(playerName)s, maybe you should just leave"
+
+        menu:
+            "But why?":
+                buenos "..."
+                buenos "I've made some mistakes over the past few years"
+                jump sac_story
+
+            "What happened?":
+                buenos "..."
+                buenos "Things have not been great ever since we parted ways"
+                jump sac_story
+
+
+    label sac_story:
+        buenos "When you got arrested, Mount, Tsing, and I went our seperate ways"
+        buenos "Leaving you was hard, I could never shake the feeling the feeling maybe it
+        would've ended diffeently if we would've stayed to help you"
+        buenos "After we split up, I tried to get more work, something to distract me from losing you"
+        buenos "I ended up joining a gang the next town over, they needed a translator to help with negotiations"
+        buenos "They seemed well, they offered people protection from the more dangerous gangs in town in exchange for payment"
+        buenos "However, things started to seem a little off after a while"
+        buenos "People who were unwilling or unable to pay seemed to be immediate targets of gang harrassment"
+        buenos "It was all so obvious, but I continuosly denied it to myself"
+        buenos "I wanted so desperately to do something good, that I let blatant wrong doing happen
+        in order to justify to my self that I was a good person after leaving you all those years ago"
+        buenos "Eventually the whole operation went down, and most of us got arrested"
+        buenos "I wasn't even upset, just relieved that the gang was eventually stopped"
+        buenos "..."
+        buenos "I really want to help you %(playerName)s, I really do. But my judgement just isn't
+        there to be put in situations where peoples lives are on the line"
+
+        $ sac_family = False
+
+        menu:
+            "You won't have to make that decision":
+                buenos "Then why do you have a gun with you?"
+                buenos "Your on a mission from a mysterious man who released you from jail to smuggle a drug from Mexico"
+                buenos "That is no the kind of job where people lives aren't at risk"
+                jump sac_silence1
+
+
+            "That isn't the Buenos I know":
+                buenos "Then why did you get arrested"
+                buenos "Why did it come to us having to kill people"
+                buenos "I may not have killed that man, but we can't pretend that the blood isn't also on my hands"
+                jump sac_silence1
+
+
+            "Please, my daughter is in danger":
+                $ sac_family = True
+                buenos "I'm really sorry for your situation %(playerName)s, I really am"
+                buenos "But I just can't go back to that life"
+                jump sac_silence1
+
+
+    label sac_silence1:
+        menu:
+            "I promise it won't come to that again":
+                buenos "..."
+                jump sac_silence2
+
+            "My family needs help":
+                if (sac_family == False):
+                    buenos "I'm really sorry for your situation %(playerName)s, I really am"
+                    buenos "But I just can't go back to that life"
+                    jump sac_silence2
+                else:
+                    buenos "..."
+                    jump sac_silence2
+
+
+    label sac_silence2:
+        menu:
+            "You've never been like this before":
+                buenos "..."
+                jump sac_silence3
+
+            "Please, we need you":
+                buenos "..."
+                jump sac_silence3
+
+
+    label sac_silence3:
+        menu:
+            "Buenos...":
+                buenos "..."
+                jump sac_silence4
+
+            "We can't do this without you":
+                buenos "..."
+                jump sac_silence4
+
+
+    label sac_silence4:
+        menu:
+            "Please...":
+                jump sac_silence_done
+
+            "We miss you...":
+                jump sac_silence_done
+
+
+    label sac_silence_done:
+        buenos "%(playerName)s, maybe you should just go"
+
+        menu:
+            "Leave":
+                "You leave the jail cell"
+                jump sac_boss
+
+            "Stay":
+                buenos "Please don't make me call the guards"
+                jump sac_stay1
+
+
+    label sac_stay1:
+        menu:
+            "Leave":
+                "You leave the jail cell"
+                jump sac_boss
+
+            "Stay":
+                buenos "%(playerName)s"
+                jump sac_stay2
+
+    label sac_stay2:
+        menu:
+            "Leave":
+                "You leave the jail cell"
+                jump sac_boss
+
+            "Stay":
+                buenos "Please..."
+                jump sac_stay3
+
+    label sac_stay3:
+        menu:
+            "Leave":
+                "You leave the jail cell"
+                jump sac_boss
+
+            "Stay":
+                buenos "..."
+                buenos "I'm sorry"
+                "Buenos lets out a blood curtling scream"
+                "Suddenly, you hear the sound of heavy boots making there way towards the cell"
+                "You turn just in time for a guard to pull out his pistol and shoot you in the center of your chest"
+                jump gameEnd
 
 
     label sac_boss:
-        #baites confronts you at the gate, starts stressing, as he feels he's letting down his constituients
-        #bites and poisons you in an attempt to stop you
-        #must make a series of decisions to reason with baites (calm, encourage, reason, ect.)
-        #must choose one depending on what hes saying to calm him down so he can give you anti venom
-        #must make so many right decisions in a few turns before you die
+        # baites confronts you at the gate, starts stressing, as he feels he's letting down his constituients
+        # bites and poisons you in an attempt to stop you
+        # must make a series of decisions to reason with baites (calm, encourage, reason, ect.)
+        # must choose one depending on what hes saying to calm him down so he can give you anti venom
+        # must make so many right decisions in a few turns before you die
 
-        $ turns = 0 #How many turns until you perish
-        $ stress = 6 #variable of how many times you must make the right decision with Baites
+        "You make your out of the prison courtyard, the harsh sun beating down on you"
+        "Buenos seems set on staying, maybe you could..."
+        # Play a snake hissing sound
+        "A sharp pain flares up in your arm"
+        "You turn to see Baites sinking his teeth into you"
+        "You struggle in an attempt to break free, the pain becoming almost ubearable"
+        "Baites releases you from his grasp, causing you to colapse to your knees"
+        "As the pain courses through you, you notice Alfred appearing from behind the large snake towering over you"
 
+        baites "*slow hiss*"
+        alfred "\"My apologies good sir, I really wish it didn't have to come to this\""
+        alfred "\"You've just been injected with a lethal dose of venom, you will not last more than 10 minutes\""
+        alfred "\"I have a dose of antivenom right here, please come to your senses and accept my offer\""
+
+        "You notice a syringe of yelloew liquid holstered in a pocket on Baites' body"
+        "You can already feel your legs going numb"
+
+        menu:
+            "Accept the offer":
+                jump gameEnd
+
+            "Decline the offer":
+                jump sac_boss2
+
+
+    label sac_boss2:
+        "You shake your head no despite the pain it causes"
+        "There must be another way out of this"
+
+        baites "*reluctant hiss*"
+        alfred "\"Fine, be stubborn\""
+        alfred "\"You'll perish where you stand\""
+
+        $ turns = 0 # How many turns until you perish
+        $ stress = 6 # variable of how many times you must make the right decision with Baites
+        $ sac_cry = False
+
+        label sac_boss_loop1:
+            $turns += 1
+
+            if (turns >= 4):
+                jump sac_boss3
+
+            # Intro before menu
+            if (turns == 1):
+                "Baites is slithering around you slowly"
+
+            elif (turns == 2):
+                "Your vision is getting foggy"
+
+            elif (turns == 3):
+                if (sac_cry == True):
+                    "Mount isn't moving"
+                else:
+                    "Baites eyes you closely"
+            #
+            menu:
+                "Shoot Baites":
+                    jump gameEnd
+
+                "Cry for help":
+                    if (sac_cry == False):
+                        $ sac_cry = True
+                        "You let out a loud scream for help"
+                        "..."
+                        "Suddenly, you hear the sound of heavy footsteps rushing frm behind you"
+                        mount "Don't worry %(playerName)s, I'm coming!" #Make this text better
+                        "Mount rushes towards Baites, at a speed you didn't know was possible for a man of his size"
+                        "But Baites dodges to the side, wrapping Mount with his tail, before slamming him into the pavement knocking him out cold"
+                        jump sac_boss_loop1
+
+                    else:
+                        "You let out a loud scream for help"
+                        "..."
+                        "But nobody came"
+                        jump sac_boss_loop1
+
+                "Reason with Baites":
+                    "You call out to Baites to tell him that he doesn't have to do this"
+                    "But he can't understand a word you're saying"
+                    jump sac_boss_loop1
+
+
+    label sac_boss3:
+        "Suddenly"
 
     menu:
         "Talk to trouble":
@@ -493,6 +768,7 @@ label Sacramento:
             jump SanDiego
         "Kill the trouble":
             jump SanDiego
+
 
 
  # Chapter 4 (Michael Kahn)
