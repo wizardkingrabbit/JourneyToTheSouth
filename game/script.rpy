@@ -24,8 +24,8 @@ define mm = Character("Mysterious Man")
 define mount = Character("Mount")
 define tsing = Character("Tsing")
 define buenos = Character("Buenos")
-define greta = Character("Greta")
-define gates = Character("Mr Gates")
+define greta = Character("Greta Scottson")
+define gates = Character("Mr. Gates")
 
 # The game starts here.
 
@@ -409,7 +409,7 @@ label transfer2:
             you "If you guys hadn't left, this would have been the end for all of us. Tsing made the most reasonable choice."
             you "This was all my fault. I should have made sure this operation was completely safe,"
             you "Everybody got hurt because of me. I didn't want anyone to die that day."
-            mount "%(playerName)s, It's not your fault. Even if it is, we're not going to blame you. We all carry the sin of leaving you. We regret that forever, so stop beating yourself up." 
+            mount "%(playerName)s, It's not your fault. Even if it is, we're not going to blame you. We all carry the sin of leaving you. We regret that forever, so stop beating yourself up."
         "How could you, Tsing":
             $ GoodTalks -= 1
             you "I thought I could trust you guys. I sure as hell didn't expect everybody to leave their own leader."
@@ -506,6 +506,9 @@ label SanDiego:
 
 
 # Chapter 5 (Ian Maynard)
+
+define protestor = Character("Protestor")
+
 label border:
     "Riding down the 5 the air starts to get warmer. You see the border just over the horizon"
     you "Finally"
@@ -516,11 +519,11 @@ label border:
     "You and the team park the car and get out to approach the crowd. They appear to be protesting something. Imagine having that kind of time"
     "You seem to spot their leader, a tall nordic looking woman"
     you "Excuse me, what exactly is goin on here?"
-    greta "We are protesting the absolutely ABSURD notion that Techro needs any more office buildings in this part of town. They already have 3 on this street alone!"
-    greta "To make matters worse, they plan on making this bigger and ,as a result, more environmentally hazardous than their previous offices"
-    greta "We refuse to stand by as these corparate douchebags try and ruin our planet!"
+    protestor "We are protesting the absolutely ABSURD notion that Techro needs any more office buildings in this part of town. They already have 3 on this street alone!"
+    protestor "To make matters worse, they plan on making this bigger and ,as a result, more environmentally hazardous than their previous offices"
+    protestor "We refuse to stand by as these corparate douchebags try and ruin our planet!"
     you "Peace, love, and all that. Can me and my friends just squeeze past those barricades?"
-    greta "Not happening. We dont know who you are or WHO you work for!"
+    protestor "Not happening. We dont know who you are or WHO you work for!"
     "The woman eyes the men in suits around 20 feet away. They are glued to their cell phones"
 
     menu:
@@ -537,26 +540,66 @@ label border:
             jump Mexico
         "Help the Greta with the suits":
             you "What if we tried to talk to these so called Douchebags for you?"
-            greta "Be our guest"
-            "Greta laughs and goes back to chanting with the crowd"
+            protestor "Be our guest! Talk to the main douche. Gates."
+            "The protestor laughs and goes back to chanting with the crowd"
+            "You and the team approach the group of suits."
+            you "Excuse me, are you in charge here?"
+            "The man pays you no attention, and continues staring at his phone"
+            you "Ok then, hey Mount I think this guy wants to talk to you"
+            "Mr. Mount nods and starts to move toward him"
+            "Two bodyguards come out from behind the man in the suit and block his path"
+            gates "Can I help you gentlemen?"
             jump confront_gates
         "Shoot Greta and run for the Passage":
             you "Alright screw it, we are so close I dont have time for this"
             "You pull out your gun and shoot the woman, amongst the chaos your team travels through the passage"
             "Buenos glares at you but says nothing"
+            $ GoodTalks -= 1
             jump Mexico
 
 label confront_gates:
     # talk to gates, dude is an absolute nut job. the idea of extraterrestrial life is not crazy but this dude absolutely is
-    # cant be convinced to go stop the project
-    # if you try to kill him his bodyguard kills you before you get the chance
-    # back to greta loop below
+    menu:
+        "Ask gates what the project is about":
+            you "What do you guys want a fourth office building for on this street?"
+            gates "Oh this is no mere office building you feeble-minded fool"
+            "Feeble-minded? Who says that"
+            you "Ok then what is it Shakespeare?"
+            gates "This building shall be a BEACON"
+            gates "A shining beacon of progress that will finally allow humanity to join the society amongst the stars"
+            mount "This dude talkin' about aliens?"
+            "Ok we are dealing with a nut job. Great."
+            jump confront_gates
+        "Ask gates to cancel the project":
+            you "Listen dude, you dont need a fourth office building in this area. Your company doesnt even have that many employees! Just cancel the project man."
+            gates "Oh you are just one of the protestors, move along"
+            "Gates goes back to his phone and pays you no mind"
+            jump confront_gates
+        "Kill Gates":
+            "You reach for your weapon..."
+            "But the left bodyguard is faster than you. He draws his weapon and shoots you square in the chest"
+            jump gameEnd
+        "Return to the Protestors":
+            "You begin to realise it is useless to try and talk to this guy and walk back toward the protestors"
+            jump backToGreta
+label backToGreta:
         menu:
             "Convince Greta and the group to leave":
+                you "Wait aren't you that lady from the news? Greta Scottson right? Funny seeing you here given whats happening in LA just a couple hours away"
+                greta "What the hell are you going on about!? Whats in Los Angeles?"
+                you "Oh you didnt hear? Extron is building a new pipeline right through the heart of Los Angeles under a lower class neighborhood!"
+                greta "Oh yeah which one then smart guy?"
+                "You remember in your days of hustling that you once delivered to a real shady neighborhood in LA once. You are able to name an address almost immediately"
+                "Greta is shocked"
+                greta "Wow I had no idea! We should head there right away!"
+                "Greta signals to the rest of the other protesters who scramble to their cars, your team travels through the passage amongst the chaos..."
                 $ GoodTalks += 1
-
                 jump Mexico
             "Shoot Greta and run for the Passage":
+                you "Alright screw it, we are so close I dont have time for this"
+                "You pull out your gun and shoot the woman, amongst the chaos your team travels through the passage"
+                "Buenos glares at you but says nothing"
+                $ GoodTalks -= 1
                 jump Mexico
 # Chapter 6 (???)
 label Mexico:
