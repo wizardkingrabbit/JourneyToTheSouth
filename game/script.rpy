@@ -24,8 +24,8 @@ define mm = Character("Mysterious Man")
 define mount = Character("Mount")
 define tsing = Character("Tsing")
 define buenos = Character("Buenos")
-define greta = Character("Greta")
-define gates = Character("Mr Gates")
+define greta = Character("Greta Scottson")
+define gates = Character("Mr. Gates")
 
 # The game starts here.
 
@@ -770,33 +770,326 @@ label Sacramento:
             jump SanDiego
 
 
-
- # Chapter 4 (Michael Kahn)
+# Chapter 4 (Michael Kahn)
 label SanDiego:
-    menu:
-        "Talk to trouble":
-            $ GoodTalks += 1
-            jump border
-        "Kill the trouble":
-            jump border
+   define sd_warden = Character("SD Prison Warden")
+   define sd_guard = Character("SD Prison guard")
+   $ sd_silent_count = 0
+   $ sd_stealth = False
+
+   "After a long drive from Sacramento, you finally come into sight of the San Diego prison"
+   "You approach the prison, planning to get Tsing and get going as quickly as your group can"
+   "Its been a long enough journey already, and the faster its over the better"
+   "As you get closer, you start feel like something is off, and your crew seems to feel the same way"
+   buenos "Somethings not right."
+   mount "So i'm not the only one thinking that, there seems to be a lot more activity than there should be at this time"
+   "You get close enough now that you can make out the prison and easily see the heightened security"
+   mount "It looks like the prison is on lockdown. Did someone try to escape while we were on our way here?"
+   you "Not sure, but something is definetly going on"
+   "You wonder in a way if maybe they were expecting your arrival, but theres no way that could be possible, right?"
+   "You realize you have to quickly decide how you are going to handle this unexpected turn of events"
+   menu:
+       "Park near the entrance":
+           "You head towards the entrance, deciding to ignore the warning signs"
+           jump sd_route_direct
+       "Park in the shadows":
+           "Taking the warning signs into consideration, you head to park in the shadows"
+           jump sd_route_careful
+
+   label sd_route_direct:
+       "You arrive near the entrance and find an empty parking spot."
+       "As you and your crew get out of the car you hear sudden shouting in your direction"
+       "Looking towards the sound, you realize you are being surround by the prison security"
+       sd_guard "Get on the ground now! Surrender peacefully and noone needs to get hurt!"
+       menu:
+           "Surrender":
+               "You and your team lay down as the security forces make a quick approach"
+               "Before you know it you are blindfolded, and being dragged away somewhere"
+               label sd_route_warden:
+               "After some time of being forcefully moved, you are thrown down onto and quickly feel the cold embrace of a cement floor"
+               "A door slams and you are soon left in complete silence"
+               "After what seems like a lifetime, you hear some commotion coming from nearby"
+               "You hear the door to the room you are in open and footsteps as a figure approaches you"
+               "Your blindfold is torn off you and you look up to see a middle-aged women standing before you. She does not look happy"
+               sd_warden "So you are my fathers pet that he sent to satiate his addiction"
+               sd_warden "Did you really think I would let you just come in here and complete your mission"
+               "The women sighs as she can see the visual confusion on your face, as you have no clue who she is or how she knows about your mission"
+               sd_warden "It seems you don't realize the situation you are in. I am the warden of this prison, and I also just so happen to be the daughter of the man who controls you"
+               sd_warden "However, I have no intention of letting him get his way, he has caused enough problems for me, he only seeks to ruin everything. You will not be helping him."
+               menu:
+                   "Stay silent":
+                       sd_warden "It seems you think that staying silent will help you in some way, but don't worry, regardless of what you say or do, it is hopeless for you"
+                   "Ask what she she means by mission":
+                       sd_warden "Do not try to play games with me, I know who you are and why you are here. You won't be seeing your friend Tsing anytime soon"
+                       "Tsing is in trouble! Things just got a lot more complicated"
+               sd_warden "Now then, you can either be a good boy and give me the information or I want, or I can force it out of you"
+               sd_warden "Where is my father sending you?"
+               "It seems the warden does not know everything about the mission"
+               label sd_route_direct_warden:
+               menu:
+                   "Tell the warden the truth":
+                       "You decide that telling the warden the truth would be your best bet of getting out of here"
+                       "As you explain about the mysterious man and the mission to go to Mexico, the warden gets angier and angier looking, but yet she does not interrupt you."
+                       "You finish with your tale leading up to the point you arrived at this prison"
+                       sd_warden "That damned man, has he not ruined enough already. He just can never have enough, he will not stop until everything is truly destroyed"
+                       sd_warden "At least now I know where he is getting his supply from, maybe I can finally put an end to this"
+                       sd_warden "As for you, you will be going nowhere, there is no way I will permit you to help that man ruin anything else"
+                       "This is not going well, your chances of getting out of here are getting slimmer and slimmer, and you have not even found Tsing yet"
+                       label sd_route_direct_convo:
+                       menu:
+                           "Stay silent":
+                               "You remain silent. The warden continues with her outburst seemingly forgetting your presence"
+                           "Try to get more information out of her":
+                               you "What are you talking about? What has your father done to deserve such animosity?"
+                               sd_warden "What has he done!? The better question would be what has he not done"
+                               sd_warden "He tore our family apart, his addiction has hurt everyone around him, those who care about him have been tossed aside like nothing more than trash"
+                               sd_warden "He has become a monster, a man I can no longer truly call my father. And I will do anything to stop him from continuing down this path."
+                               jump sd_route_direct_convo
+                           "Try to convince her to let you go":
+                               "In a last attempt at getting out of here with Tsing, you make up a plan to try and convince the warden to let you go"
+                               "Maybe if you convince her that you are going to Mexico with intents to sabotage, she would let you go as that would be seen as helping her"
+                               you "I have no intents of helping that man either, I want him taken down just as much as you"
+                               sd_warden "Oh really, and you expect me to believe that?"
+                               menu:
+                                   "Tell her you plan to kill her father":
+                                       sd_warden "Is that what you think I want. That I want him dead? How dare you even so much as suggest the though. I will save him not kill him."
+                                       "The warden storms off leaving you alone in the cell, where you contemplate your life choices. You remain locked up and fail your mission"
+                                       return
+                                   "Tell her you plan to destroy the plantation":
+                                       "This seems to have peeked her interest as she turns to eye you weirdly"
+                                       sd_warden "Destroy it you say? That would definetely hurt him, in more ways than one. That could work..."
+                                       "The warden beings to mumble to herself, you can't hear what she is saying, but it seems the idea of destroying the plantation has really struck something"
+                                       "After some time, the warden finally turns toward you"
+                                       sd_warden "Do you really plan to destroy the plantation"
+                                       "She stares at you, as if looking into your soul."
+                                       you "Of course, even I can see how bad that man is, I would love to see him pay for what he has done"
+                                       sd_warden "Hmm, seems you may be telling the truth ... I don't know why I am doing this, but this is the first time in a while an oppurtunity like this appeared."
+                                       "The warden approaches you and undoes your binds"
+                                       sd_warden "Do not make me regret this, I am an enemy you do not want to have"
+                                       "Before you have a chance to respond, you are being pushed out by a couple of guards. And before you know it, you are back at the entrance of the prison."
+                                       "Moments later your companions appear out front as well, including Tsing."
+                                       $ GoodTalks += 1
+                                       jump sd_end
+                                   "Tell her you plan to take the drugs for yourself":
+                                       sd_warden "And what will they help with? delay the inveviatble? Your a fool if you think I will help you with your own addiction!"
+                                       "The warden storms off leaving you alone in the cell, where you contemplate your life choices. You remain locked up and fail your mission"
+                                       return
+                           "Attack her while she is distracted":
+                               "While the warden is distracted by her rage, you move to get up from the cold floor"
+                               "The warden is looking the other way, this is your chance. You get up and charge at the warden"
+                               "As you get close she turns to the noise of you moving just in time as you tackle her"
+                               "You slam her to the ground with all the force you can muster, but just as quickly as you got her down the door opened and multiple guards came rushing in"
+                               "The guards pull you off her and slam you to the ground away from her. Another guard helps the warden up from the ground"
+                               sd_warden "You fool, did you really think you could get away by attacking me, you are surrounded and under constant surveilence."
+                               sd _warden "And now you will spend the rest of your days here. You will never complete your mission."
+                               "The guards beat you down and leave with the warden, close the door loudly. You have failed your mission and have been imprisioned once again"
+                               return
+                   "remain silent":
+                       if sd_silent_count == 0:
+                           sd_warden "So you choose to hold your tounge, trust me you really do not want to piss me off more than I already am"
+                           $ sd_silent_count += 1
+                           jump sd_route_direct_warden
+                       elif sd_silent_count == 1:
+                           sd_warden "Still wish to piss me off, very well. If you don't start talking, your friends are going to suffer for it"
+                           "You can tell the warden is starting to get really irritated"
+                           $ sd_silent_count += 1
+                           jump sd_route_direct_warden
+                       elif sd_silent_count == 2:
+                           sd_warden "You insolent fool, this is your last chance!"
+                           "The warden is viusally pissed and you know that staying silent any longer is not going to end well"
+                           $ sd_silent_count += 1
+                           jump sd_route_direct_warden
+                       elif sd_silent_count == 3:
+                           "The warden slams you against the ground. You gasp as the wind is knocked out of you."
+                           sd_warden "You really think this is a game you fool. Seems you really need to be taught a lesson. Final chance or you and your companions are done!"
+                           $ sd_silent_count += 1
+                           jump sd_route_direct_warden
+                       else:
+                           sd_warden "Very well, you only have yourself to blame for this. I gave you plenty of chances to come clean and you have decided that being stubborn was your best choice."
+                           "The warden leaves you and slams the door to the room you are in. You hold out some hope that this is only temporary and you will soon be on your way again."
+                           "But as time went on you lost hope of any chance of escape. You never would see the light of day again. You have failed your mission"
+                           return
+
+           "Make a run for cover":
+               "You make a break for cover behind your nearby car, your crew following suit."
+               "As you and your team crouch down behind the car and wait for the inpending barrage of bullets, you hear the guards shouting once more"
+               sd_guard "Surrender now or we will open fire! This is your last warning!"
+               "Do you try to fight your way out of this or try to get in the car and take off running"
+               menu:
+                   "Fight your way out":
+                       "You give your crew members a look and they nod in ackowledgement"
+                       "All of you came to realization that there is not much chance of getting out of there"
+                       "You draw your pistol and leave the cover of your car"
+                       jump sd_route_openfire
+                   "Attempt to flee":
+                       "Deciding that escape was your best option now, you make your way into your car from the passenger side"
+                       "Buenos and Mount dive into the back seat as you slam on the gas, aiming to get out of there quickly as possible"
+                       "You manage to escape and find a place to lay low for a bit, but now getting Tsing out is going to be even harder than before"
+                       "A bit later on, you prepare to get Tsing out with a more careful approach"
+                       jump sd_route_careful
+           "Open fire":
+               "You decide that the only possible choice in this situation is to open fire on the approaching security"
+               "You draw your pistol and bring it up to fire"
+               label sd_route_openfire:
+                   "Before you even have time to get a shot off, you hear the sound a high caliber rifle going off"
+                   "You fall to the ground, and as the light fades around you, you quickly realize how stupid a choice deciding to fight your way out was"
+                   return
+
+   label sd_route_careful:
+       "With the prison on high alert, the only way Tsing is getting out anytime soon is through breaking him out"
+       "As you look around the outside of the prison, you find your point of entry, a delivery bay."
+       "Suprisingly, there are not many guards around, you guess they focused most of their attention elsewhere."
+       "Entering the delivery bay, you find a doorway leading into the prison that has a few guards protecting it, you also spot a service room off to the side"
+       menu:
+           "Blitz the entrance and force your way through":
+               "You get yourself and the team into position, with Mount taking point"
+               "With one last deep breath, you give the signal to charge. Mount takes off and takes down the first two guards with ease"
+               "You and Beunos take down the other guard. With all the guards down, you make your way into the prison"
+           "Sneak into the service room":
+               "You sneak into the service room off to the side, making sure none of the guards noticed you or your crew."
+               "Once all of you are inside, you look around and take stock of your options"
+               "Luck would seem to be on your side this night as there were some mainainence uniforms hung up on a rack neaby. You found your ticket inside"
+               "You and the crew quickly changed into the uniforms and walked back outside towards the entrance to the prison, confidence would be key here"
+               "Approaching the guards, you quicken your step to get past them as quick as possible, but one of the guards steps in front of you"
+               sd_guard "Hey, what are doing out here? The prison is in lockdown."
+               menu:
+                   "Shrug off the guard":
+                       "You simply shrug at the guard as you and your crew move towards the doors."
+                       sd_guard "Ugh, you maintainence guys are just as rude as ever. I'm not paid enough to deal with this."
+                   "Make up a lie":
+                       you "There was an urgent request for a maintainence crew over in the east wing for some undisclosed matter. We were just told to get in as fast as possible"
+                       sd_guard "Leave it to management to leave us in the dark, especially with everything being so hectic right now, hurry along, I just want to go home"
+               $ sd_stealth = True
+               "Somehow, this worked and you made it past the guards and into prison, now the real challenge begins"
+       "Once in the prison, your realize that you don't actually know where Tsing is. Your first step is to find where they are holding him prisoner."
+       "Ahead of you are two paths to choose from. To your left is the path to the offices of the prison, and ahead of you is a path leading to the center of the prison."
+       "The offices are likely to have prisoner information, so the first step is heading in there."
+       if sd_stealth == False:
+           "So far no one has noticed the guards that were taken down in the delivery area, but time is of the essence"
+       "You rush down the hallway and enter the offices, your best bet is likely a higher up adminstrator. You scan the various office rooms trying to find one which can possible get you the information you need"
+       "And there it is, the warden's office, that has to have the information needed. Only issue is the door is locked"
+       "Mount comes up behind you and pushes you to the side. He slams foot in the door a few tims and eventually breaks it open"
+       you "I guess that is one way to get in there ..."
+       "Mount simply shrugs and steps to the side to let you inside"
+       "Once inside you set about searching the various files until you can find anything on Tsing."
+       "After some time, you finally find a document stating that Tsing was transfered into the high risk section of the prison, the most secure part. Although at this point saying its the most secure isn't really saying much"
+       "You quickly share this information with the crew and head back towards the hallway you came from. Quickest way to the high security section is through the center of the prison"
+       "Once back at the hallway you quickly turn down the other way and head towards the center of the prison"
+       if sd_stealth == False:
+           jump sd_route_loud
+       else:
+           jump sd_route_stealth
+
+   label sd_route_loud:
+       "As you head down the hallway, the alarm sounds. They clearly found the guards back at the delivery bay. Things are going to get hectic from here on out, especially the longer it takes"
+       "You quickly rush down the hallway, your crew close behind you, as you make your way through the various hallways and rooms, dodging the guards that are now running around trying to find the cause of the alarm"
+       "With how fast you were moving, it didn't take long to reach the high risk area. Thankfully it seems since you set the alarm off in the other part of the prison, there was less security around here"
+       "You quickly start checking through the cells hoping ot spot Tsing. After some time you come across one of the last cells and spot the very man you have been looking for"
+       you "Hello Tsing, it's been quite some time hasn't it"
+       "Tsing looks up at you, visibly confused at your sudden appearence before him"
+       tsing "Either I have gone truly crazy, or is it really you?"
+       you "Of course it is really me. I need your help and I am getting you out of here"
+       tsing "Good luck with that, this place is locked down tight, only way your getting me out of this cell is through the security office for this section of the prison"
+       you "Well then, seems I know where I am going next"
+       "You give Tsing a quick nod and head off towards the security office"
+       tsing "Good luck you crazy fool"
+       "The security office was not very hard to find thanks to the various signs posted around. Chances are the guards inside were going to be on high alert. So be ready for a fight"
+       "As you approach the door, its pretty clear that your best chance is to charge in and try to get the drop on the people inside. You quickly relay this to your team and they nod in agreement"
+       "You charge the door and quickly enter the room with your gun drawn"
+       "But they were ready for you, and before you know it you are being held at gun point by a group of guards. This is not going to end well"
+       "Before the guards though, stands a women. She clearly isnt a guard based on what she is wearing, but she has an air of authority about her"
+       jump sd_route_confront
+   label sd_route_stealth:
+       "You head down the hallway, easily getting past everyone. Seems you fit right in as the maintainence crew."
+       "Quickly making your way through the prison, while still trying to avoid anyone finding out your identity, you reach the high risk section"
+       "The first step here is to actually find Tsing and confirm the information you found is correct"
+       "After some searching, you find Tsing in a cell towards the rear of the section"
+       "As you approach the cell, Tsing looks up at you"
+       tsing "Well this is not what I was expecting to see tonight. You the reason the prison is so tight on security right now?"
+       you "No clue if I am the reason, but I am here to get you out. I need your help with a mission."
+       tsing "Well good luck with that, only way I am getting out is if you can get to the security office and unlock my cell from there. But that place is highly guarded."
+       you "Well, we will see what we can do, we at least have the element of suprise so far. Everyone seems to think we are actually a part of the maintainence crew"
+       "After your brief conversation with your old companion, you now know your next destination, the security office."
+       "Making your way back out of the high risk section, you find a hallway leading to he security office for this part of the prison. In there would be your only chance of breaking Tsing out"
+       "As you approach the entrance to the security office, you peak into a small window into the office. Inside you spot a few guards and middle-aged women in a suit. She must be some admistrator or something"
+       "You need to get in and access the security controls, so the guards are going to have be dealt with"
+       menu:
+           "Barge in and force the guards to surrender":
+               "You slam the doors to the security office open and rush in. But as you go to shout at them to surrender, they are already up and ready to defend against you"
+               jump sd_route_confront
+           "Sneak in and subdue the guards":
+               "You quietly open the door, making as little sound as possible. With door open, you sneak into the room, the guards still unaware of your presence"
+               "As quickly as possible, you and the team charge at the guards and subdue them quickly. Seems stealth was the right option"
+               "With the people in the room subdued, its time to get Tsing out. You look around the room at the various control panels and find one showing controls to open cells. Easy enough"
+               "With Tsing's cell door open, its time to grab him and get out of there quickly"
+               "You quickly reach Tsing's now open cell and throw him a spare uniform you had grabbed earlier"
+               tsing "I am amazed any of this is actually working, to think I may be out of here in just a few moments"
+               you "Well if you want things to continue working, hurry up and put that uniform on"
+               "Tsing quickly changed into the uniform, and the four of you head back out to the way you came in from"
+               "Quickly making your may down the various hallways, hoping to remember the way out, you end up back in the original hallway you entered from"
+               "Just a little more and you and the rest of your crew will be out of this prison and on the road to Mexico"
+               tsing "Lets get going, I am quite tired of being in this place"
+               "You nod in agreement, and walk out into the delivery bay, and further on back towards your car"
+               $ GoodTalks += 1
+               jump sd_end
+
+   label sd_route_confront:
+       sd_warden "Did you really think you could just come in here and get away with no issue! You are going nowhere, surrender now!"
+       "You look around the room and notice a few armed guards along with the women. You may be able to fight your way out as it seems she expects you to surrender, but is it worth the risk?"
+       menu:
+           "Open fire":
+               "There is no going back now, you quickly raise your weapon and open fire, your crew following suit. The women clearly wasnt expecting you to do something so crazy and her and the gaurds didnt even have a chance to properly react."
+               "Killing was not your first choice, but at this point you do not really have time to think about it."
+               "While your crew goes and checks to make sure the threat is no more, you go about looking for a way to unlock Tsing's cell"
+               "After some looking around, you find a control panel for cell control, exactly what you needed. With some quick button presses you get confirmation that Tsing's cell was opened. It is time to get out of here"
+               "You and the crew quickly leave the security office before anyone realizes what happened in there and make your way back to Tsing"
+               "After a short trip you arrive at Tsing's cell, Tsing is already up and ready to go when you get there"
+               tsing "Well you somehow did it, let us get out of here, quickly"
+               you "Was not pleasent, but we have more important things to deal with right now, lets go"
+               "You and the crew quickly make your way back to the way you came in from. You rush through the hallways and out into the delivery bay. Freedom at last"
+               "You head to the car and get ready to continue with the mission"
+               $ GoodTalks -= 1
+               jump sd_end
+           "Surrender":
+               "You realize that your chances of getting out of here are basically nothing at this point. You throw down your weapon and raise your hands in the air"
+               "The guards quickly come up to you and bind you and your crew, then blindfold you. Before you know it your being shoved off to somewhere else in the prison"
+               $ GoodTalks += 1
+               jump sd_route_warden
+   label sd_end:
+       "You take off from the prison, not looking back as you speed down the road. Everyone in the car is quiet, Tsing eventually breaks the awkward silence"
+       tsing "So you went to all this effort to get me out, mind explaing what I am actually being taken along for?"
+       you "We are heading to Mexico, toa plantation down there specifically, picking up a package"
+       tsing "Thats it? Sounds like getting me to come along sounds a bit excessive."
+       you "The person we are working for isn't your average man, he's danagerous and we have no clue what we are actually getting into"
+       tsing "Sounds pleasent, I am curious how you came across this mission, since last I knew you were still in prison, for life"
+       you "I was, until recently that is, the offer came to me in prison and got me out, not exactly willingly, but I did not really have much choice in the matter"
+       tsing "And I am guessing your not going expand on that, are you?"
+       you "No, but I have no intention of going back to prison, or letting any of you go back either, we are getting this mission done then going free"
+       tsing "Well, sounds like this going to be fun ... lets get this done with"
+       you "You read my mind, the faster we are done, the faster we can all get away from this whole mess"
+       "The silence in the car returns, as you contrinue to drive down the card, getting close to ending this all"
+       jump border
 
 
 # Chapter 5 (Ian Maynard)
+
+define protestor = Character("Protestor")
+
 label border:
     "Riding down the 5 the air starts to get warmer. You see the border just over the horizon"
     you "Finally"
-    Buenos "What was that?"
+    buenos "What was that?"
     you "I see the border... and..."
     "Squinting your eyes as you get off the highway, you see a large crowd near the entrance to the underground passage"
     you "Oh give me a fuckin break..."
     "You and the team park the car and get out to approach the crowd. They appear to be protesting something. Imagine having that kind of time"
     "You seem to spot their leader, a tall nordic looking woman"
     you "Excuse me, what exactly is goin on here?"
-    greta "We are protesting the absolutely ABSURD notion that Techro needs any more office buildings in this part of town. They already have 3 on this street alone!"
-    greta "To make matters worse, they plan on making this bigger and ,as a result, more environmentally hazardous than their previous offices"
-    greta "We refuse to stand by as these corparate douchebags try and ruin our planet!"
+    protestor "We are protesting the absolutely ABSURD notion that Techro needs any more office buildings in this part of town. They already have 3 on this street alone!"
+    protestor "To make matters worse, they plan on making this bigger and ,as a result, more environmentally hazardous than their previous offices"
+    protestor "We refuse to stand by as these corparate douchebags try and ruin our planet!"
     you "Peace, love, and all that. Can me and my friends just squeeze past those barricades?"
-    greta "Not happening. We dont know who you are or WHO you work for!"
+    protestor "Not happening. We dont know who you are or WHO you work for!"
     "The woman eyes the men in suits around 20 feet away. They are glued to their cell phones"
 
     menu:
@@ -813,26 +1106,66 @@ label border:
             jump Mexico
         "Help the Greta with the suits":
             you "What if we tried to talk to these so called Douchebags for you?"
-            greta "Be our guest"
-            "Greta laughs and goes back to chanting with the crowd"
+            protestor "Be our guest! Talk to the main douche. Gates."
+            "The protestor laughs and goes back to chanting with the crowd"
+            "You and the team approach the group of suits."
+            you "Excuse me, are you in charge here?"
+            "The man pays you no attention, and continues staring at his phone"
+            you "Ok then, hey Mount I think this guy wants to talk to you"
+            "Mr. Mount nods and starts to move toward him"
+            "Two bodyguards come out from behind the man in the suit and block his path"
+            gates "Can I help you gentlemen?"
             jump confront_gates
         "Shoot Greta and run for the Passage":
             you "Alright screw it, we are so close I dont have time for this"
             "You pull out your gun and shoot the woman, amongst the chaos your team travels through the passage"
             "Buenos glares at you but says nothing"
+            $ GoodTalks -= 1
             jump Mexico
 
 label confront_gates:
     # talk to gates, dude is an absolute nut job. the idea of extraterrestrial life is not crazy but this dude absolutely is
-    # cant be convinced to go stop the project
-    # if you try to kill him his bodyguard kills you before you get the chance
-    # back to greta loop below
+    menu:
+        "Ask gates what the project is about":
+            you "What do you guys want a fourth office building for on this street?"
+            gates "Oh this is no mere office building you feeble-minded fool"
+            "Feeble-minded? Who says that"
+            you "Ok then what is it Shakespeare?"
+            gates "This building shall be a BEACON"
+            gates "A shining beacon of progress that will finally allow humanity to join the society amongst the stars"
+            mount "This dude talkin' about aliens?"
+            "Ok we are dealing with a nut job. Great."
+            jump confront_gates
+        "Ask gates to cancel the project":
+            you "Listen dude, you dont need a fourth office building in this area. Your company doesnt even have that many employees! Just cancel the project man."
+            gates "Oh you are just one of the protestors, move along"
+            "Gates goes back to his phone and pays you no mind"
+            jump confront_gates
+        "Kill Gates":
+            "You reach for your weapon..."
+            "But the left bodyguard is faster than you. He draws his weapon and shoots you square in the chest"
+            jump gameEnd
+        "Return to the Protestors":
+            "You begin to realise it is useless to try and talk to this guy and walk back toward the protestors"
+            jump backToGreta
+label backToGreta:
         menu:
             "Convince Greta and the group to leave":
+                you "Wait aren't you that lady from the news? Greta Scottson right? Funny seeing you here given whats happening in LA just a couple hours away"
+                greta "What the hell are you going on about!? Whats in Los Angeles?"
+                you "Oh you didnt hear? Extron is building a new pipeline right through the heart of Los Angeles under a lower class neighborhood!"
+                greta "Oh yeah which one then smart guy?"
+                "You remember in your days of hustling that you once delivered to a real shady neighborhood in LA once. You are able to name an address almost immediately"
+                "Greta is shocked"
+                greta "Wow I had no idea! We should head there right away!"
+                "Greta signals to the rest of the other protesters who scramble to their cars, your team travels through the passage amongst the chaos..."
                 $ GoodTalks += 1
-
                 jump Mexico
             "Shoot Greta and run for the Passage":
+                you "Alright screw it, we are so close I dont have time for this"
+                "You pull out your gun and shoot the woman, amongst the chaos your team travels through the passage"
+                "Buenos glares at you but says nothing"
+                $ GoodTalks -= 1
                 jump Mexico
 # Chapter 6 (???)
 label Mexico:
@@ -861,9 +1194,9 @@ label ending1:
 
 label ending2:
     "With the fire of the plantation,you see more and more people come to surround your teams."
-    Buenos "you are killing too many people,I’m done with you"
+    buenos "you are killing too many people,I’m done with you"
     "But they still need some time to be here. You want to kill Buenos, because Buenos know every bold in your hand and you cannot accept betray"
-    Tsing "we must leave right now! They are almost here."
+    tsing "we must leave right now! They are almost here."
     menu:
         "Kill Buenos, then leave":
             "You killed Buenos, but you are surround by enemies. Because you burn the plantation,You were caught back and tortured to death."
@@ -899,7 +1232,7 @@ label ending3:
             return
         "Accept the money and leave":
             you"Let's go, I'm going to ask the state governor to take care of this."
-            Buenos"Shut up, this plantation is protected by the governor. We gonna leave you after arriving home"
+            buenos"Shut up, this plantation is protected by the governor. We gonna leave you after arriving home"
             "You and your team flew back to the US with the drug."
     "When you and your team came out of the airport, your team leave you."
     "The governor ’s people found you and took you to the governor."
