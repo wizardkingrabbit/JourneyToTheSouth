@@ -26,6 +26,8 @@ define tsing = Character("Tsing")
 define buenos = Character("Buenos")
 define greta = Character("Greta Scottson")
 define gates = Character("Mr. Gates")
+define lb = Character("Little Boy")
+define oop = Character("Owner of Plantation")
 
 # The game starts here.
 
@@ -1466,8 +1468,69 @@ label backToGreta:
                 "Buenos glares at you but says nothing"
                 $ GoodTalks -= 1
                 jump Mexico
-# Chapter 6 (???)
+
+# Chapter 6 (haonan lin)
 label Mexico:
+    "After all kinds of hardships, you and your teammates finally arrived at the destination of this trip"
+    "Everyone is excited and feels that victory is so closed"
+    "However, things are not easy as they seem. Outside the plantation, there is a huge wall"
+    "The only entrance to the plantation has many security guards at the door"
+    "You and your teammates can try to enter from the main entrance or try to find another way into the plantation"
+    menu:
+        "Try to enter from the main entrance":
+            "Riding down the street to the entrance of the plantation, the guards stop you"
+            guard"What are you doing here? Strangers are not welcome here"
+            you "We are here to see your boss. We are here for your boss to ask for some thing"
+            guard"What's that?"
+            "But you don’t want to tell the guard the purpose of this trip"
+            you "You don't have to know what it is. It is better for you"
+            guard"If you don't say it, you can fuck off"
+            "You are so angry because the guards perverted you impatiently."
+            buenos"It's not a big deal. Let me tell you. We are looking for a special king of drug. I hear this special drug is only available here"
+            guard"Drug? Are you kidding me? We don't have that here. Get out of here"
+            "You notice the guard starting to pull out his gun. You look at their gear and decide it's best to slip away first and try to find another way to get into the plantation"
+        "Find a way into the plantation":
+            pass
+    "After some searching, you discover a secret cave that may lead to the plantation"
+    "You and your teammate decide to give it a try no matter what is end at the cave"
+    "The dark tunnel seemed to have no end, and the atmosphere became very oppressive"
+    buenos"Shall we do it another way? There may be no way out"
+    you "Hang in there a little longer and victory is ahead. I think the exit is just ahead"
+    "Suddenly you smell the fresh air and everyone gets excited"
+    "Finally, you climbed out of a hidden manhole cover"
+    "You start searching for this plantation"
+    lb"Who are you? What are you doing here?"
+    "Your whereabouts were caught by a little boy. Seeing whereabouts are about to be exposed, and the mission is about to fail. Buenos rush up and try to cover the little boy's mouth"
+    lb"Are you here to save us? We have been here for a long time"
+    "The boy's voice suddenly fell, and the boy looked at us carefully and hopefully"
+    you"What are you doing here at such a young age?"
+    "The boy's words and deeds startled you. You decided to ask some information from little boy"
+    lb"We are all here to work for the master. If we do not meet the requirements of the master, we will get punishment by him"
+    you"Master? Why you call him master? Are there many children like you?"
+    lb"The owner of this plantation let us call him master. If we don’t do this, we will be punished"
+    lb"Also, master will find many children without parents to come here and work for him. We have nothing to rely on but to work for him"
+    lb"Can you help us?"
+    you"If you can take me to see your master, I will help you. I will try to convince him. If it doesn't work, I will think of another way"
+    "You decide to let the little boy take you to see the owner of this plantation first. The rest is just perfunctory words"
+    lb"That's very kind of you. The master believes me the most, and I will take you there"
+    "Led by the little boy, you finally meet the owner of the plantation"
+    oop"See who is coming? My best friends. I have waited so long, and you finally came"
+    you"Do you know who we are? We just arrived here"
+    you"Not even your guard knows who we are. He also stopped us from coming in. We have to work hard to get here"
+    oop"They are just performing their duties. Please understand their difficulties. I'll give them a little punishment afterwards"
+    oop"Your boss has told me your purpose. And they don’t deserve to know too much. Can I see the hand writing of your boss."
+    "You hand the handwriting to the owner. The owner tell his men to give you the drug"
+    "You look at the small red pills in the transparent jar in your hand and start to think what is the magic of these pills. Why can it let so many people struggle to get it"
+    you"What use are these pills? What secrets do they have?"
+    oop"They are just ordinary pills. It won’t have any effect if you eat it, or if you want to try it"
+    you"If it is ordinary, why do we spend so much effort to get it. Don't treat us like fools"
+    oop"OK. OK. Then let me put it another way. It allows you to get something and lose something. For example, power?"
+    "You poured a pill on your hand. Looking at this blood-red pill, you are deciding whether to give it a try"
+    menu:
+        "eat it":
+            jump gameEnd
+        "Put it back in the jar":
+            pass
     menu:
         "Burn the plantation":
             if GoodTalks > GEthresh:
