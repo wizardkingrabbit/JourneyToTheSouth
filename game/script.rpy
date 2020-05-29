@@ -744,7 +744,7 @@ label Sacramento:
     label sac_boss:
         "You make your out of the prison courtyard, the harsh sun beating down on you"
         "Buenos seems set on staying, maybe you could..."
-        # Play a snake hissing sound
+        baites "*quick aggressive hiss*" # Maybe play a snake hissing sound
         "A sharp pain flares up in your arm"
         "You turn to see Baites sinking his teeth into you"
         "You struggle in an attempt to break free, the pain becoming almost ubearable"
@@ -776,7 +776,7 @@ label Sacramento:
         alfred "\"You'll perish where you stand\""
 
         $ sac_turns = 0 # Turn count
-        $ sac_cry = False
+        $ sac_cry = False # If you call for help or not
 
         label sac_boss_loop1:
             $ sac_turns += 1
