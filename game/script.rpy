@@ -628,9 +628,9 @@ label ending1:
 
 label ending2:
     "With the fire of the plantation,you see more and more people come to surround your teams."
-    Buenos "you are killing too many people,I’m done with you"
+    buenos "you are killing too many people,I’m done with you"
     "But they still need some time to be here. You want to kill Buenos, because Buenos know every bold in your hand and you cannot accept betray"
-    Tsing "we must leave right now! They are almost here."
+    tsing "we must leave right now! They are almost here."
     menu:
         "Kill Buenos, then leave":
             "You killed Buenos, but you are surround by enemies. Because you burn the plantation,You were caught back and tortured to death."
@@ -666,7 +666,7 @@ label ending3:
             return
         "Accept the money and leave":
             you"Let's go, I'm going to ask the state governor to take care of this."
-            Buenos"Shut up, this plantation is protected by the governor. We gonna leave you after arriving home"
+            buenos"Shut up, this plantation is protected by the governor. We gonna leave you after arriving home"
             "You and your team flew back to the US with the drug."
     "When you and your team came out of the airport, your team leave you."
     "The governor ’s people found you and took you to the governor."
