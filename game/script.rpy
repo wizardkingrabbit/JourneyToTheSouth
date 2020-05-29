@@ -428,47 +428,117 @@ label Sacramento:
     define alfred = Character("Alfred")
 
     #I'll clean up dialogue/actually write dialogue later, just laying out framework
-    "Approach jail, which consists of tall buildings"
-    "Greeted by Rebublican mayor Charles Baites, is a large civilized cobra"
-    "Tells you got a call from the governor about your quest"
-    "Expresses distrust for governor, but notes doesn't necessarily have ill will towards you"
+    #"Approach jail, which consists of tall buildings"
+    #Greeted by Rebublican mayor Charles Baites, is a large civilized cobra"
+    #"Tells you got a call from the governor about your quest"
+    #"Expresses distrust for governor, but notes doesn't necessarily have ill will towards you"
 
-    "Offers to give you Buenos in exchange for the drug"
-    "Talks about how civil unrest has been high in Sacremento as of late"
-    "He believes that the drug could help to calm his citizens if they could analyze and reproduce it"
-    "Basically make him look desperate and be a tragic villain who doesn't want
-    to do the things he does, but feels he needs to for the greater good"
+    #"Offers to give you Buenos in exchange for the drug"
+    #"Talks about how civil unrest has been high in Sacremento as of late"
+    #"He believes that the drug could help to calm his citizens if they could analyze and reproduce it"
+    #"Basically make him look desperate and be a tragic villain who doesn't want
+    #to do the things he does, but feels he needs to for the greater good"
+
+    "You drive up to Sacramento's county prison, Buenos' current holding place"
+    mount "I don't know what he was brought in for exactly"
+    mount "We all lost contact with eachother after splitting up"
+    you "I heard this prison is run by Sacramento's Republican mayor"
+    you "So we'll probably have to go through him to get to Buenos"
+    "You pull up to the parking lot, shaded by the prison towering before you"
+
+    "As you walk up to the entrance, you show the guard your papers from the governor"
+    "He looks at them confused, then reluctantly lets you in"
+    "As you make your way through the courtyard, a large snake the size of a man slithers out the front door"
+    "He's wearing a sleeveless white business suit..."
+    "...well, sleveless in the sense there are no arm holes, it just wraps around his body"
+    "Following closely to his side is a tall, slender man in a pitch black suit"
+
+    mount "Geez, what are you supposed to be?"
+    "The man turns towards the large snake and pronounces a series of hisses to him"
+    "The snake returns in kind, before the man turns back to you and Mount"
+    alfred "\"Hello gentlemen, my name is Charles Baites, and this man in the black suit here is my translator Alfred\""
 
     menu:
-        "Accept offer":
-            jump sac_accept
+        "Wait, YOU'RE the mayor of Sacremento?":
+            "The snake gives a quick nod"
+            baites "*quick hiss*"
+            alfred "\"Yes that correct, I was elected into office almost a year ago\""
+            jump sac_entrance
 
-        "Decline offer":
-            jump sac_decline
+        "Nice suit":
+            "The snake gives a quick grin, showing off his large fangs"
+            baites "*upbeat hiss*"
+            alfred "\"Thanks, you don't look too bad yorselves\""
+            jump sac_entrance
 
-        #"Shoot":
-            #do something
+
+    label sac_entrance:
+        baites "*series of hisses*"
+        alfred "\"Anyway, I've heard why you're here\""
+        alfred "\"You've come for one of our prisoners on request of the governor no?\""
+        you "That is correct, his name is Buenos"
+        "You hand the paperwork to Baites, who grabs it with his tail"
+        baites "*slow, spaced hisses*"
+        alfred "\"I see... I see...\""
+        alfred "\"Well, it seems like everything is in order\""
+        alfred "\"However..\""
+        alfred "\"Me and the governor aren't exactly on the gratest of terms\""
+        alfred "\"Let's just say he doesn't ahve the greatest amount of influence here\""
+        alfred "\Although... this does seem gravely important to you...\""
+
+        baites "..."
+        baites "*sinister hiss*"
+        alfred "\"How about I make you a deal\""
+        alfred "\"Word on the street is that your on mission to get some great, magical drug south of the border\""
+        alfred "\"Now, there's been a lot of unrest around these parts as of late\""
+        alfred "\"Protests, riots, people aren't the happiness around here at the moment\""
+        alfred "\"Someone could do a lot of good with a magical item such as that drug\""
+        alfred "\"I think you see where I'm going with this\""
+        alfred "\"Promise that you'll deliver the drug to me instead of the governor, and we'll let your friend go\""
+        alfred "\"Now doesn't that sound great?\""
+
+        menu:
+            "Accept offer":
+                jump sac_accept
+
+            "Decline offer":
+                jump sac_decline
 
 
     label sac_accept:
         "Governor kills you"
         jump gameEnd
 
+
     label sac_decline:
-        "Baites seems dissapointed, and tells you to be on you way, swatting you out the gate with his tail"
+        "Baites grin shifts to a look of disappointment"
+        baites "*low, quick hiss*"
+        alfred "\"That's a shame\""
+        alfred "\"Well it seems you two have no business here, please be on your way\""
+        "Baites rears back his tail, before swinging it in a wide arc at you and Mount"
+        "It knocks the two of you clean out of the front gate, you see Baites slithering away"
 
-    menu:
-        "Try to sneak in and extract Buenos":
-            jump sac_sneak
+        you "Well that was a bust"
+        mount "You're telling me, urgh my aching back"
+        you "You okay? That looks bad"
+        mount "Yeah I'll be fine"
+        "Mount slowly rises, clutching his back with his right arm"
+        mount "But what are we going to do? It doesn't seem they're going to willingly give Buenos up"
 
-        "Try to bargain with guards":
-            jump sac_bargain
+
+
+        menu:
+            "Try to sneak in and extract Buenos":
+                jump sac_sneak
+
+            "Try to bargain with guards":
+                jump sac_bargain
 
 
     label sac_sneak:
         #set of decisions that involve not raising an alarm variable, making decisions to not get caught
-        $ alarm = 0
-        $ max_alarm = 4
+        #$ alarm = 0
+        #$ max_alarm = 4
 
         jump sac_buenos
 
@@ -670,12 +740,6 @@ label Sacramento:
 
 
     label sac_boss:
-        # baites confronts you at the gate, starts stressing, as he feels he's letting down his constituients
-        # bites and poisons you in an attempt to stop you
-        # must make a series of decisions to reason with baites (calm, encourage, reason, ect.)
-        # must choose one depending on what hes saying to calm him down so he can give you anti venom
-        # must make so many right decisions in a few turns before you die
-
         "You make your out of the prison courtyard, the harsh sun beating down on you"
         "Buenos seems set on staying, maybe you could..."
         # Play a snake hissing sound
@@ -709,32 +773,31 @@ label Sacramento:
         alfred "\"Fine, be stubborn\""
         alfred "\"You'll perish where you stand\""
 
-        $ turns = 0 # How many turns until you perish
-        $ stress = 6 # variable of how many times you must make the right decision with Baites
+        $ sac_turns = 0 # Turn count
         $ sac_cry = False
 
         label sac_boss_loop1:
-            $turns += 1
+            $ sac_turns += 1
 
-            if (turns >= 4):
+            if (sac_turns >= 4):
                 jump sac_boss3
 
             # Intro before menu
-            if (turns == 1):
+            if (sac_turns == 1):
                 "Baites is slithering around you slowly"
 
-            elif (turns == 2):
+            elif (sac_turns == 2):
                 "Your vision is getting foggy"
 
-            elif (turns == 3):
+            elif (sac_turns == 3):
                 if (sac_cry == True):
                     "Mount isn't moving"
                 else:
                     "Baites eyes you closely"
-            #
+            # End of intro
             menu:
                 "Shoot Baites":
-                    jump gameEnd
+                    jump sac_kill
 
                 "Cry for help":
                     if (sac_cry == False):
@@ -760,14 +823,250 @@ label Sacramento:
 
 
     label sac_boss3:
-        "Suddenly"
+        buenos "Get away from them!"
+        "Through the pain you can vaguely make out Buenos, staring down Baites as he rushes to your side"
+        baites "*abrubt hiss*"
+        alfred "\"What, what are you doing out here\""
+        "Buenos lets out a series of hiss like sounds towards Baites, before turning to you with a smirk"
+        buenos "I heard the guards talking about what you were doing, struggling to get through to Baites"
+        buenos "I'm sorry I gave you the cold shoulder earlier, but it took me time to realize that you're right"
+        buenos "Me sitting around moping all day isn't going to fix what I did"
+        buenos "You're giving me another chance to make up for the past few years, and by hell if I'm going to let that oppurtunity pass up"
+        buenos "You want to end this peacfully, then let's do it, I'll help you get through to him, just tell me what to say"
 
+        $ sac_turns = 0 # How many turns until you perish
+        $ sac_stress = 2 # variable of how many times you must make the right decision with Baites
+        # goes down if you make a good decision that gets through to baites, win if it hits 0
+
+        # baites confronts you at the gate, starts stressing, as he feels he's letting down his constituients
+        # must choose one depending on what hes saying to calm him down so he can give you anti venom
+        # must make so many right decisions in a few turns before you die
+        # guranteed to get one on 4th turn, and not get one on the first, so basically have to say the right thing once in 2 decisions
+
+        baites "*aggressive hisses*"
+        buenos "\"Stop this nonsense, accept my offer and promise me you'll deliver the drug to me\""
+
+        menu:
+            "You don't have to do this":
+                "Buenos translated what you said to Baites"
+                "..."
+                "He seems unfazed"
+                jump sac_boss_a1
+
+            "There has to be another way":
+                "Buenos translated what you said to Baites"
+                "..."
+                "He seems unfazed"
+                jump sac_boss_a1
+
+            "Shoot Baites":
+                jump sac_kill2
+
+
+        label sac_boss_a1:
+            "The feeling in your legs has gone away"
+            baites "*slow hisses*"
+            buenos "\"I'm sorry, I have a duty to my constituents\""
+            buenos "\"The've suffered long enough\""
+
+            menu:
+                "You really do care about them":
+                    "..."
+                    baites "*quik hisses*"
+                    buenos "\"Yes I do, and you're standing in my way of helping them\""
+                    jump sac_boss_a2
+
+                "You feel responsible for them don't you":
+                    "..."
+                    baites "*spaced out hisses*"
+                    buenos "\"Of course, they elected me in, it's my duty to tend to their needs\""
+                    $ sac_stress -= 1
+                    jump sac_boss_a2
+
+                "Shoot Baites":
+                    jump sac_kill2
+
+
+        label sac_boss_a2:
+            menu:
+                "I understand what you're going through":
+                    "You explain you're experiences as a gang leader..."
+                    "Having to provide for a group of people who relied on you for food and money..."
+                    "The stress of how maybe one day you won't be able to help them"
+                    "..."
+                    "Baites' harsh glare softened a little"
+                    $ sac_stress -= 1
+                    jump sac_boss_a3
+
+                "You're doing a great job governing them":
+                    "You tell Baites that he's doing a great job"
+                    "..."
+                    baites "*aggressive hisses*"
+                    buenos "\"How could you possibly know that\""
+                    buenos "\"You've been in jail for 10 years and you just arrived in this town\""
+                    buenos "\"Spare me your sympathy\""
+                    jump sac_boss_a3
+
+                "Shoot Baites":
+                    jump sac_kill2
+
+
+        label sac_boss_a3:
+            "Your vision is starting to blur"
+            baites "*sudden hisses*"
+            buenos "\"Distress has been on the rise of late\""
+            buenos "\"Riots, angry letters, protests...\""
+            buenos "\"I can't just sit back and let that all happen\""
+
+            menu:
+                "You can't please all your citizens":
+                    "You tell Baites that it's impossible to please everyone"
+                    "That there's always going to be people who will be unhappy with a decision"
+                    "..."
+                    "Baites' head begins to droop downward"
+                    $ sac_stress -= 1
+                    jump sac_boss_end
+
+                "They're not representative of everyone":
+                    "You tell Baites that vocal minorites do exist sometimes"
+                    "That while people may be upset over a decision he makes, it doen't necssarily mean it was the wrong one"
+                    "..."
+                    "Baites' head begins to droop downward"
+                    $ sac_stress -= 1
+                    jump sac_boss_end
+
+                "Shoot Baites":
+                    jump sac_kill2
+
+
+
+        label sac_boss_end:
+            if (sac_stress <= 0):
+                jump sac_boss_win
+
+            "Baite's form begins to go muddy"
+            "You turn to Buenos, you can barely make out the features of his face"
+            "Your vision begins to black out"
+            "..."
+            "..."
+            "The venom finally cauht up to you"
+            "You blacked out"
+            jump gameEnd
+
+
+        label sac_boss_win:
+            $ GoodTalks += 1
+            baites "*slow spaced hisses*"
+            buenos "\"It's hard you know\""
+            buenos "\"The stress of having to worry about satisfying hundred of people with different needs\""
+            buenos "\"The doubt that comes with every decision you make, did a law you pass end up hurting more people in the long run...\""
+
+            menu:
+                "All you can give is your best":
+                    "..."
+                    jump sac_boss_win2
+
+                "I'm sorry, dealing with all of that must be hard":
+                    "..."
+                    jump sac_boss_win2
+
+        label sac_boss_win2:
+            "Baite's form begins to go muddy"
+            "You turn to Buenos, you can barely make out the features of his face"
+            "Your vision begins to black out"
+            "..."
+            "..."
+            "...%(playerName)s..."
+            buenos "%(playerName)s"
+            buenos "Wake up!"
+            #scene fade back in
+
+            baites "*calm hisses*"
+            buenos "\"I've injected you with the antivenom, the pain should go away within the hour\""
+            buenos "\"I'm sorry for causing you so much trouble\""
+            buenos "\"Tension has been high recently, I so desperately wanted an easy out to all my problems\""
+            buenos "\"But you've helped me realize that I'm just going to have to persevere through it\""
+            buenos "\"I don't know why you're going on this journey, but it seems very important to you if you're willing to go through all that for it\""
+            buenos "\"I'll let you take your friend, he's a good man, and I wish you both the best of luck on your journey\""
+
+            menu:
+                "Thank you":
+                    jump sac_leave
+                "Good luck in office":
+                    jump sac_leave
+
+
+    label sac_leave:
+        "Baites shoots a big grin and nod your way, before slithering off back inside the prison"
+        jump SanDiego
+
+
+
+    label sac_kill:
+        "Despite the pain, you reach for your pistol"
+        "Even though the venom is slowing your movements, you manage to draw and shoot your pistol before Baites can react"
+        "You hit him right between the eyes"
+        "Baites collapses to the ground, blood pooling around his head on the hot asphault"
+        "Alfred flees at the sight of his boss' corpse lying lifeless on the stone"
+        "Suddenly, Buenos comes out the front door of the prison, looking both horrified and confused"
+        "He runs over to Baites, then to you, injecting you with the antivenom"
+
+        buenos "I heard the guards talking about hat you were doing"
+        buenos"I came to help, but it looks like you handled it"
+        buenos "I'm sorry I gave you the cold shoulder earlier, but it took me time to realize that you're right"
+        buenos "Me sitting around moping all day isn't going to fix what I did"
+        buenos "You're giving me another chance to make up for the past few years, and by hell if I'm going to let that oppurtunity pass up"
+        buenos "I know that was hard for you, but it seems you didn't have any other choice"
+        buenos "But come on, we have to go, I hear guards coming"
+        jump sac_kill_end
+
+
+    label sac_kill2:
+        "Despite the pain, you reach for your pistol"
+        "Noticing your plan, Buenos picks up a sharp rock off the ground and begins to circle around Baites"
+        buenos "*aggressive hisses*"
+        "Baites, seeing Buenos as the bigger threat, starts to turn around to face him"
+        "The venom is making your arms heavy"
+        "You can barely muster the strength to raise the pistol"
+        "You pull the trigger..."
+        "And hit Baites in the back of the head"
+
+        baites "*abrupt hiss*"
+        "Baites collapses to the ground, blood pooling around his head on the hot asphault"
+        "Alfred flees at the sight of his boss' corpse lying lifeless on the stone"
+        "Buenos runs over to Baites, then to you, injecting you with the antivenom"
+        "Your vision begins to clear up, the pain begins to fade"
+        buenos "I know that was hard for you"
+        buenos "I didn't like doing it myself, but I couldn't just leave you again"
+        buenos "But come on, we have to go, I hear guards coming"
+        jump sac_kill_end
+
+
+    label sac_kill_end:
+        if (sac_cry == True):
+            "You hear the sound of alarms blaring"
+            "Buenos helps you up, before going to Mount to wake him"
+            "The three of you make your way to Ford, before driving off"
+
+        else:
+            "You hear the sound of alarms blaring"
+            "Buenos puts your arm around his shoulder so that you can stand"
+            "The two of you stumble back to the Ford to meet up with Mount, who seems a combination of shocked, confused and happy"
+            "Buenos helps you in, before telling Mount to floor it"
+            "The three of you make your way off, away from the prison"
+
+        $ GoodTalks -= 1
+        jump SanDiego
+
+
+    #You should never go here
     menu:
         "Talk to trouble":
             $ GoodTalks += 1
             jump SanDiego
         "Kill the trouble":
             jump SanDiego
+
 
 
 # Chapter 4 (Michael Kahn)
