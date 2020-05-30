@@ -428,6 +428,8 @@ label transfer2:
 label Sacramento:
     define baites = Character("Charles Baites")
     define alfred = Character("Alfred")
+    define guard = Character("Guard")
+    define s_guard = Character("Security Guard")
 
     #I'll clean up dialogue/actually write dialogue later, just laying out framework
     #"Approach jail, which consists of tall buildings"
@@ -538,21 +540,98 @@ label Sacramento:
 
 
     label sac_sneak:
-        #set of decisions that involve not raising an alarm variable, making decisions to not get caught
-        #$ alarm = 0
-        #$ max_alarm = 4
+        you "Maybe we can try to sneak in and get Buenos out"
+        mount "You really think two people can sneak into a prison without ta plan?"
+        you "It seems security is light today, probably to ensure that Baite's visit goes smoothly"
+        mount "..."
+        mount "Now that you mention it they do seem to be light on personnel"
+        mount "How about I cause a distraction and you sneak around the back"
+        you "Sounds good, what are you going to do?"
+        mount "I'll think of something, just get into position and wait for something excessive"
+        "You make your way around the courtyard gate near a laoding bay"
+        "You look through the chainlink fence to see Mount moving towards the courtyard entrance"
+        "He steps up to the guard in the booth, looking like he's about to strike up a conversation"
+        "Suddenly, he begins throwing up into the booth all over the guard"
+        "The gaurds around the entrance begin moving towards him"
+        "Seizing the chance, you knock the lock off the door with the butt of your gun, and make your way inside"
 
         jump sac_buenos
 
 
     label sac_bargain:
-        #try to bargain with guards, might just cut this and do sneak, or make it so
-        #that you if you suceed you do the sneak section with a higher max alarm (turns a blind eye)
+        you "Lets try talking to the guards again, maybe they'll be more lenient with us"
+        mount "Likely, old scales over there looks like he's harboring quite the grudge"
+
+        "You make your way to the entrance again, the guard in the booth raising an eyebrow in suspicion"
+        guard "I thought the mayor told you two to get out?"
+
+        menu:
+            "Emphasize the importance of the governor":
+                jump sac_bargain2
+
+            "Threaten with gun":
+                jump sac_threaten
+
+
+    label sac_bargain2:
+        you "You see, we are on official business from the state governor"
+        you "Crossing someone with that high authority may not be the wisest decision"
+        guard "..."
+        guard "..."
+        "He seems to be mulling it over"
+        guard "Let me see those papers again"
+        "You hand them the governors paper's once more"
+        guard "..."
+        guard "Fine you can go on in"
+        guard "But only you, not the big guy, don't want a chance of you two stiring up any trouble"
+        mount "You know what, that's fair"
+        mount "Good luck in there %(playerName)s, give my regards to Buenos, I'll guard the car"
+        guard "Okay, get on in, but don't run into Baites while you're in there, I don't want to get on his bad size"
+        "you make your way through the courtyard and into the prison"
         jump sac_buenos
 
 
+    label sac_threaten:
+        "You brandish your gun, pointing it towards the guard in the booth"
+        "The guards eyes go wide in fear, as he instictivly puts his hands in the air"
+        menu:
+            "Shoot the guard":
+                "Before he can react, you shoot the guard in the chest with your silenced pistol"
+                "You scan around to see if anyone noticed"
+                "You see Mount obstructing the view between you and the rest of the complex"
+                "He gives you a nod"
+                mount "Well that was abrupt"
+                you "You mind guarding this mess until I get back?"
+                mount "Sure thing %(playerName)s, good luck in there, give my regards to Buenos"
+                $ GoodTalks -= 1
+                jump sac_buenos
+
+            "Tell him to let you in":
+                jump sac_bad_shoot
+
+            "Demand him to have Buenos brought out":
+                jump sac_bad_shoot
+
+    label sac_bad_shoot:
+        "Before you can get a word in, the guard capitalizes on your brief pause to hit a button above the booth window"
+        "He then dives down into the booth, as it's shutters slam shut over the window"
+        "You hear alarms blaring, and the sound of heavy boots rushing towars you"
+        "You turn to see guards rushing out of the front door of the prison"
+        "Before you can react, they shoot you down with their handguns"
+        "Your vision begins to go dark as blood spills from your body"
+        "..."
+        "..."
+        jump gameEnd
+
+
     label sac_buenos:
-        "You approach the cell the guard told you Buenos was in"
+        "The halls inside the prison are dimly lit and seem to go on forever"
+        "There doesn't seem to be many people here"
+        you "Baites presence must demand a lot of security"
+        "You find one of the holding rooms, cells lining the many floors"
+        "You scan a clipboard listing all the inmates names for Buenos"
+        "You find his cell number, it appears to be in this room"
+        "You approach the cell"
         "You see a man slumped over on the prison bed, not noticing your presence"
 
         menu:
@@ -743,8 +822,9 @@ label Sacramento:
 
     label sac_boss:
         "You make your out of the prison courtyard, the harsh sun beating down on you"
-        "Buenos seems set on staying, maybe you could..."
-        baites "*quick aggressive hiss*" # Maybe play a snake hissing sound
+        you "Buenos seems set on staying, maybe we could..."
+        "*quick aggressive hiss*" # Maybe play a snake hissing sound
+        you "ARRRGHH"
         "A sharp pain flares up in your arm"
         "You turn to see Baites sinking his teeth into you"
         "You struggle in an attempt to break free, the pain becoming almost ubearable"
@@ -821,6 +901,7 @@ label Sacramento:
                 "Reason with Baites":
                     "You call out to Baites to tell him that he doesn't have to do this"
                     "But he can't understand a word you're saying"
+                    "And Alfred doesn't seem keen on helping"
                     jump sac_boss_loop1
 
 
