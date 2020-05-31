@@ -339,9 +339,12 @@ label sf_5b:
 label sf_6:
     you "Violence not always the right thing to do, Mark. Believe me."
     mark "Who the hell are you to be saying that. Just look at your buddy Mount. I know he used to kill anyone that got in your way, am I wrong?"
-    you "It was his job to do what he needs to do to protect me and my gang. And why do you use violence? Just for the hell of it?"
-    mark "Hey, I don't need some kid to be judging me. I killed my parents after all the beatings they've given me. Ever since then, fighting is all I know."
-    you "That's not a reason, Big Mark. I'm sorry that happened to you, but why throw that anger onto Mount? He hasn't done anything to you."
+    you "Never. We always did business without any casualties. We aren't killers. But on the off chance that something really did happen, Mount's just doing his job to protect me and the gang."
+    you "And why do you use violence? Why do you go so far as to cross the line and kill someone? Just for the hell of it?"
+    mark "Hey, I don't need some kid to be judging me. I killed my parents after enduring all the beatings they've given me. Ever since then, fighting is all I know."
+    you "That's not a reason, Big Mark. I'm sorry that happened to you, but why throw that anger onto Mount?"
+    you "I know you're a smart man. Hell, you practically rule over this prison. Mount wasn't the one who did anything to you, so why do you keep insisting?."
+    mark "Fighting to the death fills the hole in my chest. Through that abusement, I found my greatest passion."
     mark "You wouldn't understand. If you were abused, you would have end up as obsessed with violence as I am."
     menu:
         "Kill Big Mark":
@@ -350,11 +353,14 @@ label sf_6:
         "Is that so?":
             "You pull up your shirt and reveal a scar next to your waist."
             you "You see this shit? My own, damn mother sold my kidney just to get some drugs. I really wanted to do what you did, but I couldn't. And It wasn't because I was weak. It was because she was the only family I had back then."
-    mark "Shit. Sorry to hear that little fella."
-    mark "But so what? Why should that matter? Why should I give up this fighting obsession? I just want to fight. I enjoy the fight."
-    you "Because everytime you do, you lose something. You are losing your true self. Do you even remember the first time you did anything with your parents?"
+    you "I've endured as much abusement as you had, maybe twice as much, but in the end I didn't want to become the kind of monster that they were turning me into."
+    mark "Shit. Sorry to hear that little fella..."
+    mark "But so what? Why should that matter? Why should I give up my source of entertainment? My passion? I just want to fight. I enjoy the fight."
+    you "Who's going to be left to fight when everybody is dead? You're going to end up being the last person alive and alone."
+    you "Don't you get it? Everytime you do this shit, you lose something. A piece of yourself."
+    you "Do you even remember the first time you did anything with your parents?"
     mark "...No. I can't remember."
-    you "That's right, Mark. This was the life you gave away. You lost a family."
+    you "That's right, Mark. This was the life you gave away. You lost a family. Most importantly, you lost your true self."
     mark "And so what if I killed them. What does this have to do with my fight with Mount?"
     you "Because your parents changed you. That is their purpose, can't you see? They are the ones that are turning you into a shitty person."
     mark "So...so they succeeded? Am I one?"
@@ -364,7 +370,7 @@ label sf_6:
     "Big Mark falls to the ground, weeping and defeated."
     you "Mount, I think we're done here."
     "You stride through the crowd, with Mount following right behind you."
-    "The two of you exit the prison without much damage."
+    "The two of you exit the prison without a single casualty."
     mount "Damn, buddy, I didn't know you had such a tragic past."
     menu:
         "It was the truth":
@@ -374,7 +380,7 @@ label sf_6:
             you "Because I don't. I actually got that scar from fighting other drug dealers while I was rising to the top."
             "Mount bursts into laugher."
             mount "Now thats the %(playerName)s I know. Anyways, thanks for helping me out boss. I'll definitely return the favor."
-    "With laughs and tears, the white Ford car heads towards the next destination: Sacramento."
+    "With laughs and tears, the white Ford car heads away out for the next recruit to pick up."
     jump transfer2
 
 label sf_markdead:
@@ -391,35 +397,35 @@ label transfer2:
     mount "...it was my fault, boss. I was the one who killed those policemen. You know, that was actually my first time getting my hands dirty."
     mount "I'm a experienced sniper and fighter, yet the worse thing I did was shoot to threaten. That was all. This time, it was different. Everybody didn't know what to do, so we all ran..."
     #Entering Mount's flashback
-    tsing "Mount...mount! Check if the other one is breathing!"
+    buenos "Mount...mount! Check if the other one is breathing!"
     "After shooting two policemen, Mount dropped his gun. He was shaking."
-    "Tsing was the only one who had the courage to go up to them. Because of our countless, successful operations, this was really the first time dealing with a dead body."
+    "Buenos was the only one who had the courage to go up to them. Because of our countless, successful operations, this was really the first time dealing with a dead body."
     mount "H-how?"
-    tsing "Put a finger under his nose, or just check his pulse! Hurry, we don't have much time left!"
-    mount "He's not breathing, Tsing..."
-    tsing "Shit. Agh, damnit! Where the hell did these guys come from?"
-    "Tsing tries to think for a moment. Everything was going haywire at this point."
-    tsing "Mount, we need to get everybody we can, and get out of here. That's the best option we could do right now."
+    buenos "Put a finger under his nose, or just check his pulse! Hurry, we don't have much time left!"
+    mount "He's not breathing, Buenos..."
+    buenos "Shit. Agh, damnit! Where the hell did these guys come from?"
+    "Buenos tries to think for a moment. Everything was going haywire at this point."
+    buenos "Mount, we need to get everybody we can, and get out of here. That's the best option we could do right now."
     mount "W-what about the boss? We can't just leave him back there!"
-    tsing "I'm sure he''ll understand why we need to go. It's now or never, Mount."
+    buenos "I'm sure he''ll understand why we need to go. It's now or never, Mount."
     mount "But I have to save my bos-"
-    tsing "You can't do anything to save anyone right now!" with hpunch
-    "Tsing grabs Mount, as well as the other members, and escapes. By the end of the raid, you were the only one there."
+    buenos "You can't do anything to save anyone right now!" with hpunch
+    "Buenos grabs Mount, as well as the other members, and escapes. By the end of the raid, you were the only one there."
     #End of flashback
     menu:
         "I understand, Mount":
-            you "If you guys hadn't left, this would have been the end for all of us. Tsing made the most reasonable choice."
+            you "If you guys hadn't left, this would have been the end for all of us. Buenos made the most reasonable choice."
             you "This was all my fault. I should have made sure this operation was completely safe,"
             you "Everybody got hurt because of me. I didn't want anyone to die that day."
             mount "%(playerName)s, It's not your fault. Even if it is, we're not going to blame you. We all carry the sin of leaving you. We regret that forever, so stop beating yourself up."
-        "How could you, Tsing":
+        "How could you, Buenos":
             $ GoodTalks -= 1
             you "I thought I could trust you guys. I sure as hell didn't expect everybody to leave their own leader."
             you "This is all his fault. If we had everybody guarding each post, then we all would have been able to escape."
             "All you can do is slam on the car horn. Mount waits patiently until blew off your steam."
             you "It doesn't matter anymore. The past is in the past now."
             mount "I'm sorry, boss. Everything we did was shit."
-        you "Sigh. Anyways, let's just get going. Our next stop is Sacramento. Tsing, we will get to you."
+        you "Sigh. Anyways, let's just get going. Our next stop is Sacramento. Buenos, we're coming to get you."
     jump Sacramento
 
  # Chapter 3 (Jason Iino) <- das me :>
