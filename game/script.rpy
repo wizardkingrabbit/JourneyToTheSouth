@@ -1509,6 +1509,10 @@ label border:
             greta "Oh yeah which one then smart guy?"
             "You remember in your days of hustling that you once delivered to a real shady neighborhood in LA once. You are able to name an adress almost immediately"
             "Greta is shocked"
+            greta "Well I haven't seen anything on my news app, how do I know you are telling the truth? For all I know that could be your address!"
+            "You quickly remember a protest occured in that neighborhood after a cop drove into a cyclist about 6 months ago. You scramble onto your phone"
+            you "Here, see?"
+            "you hold up a shady news article thats date only shows the year. Of course the title is just clickbait enough it doesnt mention what the protest is about."
             greta "Wow I had no idea! We should head there right away!"
             "Greta signals to the rest of the protesters who scramble to their cars, your team travels through the passage amongst the chaos..."
             $ GoodTalks += 1
@@ -1564,10 +1568,14 @@ label backToGreta:
                 greta "What the hell are you going on about!? Whats in Los Angeles?"
                 you "Oh you didnt hear? Extron is building a new pipeline right through the heart of Los Angeles under a lower class neighborhood!"
                 greta "Oh yeah which one then smart guy?"
-                "You remember in your days of hustling that you once delivered to a real shady neighborhood in LA once. You are able to name an address almost immediately"
+                "You remember in your days of hustling that you once delivered to a real shady neighborhood in LA once. You are able to name an adress almost immediately"
                 "Greta is shocked"
+                greta "Well I haven't seen anything on my news app, how do I know you are telling the truth? For all I know that could be your address!"
+                "You quickly remember a protest occured in that neighborhood after a cop drove into a cyclist about 6 months ago. You scramble onto your phone"
+                you "Here, see?"
+                "you hold up a shady news article thats date only shows the year. Of course the title is just clickbait enough it doesnt mention what the protest is about."
                 greta "Wow I had no idea! We should head there right away!"
-                "Greta signals to the rest of the other protesters who scramble to their cars, your team travels through the passage amongst the chaos..."
+                "Greta signals to the rest of the protesters who scramble to their cars, your team travels through the passage amongst the chaos..."
                 $ GoodTalks += 1
                 jump Mexico
             "Shoot Greta and run for the Passage":
