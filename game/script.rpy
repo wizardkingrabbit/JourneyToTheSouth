@@ -419,10 +419,8 @@ label transfer2:
             "All you can do is slam on the car horn. Mount waits patiently until blew off your steam."
             you "It doesn't matter anymore. The past is in the past now."
             mount "I'm sorry, boss. Everything we did was shit."
-        you "Sigh. Anyways, let's just get going. Our next stop is Sacramento. Tsing, We're coming to you."
+        you "Sigh. Anyways, let's just get going. Our next stop is Sacramento. Tsing, we will get to you."
     jump Sacramento
-
-
 
  # Chapter 3 (Jason Iino) <- das me :>
 label Sacramento:
@@ -510,7 +508,23 @@ label Sacramento:
 
 
     label sac_accept:
-        "Governor kills you"
+        "Baites is satisfied and released Buenos"
+        buenos "Man I cannot believe what is happening. You made a deal with this devil?"
+        you "whether you come with me or you can stay here, keep complaining and get killed."
+        "Buenos relunctantly follows you and get into the car. However, when you start the engine, you hear Mount's whispering from back seat."
+        mount "Boss..."
+        "You look back and see the mysterious man holding two guns, one pointing at Mount, one pointing at you."
+        you "Okay, should I be nervous now?"
+        mm "I think you should. Give me an evidence that you did not betray me."
+        menu:
+            "It was a lie. I only work for person who can give me freedom and secure my family.":
+                mm "I don't like lier. And I don't need lier."
+
+            "I have to do that or I will die.":
+                mm "Buenos, is that the case?"
+                buenos "Sorry boss, but I am tired working with you now."
+                mm "well, well, well"
+        "The mysterious man pulls the trigger, the last sound you hear is the sound of a firing gun."
         jump gameEnd
 
 
@@ -673,12 +687,10 @@ label Sacramento:
 
         menu:
             "But why?":
-                buenos "..."
                 buenos "I've made some mistakes over the past few years"
                 jump sac_story
 
             "What happened?":
-                buenos "..."
                 buenos "Things have not been great ever since we parted ways"
                 jump sac_story
 
