@@ -13,8 +13,12 @@ define BurnPlantation = True
 define sf_bribe = False
 define sf_threat = False
 define sf_headlock = False
+define daughter_die = False
 
 define you = Character("you")
+define sgboss = Character("State Governor")
+define uspa = Character("US Police A")
+define uspb = Character("US Police V")
 define mark = Character("Big Mark")
 define daughter = Character("Anny")
 define unk = Character("???")
@@ -1692,27 +1696,71 @@ label mexico_2:
             jump mexico_3
 
 label mexico_3:
+    "The face of Brit is furious. His guards also look irritated."
+    mount "we should go"
+    buenos "He's right, %(playerName)s"
+    "At the moment you are about to turn around, you see the little boy again. he is hiding behind Brit, he stares at you desperately. You cannot help asking this questions."
+    you "Are you using child labor?"
+    oop "I think I just said you should go."
+    "Brit follows your glance and sees that little boy too. He yells at the boy in Spanish. Three of his guards rush to the boy, put him down on ground and start to beat him."
+    if GoodTalks > GEthresh:
+        mount "#whisper# Boss, we need to do something."
+        buenos "#whisper# Asshole"
+        tsing "..."
+    else:
+        "You feel heartache. Even though you have killed so many people, you still feel sad seeing this happening in front of you."
+    oop "One last change, leave, or you will be like that little boy."
     menu:
-        "Burn the plantation":
+        "No, this is beyond my acceptance.":
             if GoodTalks > GEthresh:
                 jump ending1
             else:
                 jump ending2
-        "Leave the plantation":
+        "Leave.":
             if GoodTalks > GEthresh:
                 jump ending3
             else:
                 jump ending4
 
-# Endings (Guozheng Yang)
+# Endings (Jingtian Li & Guozheng Yang)
 label ending1:
-    "You choose to attack the plantation owner, and all your friend choose to help you."
-    "You rescue the children and ask your team to bring these kids to US while you take the underground railway alone."
-    "when you see the governor, he tells you that all kids are treated as illegal immigrants and sent back to Mexico."
-    "He asks you to give him the drug and the pistol. You lose your pistol in the underground railway, so for this branch, you can only obey him."
-    "He told you that you can go back to your home and you are free now."
-    "When you go back to your home, you see your wife and daughter waiting for you come back."
-    "After all those, you finally can enjoy the free time with you family."
+    "You swiftly put out your gun and shoot Brit. He falls down. It is not a deadly shot, but still shocking enough. Before Brit makes any order, Mount rushes to one of his guard, knocked him out and throws his gun to Tsing."
+    "Tsing also reacts quickly, he uses the gun to kill two other guards standing next to Brit. But Tsing also gets one shot on the right arm."
+    tsing "Buenos, pick up the gun!"
+    "Buenos stands there still while Brit is trying hard to creep to the corpse of his dead guard for guns. You shoot at Brit, but no hit."
+    you "Buenos, wake up!"
+    "Buenos finally reacts to this situation. He sprints toward the guns on ground, kills Brit and a few other enemies."
+    "More guards come to the battlefield but you four work together and kill them all. Standing among the dead corpses, those child labors gather to you. Their eyes are still filled with fear and tead."
+    buenos"we should bring them back to America."
+    mount "I agree boss. you should bring those kids through border. We shall take the drug back by underground railway."
+    you "sounds like a nice plan to me."
+    "You and the kids reach the US-Mexico border."
+    you "Police officers, they are refugees from Mexico. I just rescued them from a plantation in Mexico."
+    uspa "Who are you? How can you prove they are refugees instead of illegal immigrants."
+    uspb "Oh I thought those two are the same things."
+    uspa "Haha, nice one."
+    "You move your hand to the gun in your pocket, but finally, you decide to give them your fake ID. That is the only thing you can offer now."
+    uspb "Wait... are you?"
+    "You see the police searching for something in the drawer. Later, he finds a photo of you."
+    uspa "Shit, he is the guy."
+    "they knock you off with a electric gun. You fall down without a chance of defending yourself. When you wake up, you find yourself in a big office room. the state governor stands in front of you, aside with the mysterious man."
+    sgboss "welcome home boy. you have done an excelent job. You friends already gave me what I want. But I still want to thank you in person, and remind you that this is a secret between us. Now you are free to leave."
+    you "where are my friends, where are those kids?"
+    sgboss "#chuckle# I do not know where your friends are. I gave them freedom as well."
+    sgboss "As for those kids, they are illegal immigrants. So I guess they are back home now."
+    you "you asshole..."
+    "once again you reach your hand to your pocket for gun, but you find it gone."
+    sgboss "What are you waiting for, get back to your family, and good luck to rest of your life."
+    if daughter_die:
+        "Before you leave the building, the mysterious man stops you. After he makes sure there is no one around, he drags you to a corner."
+        you "What the hell"
+        mm "I just wanna say, nice work killing my dear sister."
+        you "What does that mean. are your looking for a revenge?"
+        mm "...No."
+        mm "Actually I think I should say thank you."
+        you "Thank me for what? I have had enough of you and your father. could you let me leave now?"
+        mm "#stare at you# OK... you can leave now."
+    "You head out of building and find yourself at the city hall of Los Angeles. People around you look at you like you are an alien. But whatever, you can return to your family now."
     return
 
 label ending2:
