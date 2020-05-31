@@ -343,11 +343,12 @@ label sf_6:
     you "And why do you use violence? Why do you go so far as to cross the line and kill someone? Just for the hell of it?"
     mark "Hey, I don't need some kid to be judging me. I killed my parents after enduring all the beatings they've given me. Ever since then, fighting is all I know."
     you "That's not a reason, Big Mark. I'm sorry that happened to you, but why throw that anger onto Mount?"
-    you "I know you're a smart man. Hell, you practically rule over this prison. Mount wasn't the one who did anything to you, so why do you keep insisting?."
+    you "I know you're a smart man. Hell, you practically rule over this prison. Mount wasn't the one who did anything to you, so why do you keep insisting?"
     mark "Fighting to the death fills the hole in my chest. Through that abusement, I found my greatest passion."
     mark "You wouldn't understand. If you were abused, you would have end up as obsessed with violence as I am."
     menu:
         "Kill Big Mark":
+            you "Sigh, this is going nowhere. All I'm hearing the the same reason over and over again."
             you "I've had enough of your bullshit."
             jump sf_markdead
         "Is that so?":
