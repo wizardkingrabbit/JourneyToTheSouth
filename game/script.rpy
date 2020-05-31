@@ -19,6 +19,7 @@ define mark = Character("Big Mark")
 define daughter = Character("Anny")
 define unk = Character("???")
 define guard = Character("Prison Guard")
+define pguard = Character("Guard")
 define officer = Character("Chief Officer")
 define mm = Character("Mysterious Man")
 define mount = Character("Mount")
@@ -1585,25 +1586,25 @@ label backToGreta:
                 $ GoodTalks -= 1
                 jump Mexico
 
-# Chapter 6 (haonan lin)
+# Chapter 6 (Jingtian Li & haonan lin)
 label Mexico:
     "After all kinds of hardships, you and your teammates finally arrived at the destination of this trip"
-    "Everyone is excited and feels that victory is so closed"
-    "However, things are not easy as they seem. Outside the plantation, there is a huge wall"
-    "The only entrance to the plantation has many security guards at the door"
+    mount "Everyone, I am so excited and feels that victory is so closed"
+    "However, things are not easy as they seem. Outside your destination, there is a huge wall"
+    "The only entrance has many security guards at the door"
     "You and your teammates can try to enter from the main entrance or try to find another way into the plantation"
     menu:
         "Try to enter from the main entrance":
             "Riding down the street to the entrance of the plantation, the guards stop you"
-            guard"What are you doing here? Strangers are not welcome here"
+            pguard"What are you doing here? Strangers are not welcome here"
             you "We are here to see your boss. We are here for your boss to ask for some thing"
-            guard"What's that?"
+            pguard"What's that?"
             "But you don’t want to tell the guard the purpose of this trip"
             you "You don't have to know what it is. It is better for you"
-            guard"If you don't say it, you can fuck off"
+            pguard"If you don't say it, you can fuck off"
             "You are so angry because the guards perverted you impatiently."
             buenos"It's not a big deal. Let me tell you. We are looking for a special king of drug. I hear this special drug is only available here"
-            guard"Drug? Are you kidding me? We don't have that here. Get out of here"
+            pguard"Drug? Are you kidding me? We don't have that here. Get out of here"
             "You notice the guard starting to pull out his gun. You look at their gear and decide it's best to slip away first and try to find another way to get into the plantation"
         "Find a way into the plantation":
             pass
@@ -1616,37 +1617,81 @@ label Mexico:
     "Finally, you climbed out of a hidden manhole cover"
     "You start searching for this plantation"
     lb"Who are you? What are you doing here?"
-    "Your whereabouts were caught by a little boy. Seeing whereabouts are about to be exposed, and the mission is about to fail. Buenos rush up and try to cover the little boy's mouth"
-    lb"Are you here to save us? We have been here for a long time"
-    "The boy's voice suddenly fell, and the boy looked at us carefully and hopefully"
+    "Your whereabouts were caught by a little boy. Buenos rush up and try to cover the little boy's mouth"
+    lb"You must go to our master. Please."
+    "The boy's voice suddenly fell. You see fear in his eyes."
     you"What are you doing here at such a young age?"
-    "The boy's words and deeds startled you. You decided to ask some information from little boy"
-    lb"We are all here to work for the master. If we do not meet the requirements of the master, we will get punishment by him"
-    you"Master? Why you call him master? Are there many children like you?"
-    lb"The owner of this plantation let us call him master. If we don’t do this, we will be punished"
-    lb"Also, master will find many children without parents to come here and work for him. We have nothing to rely on but to work for him"
-    lb"Can you help us?"
-    you"If you can take me to see your master, I will help you. I will try to convince him. If it doesn't work, I will think of another way"
-    "You decide to let the little boy take you to see the owner of this plantation first. The rest is just perfunctory words"
-    lb"That's very kind of you. The master believes me the most, and I will take you there"
-    "Led by the little boy, you finally meet the owner of the plantation"
-    oop"See who is coming? My best friends. I have waited so long, and you finally came"
-    you"Do you know who we are? We just arrived here"
-    you"Not even your guard knows who we are. He also stopped us from coming in. We have to work hard to get here"
-    oop"They are just performing their duties. Please understand their difficulties. I'll give them a little punishment afterwards"
-    oop"Your boss has told me your purpose. And they don’t deserve to know too much. Can I see the hand writing of your boss."
-    "You hand the handwriting to the owner. The owner tell his men to give you the drug"
-    "You look at the small red pills in the transparent jar in your hand and start to think what is the magic of these pills. Why can it let so many people struggle to get it"
-    you"What use are these pills? What secrets do they have?"
-    oop"They are just ordinary pills. It won’t have any effect if you eat it, or if you want to try it"
-    you"If it is ordinary, why do we spend so much effort to get it. Don't treat us like fools"
-    oop"OK. OK. Then let me put it another way. It allows you to get something and lose something. For example, power?"
-    "You poured a pill on your hand. Looking at this blood-red pill, you are deciding whether to give it a try"
+    lb"You should not ask... I should not tell. Please just go to our master. I am going back to work."
+    mount"Sounds like child labor to me. What do you say boss?"
     menu:
-        "eat it":
+        "Hey, kids. What is your job?":
+            lb "No, sir I have no job..."
+            you"I see..."
+            menu:
+                "Tell me the truth or I can use this gun to blow your 12-year-old brain off":
+                    lb "what, please do not. I... I will tell you. I grow stuff for Mr. Brit. He is the owner of this place."
+                    you "stuff. You mean ingredients for drug?"
+                    lb "I do not know sir. Please, just let me go."
+                    you "Fine, but tell me where is Mr. Brit."
+                    lb "He is patroling around the farm land. You should be able to see him when you get nearer. He usually rides his white horse."
+                    "You let the child go and lead your crew to the farm land. A man with round top hat and gold-frame glasses is riding on a white horse, using the leather in his hands to whip workers in the field. Some of those workers look just as young as the little boy you just met."
+                    jump mexico_2
+                "Fine. you can go.":
+                    "You let the kid go, and wander around this place. A moment later, a few guards rush to you, too fast that you are unable to find a place to hide yourself."
+                    tsing"that damn kid..."
+                    buenos"#SOME SPANISH THAT YOU CANNOT UNDERSTAND#"
+                    pguard"#Angry in Spanish#"
+                    "They start to beat you."
+                    mount"Buenos, what the hell did you tell them"
+                    buenos"Nothing, they beat us for no reason."
+                    "They stop after a few minutes. Then, this group of man seems unsure about how to deal with you. they talk in Spanish for minutes. Suddenly, Buenos starts to speak again."
+                    buenos"#SOME SPANISH THAT YOU CANNOT UNDERSTAND#"
+                    pguard"#SOME SPANISH THAT YOU CANNOT UNDERSTAND#"
+                    buenos"#SOME SPANISH THAT YOU CANNOT UNDERSTAND#"
+                    pguard"#SOME SPANISH THAT YOU CANNOT UNDERSTAND#"
+                    buenos"Good news, %(playerName)s, they are going to take us to their boss, Mr. Brit."
+                    jump mexico_2
+        "Kill this kid":
+            $ GoodTalks -= 1
+            tsing "WTF, what are you doing"
+            you "letting this kid running around would cause trouble."
+            "You and your crew stealth around for a few more minutes. Finally, you see a man in decent clothes with round top hat and gold-frame glasses, riding on a white horse around a big chunck of farm land."
+            tsing "that could be the owner of this place."
+            mount "people working in the fields seem to obey him."
+            buenos "I can hear some security guys calling him Mr. Brit."
+
+label mexico_2:
+    "Mr. Brit seems to be interested when he sees you. But he does not get down from his horse."
+    oop"#Spanish#"
+    buenos"He knows we are not locals, and he wants to know why we are here."
+    you"#hand him the paper given by the mysterious man# we are here for a mission."
+    oop"#Spanish, with brighter voice#"
+    buenos"he says 'so you are my friend then. Sorry if my men did not treat you that well'."
+    you"Even your guards do not know who we are. He stopped us from coming in. We have to work hard to get here"
+    oop"#Spanish#"
+    buenos"He apologize. They are just performing their duties."
+    oop"#Spanish#"
+    buenos"He wants to talk about your mission."
+    you"Yes, please give me the drug."
+    oop"#Spanish, with angry voice# #put on a pair of white gloves, also throw you a pair of white gloves#"
+    buenos"Boss, relax. he thinks you are being rude. he asks you to put on the white gloves."
+    "Brit hands you a big jar of red pills. unlike this dirty plantation, the pills and the jar seem extremely clean. You cannot even find a fingerprint on the glass."
+    you"How can I know I got the real thing."
+    oop"#with awkward English# Come on, I have no reason to play trick with you. you wanna know if its real? Fine, eat it then you will know."
+    "You stare at him, thinking."
+    menu:
+        "I cannot trust a guy who uses child labor":
+            "you feel a sudden dizziness. Your family again appear in front of you. You reach your hands to your wife and hold her gently. Then you fall down."
             jump gameEnd
-        "Put it back in the jar":
-            pass
+        "I will trust you. But never expect I will trust you on other things ever again.":
+            jump mexico_3
+        "What is the effect of this drug.":
+            oop "Really? You ask the effect of drug? You are a retard, aren't you. If you are not sent by the state governor, I would cut through your fucking throat right now."
+            you "I just want to know what I got through this long journey. This mustn't be simply an ordinary drug."
+            oop "I do not hear bullshit from pussy. Fuck off from my plantation. You will never be welcomed here from now."
+            jump mexico_3
+
+label mexico_3:
     menu:
         "Burn the plantation":
             if GoodTalks > GEthresh:
