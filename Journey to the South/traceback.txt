@@ -1,8 +1,8 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 27, in script
-    e "You've created a new Ren'Py game."
+  File "game/script.rpy", line 447, in script
+    "You drive up to Sacramento's county prison, Buenos' current holding place"
   File "renpy/common/00action_menu.rpy", line 205, in __call__
     layout.yesno_screen(layout.QUIT, Quit(False))
   File "renpy/common/00layout.rpy", line 527, in yesno_screen
@@ -14,8 +14,8 @@ AttributeError: 'Layout' object has no attribute 'yesno_prompt'
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 27, in script
-    e "You've created a new Ren'Py game."
+  File "game/script.rpy", line 447, in script
+    "You drive up to Sacramento's county prison, Buenos' current holding place"
   File "C:\Users\jtiin\Desktop\renpy-7.3.5-sdk\renpy\ast.py", line 708, in execute
     renpy.exports.say(who, what, *args, **kwargs)
   File "C:\Users\jtiin\Desktop\renpy-7.3.5-sdk\renpy\exports.py", line 1345, in say
@@ -49,4 +49,4 @@ AttributeError: 'Layout' object has no attribute 'yesno_prompt'
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
  
-Fri May 29 04:13:07 2020
+Sat May 30 04:46:38 2020

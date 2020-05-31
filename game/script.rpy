@@ -508,23 +508,28 @@ label Sacramento:
 
 
     label sac_accept:
-        "Baites is satisfied and released Buenos"
+        "Baites gives a wide grin showing off his sharp fangs"
+        baites "*upbeat hisses*"
+        alfred "\"Excelent, I'll see that your friend is released safely\""
+        "Baites slithers away back into the prison, Alfred tailing behind him"
+
+        "After a few minutes of waiting, you see Buenos walking put of the prison"
         buenos "Man I cannot believe what is happening. You made a deal with this devil?"
-        you "whether you come with me or you can stay here, keep complaining and get killed."
-        "Buenos relunctantly follows you and get into the car. However, when you start the engine, you hear Mount's whispering from back seat."
+        you "Whether you come with me or stay here, keep complaining and get killed."
+        "Buenos relunctantly follows you and get into the car. However, when you start the engine, you hear Mount whispering from the back seat."
         mount "Boss..."
         "You look back and see the mysterious man holding two guns, one pointing at Mount, one pointing at you."
         you "Okay, should I be nervous now?"
-        mm "I think you should. Give me an evidence that you did not betray me."
+        mm "I think you should. Prove to me that you did not betray me."
         menu:
-            "It was a lie. I only work for person who can give me freedom and secure my family.":
-                mm "I don't like lier. And I don't need lier."
+            "It was a lie. I only work for someone who can give me freedom and secure my family.":
+                mm "I don't like liars, and I don't need one working for me."
 
-            "I have to do that or I will die.":
+            "I had to do that or I woul've died.":
                 mm "Buenos, is that the case?"
                 buenos "Sorry boss, but I am tired working with you now."
-                mm "well, well, well"
-        "The mysterious man pulls the trigger, the last sound you hear is the sound of a firing gun."
+                mm "Well, well, well"
+        "The mysterious man pulls the trigger, the last thing you hear is the sound of a firing gun."
         jump gameEnd
 
 
@@ -1079,7 +1084,10 @@ label Sacramento:
             baites "*calm hisses*"
             buenos "\"I've injected you with the antivenom, the pain should go away within the hour\""
             buenos "\"I'm sorry for causing you so much trouble\""
+            buenos "\"I only meant to threaten you with the poison, I did not intend for it to come that close\""
+            buenos "\"I... haven't exactly been in the best state of mind as of late\""
             buenos "\"Tension has been high recently, I so desperately wanted an easy out to all my problems\""
+            buenos "\"It's been stressing me out beyond belief\""
             buenos "\"But you've helped me realize that I'm just going to have to persevere through it\""
             buenos "\"I don't know why you're going on this journey, but it seems very important to you if you're willing to go through all that for it\""
             buenos "\"I'll let you take your friend, he's a good man, and I wish you both the best of luck on your journey\""
