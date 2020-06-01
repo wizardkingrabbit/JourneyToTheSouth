@@ -1482,7 +1482,7 @@ label SanDiego:
         you "I am sure you have a lot more questions, but we really best be going, I can tell you more details once were on the road"
         tsing "Very well, does not seem like I have much choice in the matter, let us get moving, I would rather not have to see this place again"
         "With that, you and the crew get back into the car and leave the prison. Thankful for that mess being over, but weary about what is to come"
-        jump sd_end
+        jump border
 
     label sd_route_shoot:
         $ GoodTalks -= 1
@@ -1536,7 +1536,7 @@ label SanDiego:
             you "Direct orders from the warden. If you want to know more ask her. We were just old to bring this man outside"
             "The receptionist does not look happy when you say that, but grabs the phone and goes to make a phone call. while she is distracted doing that, you walk outside and head towards the car"
             "Quickly undoing Tsing's cuffs, you all get into the car and drive off, thankful to be free of that prison, and back on the path to finishing this crazy mission"
-            jump sd_end
+            jump border
         else:
             you "Well, we do not have time to come up with anything complicated, but right now most of the guards attention is elsewhere in the prison"
             you "I say we just make a break for it, I think I remember the route back to the regroup area"
@@ -1557,11 +1557,7 @@ label SanDiego:
             sd_receptionist "Hey what are you guys doing, what the hell is going on right!"
             "You ignore the receptionist and make your way quickly towards your car, hopping in as fast as you can and driving off."
             "Finally free of the prison, and hoping no one is following you, you finally relax a bit. It would only be a matter of time before the next trouble occurs"
-            jump sd_end
-    label sd_end:
-        "transition conversation not implemented yet"
-        #conversation with Tsing in car before jumping to chapter 5
-        jump border
+            jump border
 
 
 # Chapter 5 (Ian Maynard)
