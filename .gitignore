@@ -1,9 +1,0 @@
-game/cache/bytecode.rpyb
-game/cache/screens.rpyb
-game/saves/navigation.json
-game/saves/persistent
-game/script.rpyc
-log.txt
-*.saves
-*.save
-*.rpy~

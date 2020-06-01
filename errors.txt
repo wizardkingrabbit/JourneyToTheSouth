@@ -2,13 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 403: Line is followed by a block, despite not being a menu choice. Did you forget a colon at the end of the line?
-    "Accept offer"
-                  ^
+File "game/script.rpy", line 1912: expected statement.
+    "Shoot him":
+               ^
 
-File "game/script.rpy", line 420: expected menuitem
-    jump sac_sneak
-    ^
+File "game/script.rpy", line 1917: expected statement.
+    "Give him the gun":
+                      ^
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Mon May 25 06:59:52 2020
+Mon Jun 01 08:46:30 2020

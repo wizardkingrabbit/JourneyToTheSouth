@@ -1909,16 +1909,17 @@ label ending4:
     menu:
         "Refuse to stay":
             sgboss"Fine, one last thing before you leave, give me back your gun."
-            "Shoot him":
-                "You pull out your gun and prepare to target the governor."
-                "But before you shoot governor, his bodyguards kill you immediately"
-                "You are so close to you freedom and your family, but finally you choose the wrong step and fall in blood."
-                return
-            "Give him the gun":
-                "Finally the journey is over. Driving in the LA downtown, you and your friends decide first to have something to eat."
-                Tsing "%(playerName)s, watch out!" with vpunch
-                "A big truck bumps into your car at the cross road. That is the last thing you know."
-                jump gameEnd
+            menu:
+                "Shoot him":
+                    "You pull out your gun and prepare to target the governor."
+                    "But before you shoot governor, his bodyguards kill you immediately"
+                    "You are so close to you freedom and your family, but finally you choose the wrong step and fall in blood."
+                    return
+                "Give him the gun":
+                    "Finally the journey is over. Driving in the LA downtown, you and your friends decide first to have something to eat."
+                    Tsing "%(playerName)s, watch out!" with vpunch
+                    "A big truck bumps into your car at the cross road. That is the last thing you know."
+                    jump gameEnd
         "Accept the job":
             you "As long as you have money, whatever you say, boss."
             "You three friends are unsure of this decision at beginning, but when they see a case of cash, they all start to laugh like you do."
