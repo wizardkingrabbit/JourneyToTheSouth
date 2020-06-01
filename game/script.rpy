@@ -3,6 +3,9 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
+#art
+image bg Prison_Gate_C = LiveTile("Prison_Gate_C.png")
+
 # Endings
 define GEthresh = 3
 define GoodTalks = 0
@@ -41,7 +44,6 @@ define sd_receptionist = Character("Receptionist")
 
 #Chapter 1 (Jingtian Li)
 label start:
-    jump SanDiego
     "Just where am I?"
     "You realize that this is a dream, and you don't want it to end."
     "Because here you see your little daughter, Anna. She is looking at you too, smiling."
@@ -65,7 +67,7 @@ label start:
             "Fully awake, you remember where you are and quickly apologize to the patrolling officer."
             officer "Where do you think this is, asshole? It's a fucking prison, not a luxury hotel. Get your ass up."
             "He handcuffs your hands while you were still recovering from that one-sided beatdown."
-    scene bg room
+    scene bg Prison_Gate_C
     "The officer takes you through the cell block and into a very fancy dining room."
     show eileen happy
     "Sitting at the end of the table, you see a man in a suit. His face is covered with a mask."
