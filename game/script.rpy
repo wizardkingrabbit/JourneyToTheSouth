@@ -18,7 +18,7 @@ define daughter_die = False
 define you = Character("you")
 define sgboss = Character("State Governor")
 define uspa = Character("US Police A")
-define uspb = Character("US Police V")
+define uspb = Character("US Police B")
 define mark = Character("Big Mark")
 define daughter = Character("Anny")
 define unk = Character("???")
@@ -32,7 +32,7 @@ define buenos = Character("Buenos")
 define greta = Character("Greta Scottson")
 define gates = Character("Mr. Gates")
 define lb = Character("Little Boy")
-define oop = Character("Owner of Plantation")
+define oop = Character("Mr. Brit")
 define sd_warden = Character("Warden")
 define sd_guard = Character("Guard")
 define sd_receptionist = Character("Receptionist")
@@ -1987,17 +1987,18 @@ label ending4:
     sgboss"I appreciate that you killed many troublemakers along your journey, so I offers you, all of you to stay and work for me."
     menu:
         "Refuse to stay":
-            sgboss "Fine, one last thing before you leave, give me back your gun."
-        "Shoot him":
-            "You pull out your gun and prepare to target the governor."
-            "But before you shoot governor, his bodyguards kill you immediately"
-            "You are so close to you freedom and your family, but finally you choose the wrong step and fall in blood."
-            return
-        "Give him the gun":
-            "Finally the journey is over. Driving in the LA downtown, you and your friends decide first to have something to eat."
-            Tsing "%(playerName)s, watch out!" with vpunch
-            "A big truck bumps into your car at the cross road. That is the last thing you know."
-            jump gameEnd
+            sgboss"Fine, one last thing before you leave, give me back your gun."
+            menu:
+                "Shoot him":
+                    "You pull out your gun and prepare to target the governor."
+                    "But before you shoot governor, his bodyguards kill you immediately"
+                    "You are so close to you freedom and your family, but finally you choose the wrong step and fall in blood."
+                    return
+                "Give him the gun":
+                    "Finally the journey is over. Driving in the LA downtown, you and your friends decide first to have something to eat."
+                    Tsing "%(playerName)s, watch out!" with vpunch
+                    "A big truck bumps into your car at the cross road. That is the last thing you know."
+                    jump gameEnd
         "Accept the job":
             you "As long as you have money, whatever you say, boss."
             "You three friends are unsure of this decision at beginning, but when they see a case of cash, they all start to laugh like you do."
