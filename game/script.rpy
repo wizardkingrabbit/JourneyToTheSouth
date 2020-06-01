@@ -3,6 +3,9 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
+#art
+image bg Prison_Gate_C = LiveTile("Prison_Gate_C.png")
+
 # Endings
 define GEthresh = 3
 define GoodTalks = 0
@@ -18,7 +21,7 @@ define daughter_die = False
 define you = Character("you")
 define sgboss = Character("State Governor")
 define uspa = Character("US Police A")
-define uspb = Character("US Police V")
+define uspb = Character("US Police B")
 define mark = Character("Big Mark")
 define daughter = Character("Anny")
 define unk = Character("???")
@@ -32,7 +35,7 @@ define buenos = Character("Buenos")
 define greta = Character("Greta Scottson")
 define gates = Character("Mr. Gates")
 define lb = Character("Little Boy")
-define oop = Character("Owner of Plantation")
+define oop = Character("Mr. Brit")
 define sd_warden = Character("Warden")
 define sd_guard = Character("Guard")
 define sd_receptionist = Character("Receptionist")
@@ -41,7 +44,6 @@ define sd_receptionist = Character("Receptionist")
 
 #Chapter 1 (Jingtian Li)
 label start:
-    jump SanDiego
     "Just where am I?"
     "You realize that this is a dream, and you don't want it to end."
     "Because here you see your little daughter, Anna. She is looking at you too, smiling."
@@ -65,7 +67,7 @@ label start:
             "Fully awake, you remember where you are and quickly apologize to the patrolling officer."
             officer "Where do you think this is, asshole? It's a fucking prison, not a luxury hotel. Get your ass up."
             "He handcuffs your hands while you were still recovering from that one-sided beatdown."
-    scene bg room
+    scene bg Prison_Gate_C
     "The officer takes you through the cell block and into a very fancy dining room."
     show eileen happy
     "Sitting at the end of the table, you see a man in a suit. His face is covered with a mask."
@@ -1983,17 +1985,18 @@ label ending4:
     sgboss"I appreciate that you killed many troublemakers along your journey, so I offers you, all of you to stay and work for me."
     menu:
         "Refuse to stay":
-            sgboss "Fine, one last thing before you leave, give me back your gun."
-        "Shoot him":
-            "You pull out your gun and prepare to target the governor."
-            "But before you shoot governor, his bodyguards kill you immediately"
-            "You are so close to you freedom and your family, but finally you choose the wrong step and fall in blood."
-            return
-        "Give him the gun":
-            "Finally the journey is over. Driving in the LA downtown, you and your friends decide first to have something to eat."
-            Tsing "%(playerName)s, watch out!" with vpunch
-            "A big truck bumps into your car at the cross road. That is the last thing you know."
-            jump gameEnd
+            sgboss"Fine, one last thing before you leave, give me back your gun."
+            menu:
+                "Shoot him":
+                    "You pull out your gun and prepare to target the governor."
+                    "But before you shoot governor, his bodyguards kill you immediately"
+                    "You are so close to you freedom and your family, but finally you choose the wrong step and fall in blood."
+                    return
+                "Give him the gun":
+                    "Finally the journey is over. Driving in the LA downtown, you and your friends decide first to have something to eat."
+                    Tsing "%(playerName)s, watch out!" with vpunch
+                    "A big truck bumps into your car at the cross road. That is the last thing you know."
+                    jump gameEnd
         "Accept the job":
             you "As long as you have money, whatever you say, boss."
             "You three friends are unsure of this decision at beginning, but when they see a case of cash, they all start to laugh like you do."
