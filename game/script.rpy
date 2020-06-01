@@ -1764,86 +1764,165 @@ label ending1:
     return
 
 label ending2:
-    "With the fire of the plantation,you see more and more people come to surround your teams."
-    buenos "you are killing too many people,I’m done with you"
-    "But they still need some time to be here. You want to kill Buenos, because Buenos know every bold in your hand and you cannot accept betray"
-    tsing "we must leave right now! They are almost here."
+    "You swiftly put out your gun and shoot Brit. He falls down. It is not a deadly shot, but still shocking enough. Before Brit makes any order, Mount rushes to one of his guard, knocked him out and throws his gun to Tsing."
+    "Tsing also reacts quickly, he uses the gun to kill two other guards standing next to Brit. But Tsing also gets one shot on the right arm."
+    mount "Buenos, pick up the gun!"
+    "Buenos stands there still while Brit is trying hard to creep to the corpse of his dead guard for guns. You shoot at Brit, but no hit."
+    you "Buenos, wake up!"
+    "Buenos finally reacts to this situation. He sprints toward the guns on ground. He points the gun at Brit, but at this moment, he hesitates."
+    buenos "We have killed so many people, boss. It is not what you have promised to me. I cannot take anymore."
+    tsing "It is not time for that shit, Buenos."
+    buenos "Maybe it's not. But you really should stop killing."
+    "Buenos drops the gun, turns around and walks away."
+    "But he does not notice Brit picks up the gun and aim it at Mount."
+    you "Mount, GET DOWN!"
+    "It is too late, Brit puts a bullet in Mount's head. Next shot, Brit kills Buenos. Sadness overwhelms you and other guards start to gather around you."
+    tsing "Boss, we must leave right now!"
     menu:
-        "Kill Buenos, then leave":
-            "You killed Buenos, but you are surround by enemies. Because you burn the plantation,You were caught back and tortured to death."
+        "Run, Tsing, Run!":
+            "Although both of you are fast, Tsing still sustains a fatal shot. He dies in the plantation. But you escape with the drug."
+        "Tsing, you go ahead, I will follow behind you.":
+            "You reload your gun and try to protect Tsing while retreating. You never want to lose one more friend."
+            "However, there are too many of them. Short after, both of you are shot."
             jump gameEnd
-        "Leave right now":
-            you "Let’s go"
-            "During your retreat, the enemy caught up with you. After a gun fight, Tsing and Mount were shot by the enemy. Fortunately, you flew back to the US with the drug."
-
-    "When you came out of the airport, the governor ’s people found you and took you to the governor."
-    "Governor ask you to give him the drug and the pistol. But you see governor do not bring a gun, you are thinking to kill the governor and sell the drug"
-
+    "Tear covers your face as you travel through the underground railway. When you finally get back to US, there is really nothing left in your brain but tremendous sadness."
+    "You find a paper note in the car. There is an address on it. You set it as the destination then follow the GPS system like a robot."
+    "You arrive at the city hall of Los Angeles. You park the car at the parking lot. It is around 10:30, so not a lot of people around."
+    "Just before you get out of your seat, the back doors and the vice driving door are opened. three men enter the car. One of them is the mysterious man. He is sitting in the back."
+    "Another man in the back seat starts to speak."
+    sgboss"Hello, my friend %(playerName)s, welcome back. I am the state governor. Now you can give me the drug."
+    "You peek at the man seating next to you. He seems to be the bodyguard of the state governor."
+    you "It is under your seat. If you may excuse me, I shall leave now."
+    sgboss"No, no, no. Not so fast. I think we have a few other things to talk about."
+    "He takes one pill and puts it in his mouth Then you hear some strange voices from him."
+    sgboss"You killed my daughter but that is OK, I don't like her anyway. But you injured my friend. That is not cool, man. That is not cool."
+    sgboss"But You know what, I am nice enough so I decide to let you go now. Just... just give my bodyguard your gun then leave."
     menu:
-        "Shoot Governor":
-            you "Go fuck yourself!"
+        "I will do this for my friends":
             "You pull out your gun and prepare to target the governor."
-            "Before you shoot governor, his bodyguards kill you immediately"
+            "But before you shoot governor, his bodyguards kill you immediately"
             "You are so close to you freedom and your family, but finally you choose the wrong step and fall in blood."
             return
-        "Give him the drug and the pistol.":
-            "The governor nodded and asked the bodyguard to send you home."
-            "After a few days, the governor sent some money and informed you that your files had been cleaned up."
-            "Finally, you can enjoy your life with your family"
-            return
+        "Give him the gun":
+            if daughter_die:
+                "The governor nods and asks the bodyguard to stay in the car before you arrive home. He then gets off the car. But the mysterious man does not follow."
+                mm "Jack, I'll do that. You may leave now."
+                "The bodyguard nods, then gets off as well."
+                mm "Finally, it's just you and me. Do not start the engine, I do not wish to go to your home. I just want to talk with you for a sec. Then I'll get off."
+                you "..."
+                mm "I just wanna say, nice work killing my dear sister."
+                you "..."
+                mm "I guess I should say thank you Huh?"
+                you "..."
+                mm "#stare at you# OK... you can leave now."
+                "After a few days, the governor sends some money and informs you that your files have been cleaned up."
+                "Finally, you can enjoy your life with your family"
+                return
+            else:
+                "The governor nods and asks the bodyguard to stay in the car before you arrive home."
+                "After a few days, the governor sends some money and informs you that your files have been cleaned up."
+                "Finally, you can enjoy your life with your family"
+                return
 
 label ending3:
-    "You choose to convince the plantation owner, but he still refuse."
-    "But he give you some money to make you leave."
-    "Your still want to convince the owner, but you see him is angry."
+    "You wish you can convince him to give up child labor, but finally, you give up because you see the anger in Brit's eyes. You leave the plantation."
+    mount "No boss, we should not leave like this. Where is your courage that you expressed through this journey. Has it all gone?"
+    "Buenos and Tsing remain in silence, but you can tell from their faces that they are not happy either."
+    mount "#turn around# Brit, what you have done in this plantation is inhuman. and you should stop right now."
+    oop"Haha, is this a joke? Am I supposed to be laughing? Does world has changed so much that even drug smugglers nowadays can teach others how to be a proper human?"
+    mount "Yes we are smugglers but we have buttom line."
+    oop "Very funny. I have to say though I hate your boss, I like you, dude. Here, take this money and be my guy."
     menu:
-        "Continue convince him":
-            "Plantation owner took out a gun and shoot you and your team"
-            "You and your team try to fight back, but owner's bodyguards arrive soon. And kill all of your team."
-            return
-        "Accept the money and leave":
-            you"Let's go, I'm going to ask the state governor to take care of this."
-            buenos"Shut up, this plantation is protected by the governor. We gonna leave you after arriving home"
-            "You and your team flew back to the US with the drug."
-    "When you and your team came out of the airport, your team leave you."
-    "The governor ’s people found you and took you to the governor."
-    "Governor ask you to give him the drug and the pistol. But you see governor is alone and do not bring a gun, you are thinking to kill the governor and sell the drug"
+        "Remain in silence":
+            mount "No. Never. You are a disgusting person."
+            "Mount rushes to Brit and punches his face before you could stop him. Though astonished, Tsing and Buenos react quickly and join the battle with Mount."
+            oop"OK, this is getting interesting. Kill them, my guards!"
+            "Though you have a gun, but that cannot compare with several fully armed guys. You are your friends get defeated within a minute."
+            jump gameEnd
+        "That is enough, Mount. We should leave":
+            pass
+    "The whole team remains in silence as traveling through the underground railway."
     menu:
-        "Shoot Governor":
-            you "Go fuck yourself!"
+        "Well, maybe I can make the state governor take care of that":
+            tsing "Are you kidding us? You know it is not going to happen"
+            mount "Boss, you really let me down this time."
+            you "At least the state governor can put some pressure on him. You... you know, customer is the king."
+            buenos "Can you just shut up?"
+            you "Oh you are letting me shut up now. Then why didn't you speak up back in the plantation."
+            buenos "Because I heard somebody talking about the state governor at the moment."
+            you "Really nice, so what is the matter?"
+            buenos "This guy who we are working for, the state governor knows what is happening there. And he still chooses to this plantation because he just wants his fucking drug."
+            buenos "I cannot believe we are working for such cold-blood, hypocitical, and evil person."
+            "You do not know if Buenos is refering to you or the state governor. But you decide not to ask and remain silence in the rest of the trip."
+        "Remain in silence":
+            pass
+    "As soon as you get back to US, all of them three leave you without a word. You look at their backs through tears; there is really nothing left in your brain but tremendous sadness."
+    "You find a paper note in the car. There is an address on it. You set it as the destination then follow the GPS system like a robot."
+    "You arrive at the city hall of Los Angeles. You park the car at the parking lot. It is around 10:30, so not a lot of people around."
+    "Just before you get out of your seat, the back doors and the vice driving door are opened. three men enter the car. One of them is the mysterious man. He is sitting in the back."
+    "Another man in the back seat starts to speak."
+    sgboss"Hello, my friend %(playerName)s, welcome back. I am the state governor. Now you can give me the drug."
+    "You peek at the man seating next to you. He seems to be the bodyguard of the state governor."
+    you "It is under your seat. If you may excuse me, I shall leave now."
+    sgboss"No, no, no. Not so fast. I think we have a few other things to talk about."
+    "He takes one pill and puts it in his mouth Then you hear some strange voices from him."
+    sgboss"I heard one of your friend interests Brit a lot. I can pay a big money to... you know, sort of, buy his labor."
+    you "He left me already."
+    sgboss"OK, that's a shame. Just... just give my bodyguard your gun then leave."
+    menu:
+        "I will do this for my friends":
             "You pull out your gun and prepare to target the governor."
-            "Before you shoot governor, his bodyguards kill you immediately"
+            "But before you shoot governor, his bodyguards kill you immediately"
             "You are so close to you freedom and your family, but finally you choose the wrong step and fall in blood."
             return
-        "Give him the drug and the pistol.":
-            "The governor nodded and asked the bodyguard to send you home."
-            "After a few days, the governor sent some money and informed you that your files had been cleaned up."
-            "Finally, you can enjoy your life with your family"
-            return
+        "Give him the gun":
+            if daughter_die:
+                "The governor nods and asks the bodyguard to stay in the car before you arrive home. He then gets off the car. But the mysterious man does not follow."
+                mm "Jack, I'll do that. You may leave now."
+                "The bodyguard nods, then gets off as well."
+                mm "Finally, it's just you and me. Do not start the engine, I do not wish to go to your home. I just want to talk with you for a sec. Then I'll get off."
+                you "..."
+                mm "I just wanna say, nice work killing my dear sister."
+                you "..."
+                mm "I guess I should say thank you Huh?"
+                you "..."
+                mm "#stare at you# OK... you can leave now."
+                "After a few days, the governor sends some money and informs you that your files have been cleaned up."
+                "Finally, you can enjoy your life with your family"
+                return
+            else:
+                "The governor nods and asks the bodyguard to stay in the car before you arrive home."
+                "After a few days, the governor sends some money and informs you that your files have been cleaned up."
+                "Finally, you can enjoy your life with your family"
+                return
 
 
 label ending4:
-    "Because you kill too many people, the plantation owner do not trust you."
-    "He think you are a joker, and told you leave right now."
-    "However, you need to close the plantation or destroy it."
-    "But plantation owner have lots of bodyguards."
+    "You leave the plantation, get back to US by the underground railway. Find a note in the car with an address on it. Your drive to there, it is the city hall of Los Angeles."
+    "The front desk lead you and your crew to the top office. You see three men in the room. One of them is the mysterious man. The man sitting in the middle starts to speak."
+    sgboss"Hi, I am the state governor. First thing first, where is my drug"
+    "Tsing hands the jar of drug to the state governor. He takes one pill and puts it in his mouth Then you start to hear some strange voices from him."
+    sgboss"Yes, yes, it feels so right!"
+    you"So can we leave? I already feel sick of your mission."
+    sgboss"No, no, no. Not so fast. I think we have a few other things to talk about."
+    sgboss"I appreciate that you killed many troublemakers along your journey, so I offers you, all of you to stay and work for me."
     menu:
-        "Kill the plantation owner":
-            "You took out a gun and killed Owner, but then his bodyguard arrived and killed all of you"
-            jump gameEnd
-        "Leave the plantation":
-            "You and your team go back to US with drugs"
-    "When you came out of the airport, the governor ’s person found you and took you to the governor."
-    "Governor ask you to give him the drug and the pistol."
-    "He appreciates that you kill many troublemakers along your journey, so he offers you to stay and work for him."
-    menu:
-        "Refuse the work":
-            "Governor said you kill too many people, and know too much thing about me"
-            "He told his bodyguards to kill you"
-            return
+        "Refuse to stay":
+            sgboss"Fine, one last thing before you leave, give me back your gun."
+            "Shoot him":
+                "You pull out your gun and prepare to target the governor."
+                "But before you shoot governor, his bodyguards kill you immediately"
+                "You are so close to you freedom and your family, but finally you choose the wrong step and fall in blood."
+                return
+            "Give him the gun":
+                "Finally the journey is over. Driving in the LA downtown, you and your friends decide first to have something to eat."
+                Tsing "%(playerName)s, watch out!" with vpunch
+                "A big truck bumps into your car at the cross road. That is the last thing you know."
+                jump gameEnd
         "Accept the job":
-            "You accept the job."
-            "However, because you work for governor, you cannot see your family forever."
+            you "As long as you have money, whatever you say, boss."
+            "You three friends are unsure of this decision at beginning, but when they see a case of cash, they all start to laugh like you do."
+            "The job is busy and exciting. You never have a chance to go back to your family since you accepted the job. But who cares? You get money! And you can kill people with your friend. There can be no happier life than this in this world."
             return
 
 label gameEnd:
