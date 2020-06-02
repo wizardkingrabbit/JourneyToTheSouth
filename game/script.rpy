@@ -9,11 +9,11 @@ image bg Prison_Gate_B = LiveTile("Prison_Gate_B.png")
 image bg Prison_Gate_A = LiveTile("Prison_Gate_A.png")
 image bg Border = LiveTile("Border.png")
 image bg Border_Office = LiveTile("Border_Office.png")
-image bg Border_Protest = LiveTile("Border_Protest.png")
+image bg Border_Protest = LiveTile("Border_Protest_B.png")
 image bg Cityhall = LiveTile("Cityhall.png")
 image bg Dream = LiveTile("Dream.png")
 image bg Freeway = LiveTile("Freeway.png")
-image bg Gates_Office = LiveTile("Gates_Office.png")
+image bg Gates_Office = LiveTile("Gates_Office_B.png")
 image bg In_Car = LiveTile("In_Car.png")
 image bg Openspace = LiveTile("Openspace.png")
 image bg Out_Car = LiveTile("Out_Car.png")
@@ -24,6 +24,28 @@ image bg Prison_Cell_A = LiveTile("Prison_Cell_A.png")
 image bg Prison_Hall = LiveTile("Prison_Hall.png")
 image bg Prison_Office = LiveTile("Prison_Office.png")
 image bg Underground_Railroad = LiveTile("Underground_Railroad.png")
+
+image baitesp = LiveTile("baites.png")
+image big_markp = LiveTile("big_mark.png")
+image buenosp = LiveTile("buenos.png")
+image buenos_prisonp = LiveTile("buenos_prison.png")
+image gretap = LiveTile("greta.png")
+image guardAp = LiveTile("guardA.png")
+image guardBp = LiveTile("guardB.png")
+image guardCp = LiveTile("guardC.png")
+image little_boyp = LiveTile("little_boy.png")
+image little_girlp = LiveTile("little_girl.png")
+image mountp = LiveTile("mount.png")
+image mount_prisonp = LiveTile("mount_prison.png")
+image mr_britp = LiveTile("mr_brit.png")
+image mysterious_manp = LiveTile("mysterious_man.png")
+image mysteryp = LiveTile("mystery.png")
+image policep = LiveTile("police.png")
+image protesterp = LiveTile("protester.png")
+image recpetionistp = LiveTile("recpetionist.png")
+image tsingp = LiveTile("tsing.png")
+image tsing_prisonp = LiveTile("tsing_prison.png")
+
 
 # Endings
 define GEthresh = 3
@@ -45,6 +67,9 @@ define mark = Character("Big Mark")
 define daughter = Character("Anny")
 define unk = Character("???")
 define guard = Character("Prison Guard")
+define guardA = Character("Prison Guard")
+define guardB = Character("Prison Guard")
+define guardC = Character("Prison Guard")
 define pguard = Character("Guard")
 define officer = Character("Chief Officer")
 define mm = Character("Mysterious Man")
@@ -63,6 +88,8 @@ define sd_receptionist = Character("Receptionist")
 
 #Chapter 1 (Jingtian Li)
 label start:
+    scene bg Dream
+    show little_girl at right
     "Just where am I?"
     "You realize that this is a dream, and you don't want it to end."
     "Because here you see your little daughter, Anna. She is looking at you too, smiling."
@@ -72,7 +99,10 @@ label start:
     "You see your wife in the background, doing household chores. You want to speak with her, but you just can't bring your mouth to open."
     "Suddenly you hear your own voice shouting, 'I have to do this!'" with vpunch
     "'I do all I can to support this family!’ How tragic, your wife and daughter are frightened by your voice and you can't even stop it."
+    scene bg Prison_Cell_A
+    hide little_girl
     "You hear another voice, a voice from reality, thrusting into your dream, ‘Hey bastard, wake up.'"
+    show police at left
     unk "Somebody wants to see you."
     menu:
         "Wake up":
@@ -86,9 +116,10 @@ label start:
             "Fully awake, you remember where you are and quickly apologize to the patrolling officer."
             officer "Where do you think this is, asshole? It's a fucking prison, not a luxury hotel. Get your ass up."
             "He handcuffs your hands while you were still recovering from that one-sided beatdown."
-    scene bg Prison_Gate_C
+    scene bg Prison_Office
+    hide police
+    show mysterious_man at left
     "The officer takes you through the cell block and into a very fancy dining room."
-    show eileen happy
     "Sitting at the end of the table, you see a man in a suit. His face is covered with a mask."
     mm "‘Ah, if it isn't %(playerName)s. I know you. Please, sit’, he speaks casually."
     menu:
@@ -121,6 +152,8 @@ label start:
             mm "You have the experience. And you have family. I know you aren't a killer, or am I wrong? Right now, you are the best choice for us."
         "Why should I trust you?":
             mm "You are always free to decline my offer! That is, if you want to stay in this prison, lose your daughter, and never reunite with your family."
+    scene bg Out_Car
+    show mysterious_man
     "The mysterious man brings you out of the prison. You see a white Ford car parked in front of the prison gate."
     mm "That car is for you. There's also a fake ID and a credit card in the back seat. You're still convicted prisoner until this mission is complete, so try to stay low. And remember, we'll be keeping an eye on you as well as your beloved daughter."
     mm "Oh, and I almost forgot! This thing is also for you. Try not use this, will you?"
@@ -131,6 +164,7 @@ label start:
             mm "Sigh, how stupid."
             jump gameEnd
         "Get on your way":
+            hide mysterious_man
             "You stare at the mysterious man but you decide not to shoot him. He watches you geting into the car with a creepy smile on his face. Revving up the Ford, you step on the gas. A few seconds later, he disappears from the rearview mirror."
             jump transfer
 
@@ -138,6 +172,7 @@ label start:
  # Chapter 2 (Johnny Ngo & Jingtian Li) (Transfer->San Francisco->Transfer2)
 
 label transfer:
+    scene bg Freeway
     "Driving on the California freeway, your mind is all over the place."
     "What the hell just happened?"
     "One moment you were a prisoner with lifetime imprisonment, and now you're an escapee on a mission to be freed from conviction."
@@ -154,6 +189,7 @@ label transfer:
     jump SanFrancisco
 
 label SanFrancisco:
+    scene bg Prison_Gate_A
     "After parking the car in front of the San Francisco prison, all you can see in front of you is the gray, towering wall and a massive closed gate."
     "You tuck the gun behind your back and walk towards the gate."
     menu:
@@ -162,10 +198,14 @@ label SanFrancisco:
             jump gameEnd
         "Knock on the door":
             "A voice calls above you. You see a thin, short jail guard looking at you at the top of the gate."
+    show guardA at right
     you "Good evening sir, I am sent by the state governor. He issued an executive order to move a prisoner here to another place. I've got the papers with me."
     "The prison guard eyes you suspiciously for only a second before lowering his guard."
     "Years of working in the shady business has refined your improvisation skills indeed."
     guard "I see. Our chief officer will need to see the paperwork. I'll take you over to him."
+    scene bg Prison_Office
+    show guardB at left
+    show guardA at right
     "The guard opens the gate and brings you to the chief's office. You see the chief sitting on his chair enjoying a cup of black coffee."
     guard "This guy says he's here to conduct a prisoner transfer."
     officer "Sigh, this better be important. I'll take it from here."
@@ -281,8 +321,12 @@ label sf_5a:
     jump sf_5b
 
 label sf_5b:
+    scene bg Prison_Hall
+    show guardC at left
     "He escorts you to the northern cell block, presumably where Mr. Mount is. As you're passing by, you can hear the hysterical noises from the inmates."
     "You spot Mount in a cell slightly bigger than most. His gaze locks onto yours and you can see a mixture of both relief and happiness in his eyes."
+    scene bg Prison_Cell_A
+    show mount at right
     mount "Boss...is that you?"
     you "Long no see, buddy. I got some questions for you, but let's get you out of here first. Hey guard, open this cell up."
     mount "Ah, no need boss. This cell isn't locked."
@@ -295,6 +339,7 @@ label sf_5b:
     you "Mount, its already been four years. Isn't it time to leave? What happened to us?"
     mount "You know I'm a fighter, boss. This place is my heaven now, and you were in jail. Plus, even if I wanted to leave, Big Mark is the only person standing in my way."
     "A burst of laughter comes out from behind. You turn around and see a guy who's even bigger than Mr. Mount. He's also accompanied with other prisoners."
+    show big_mark at left
     you "Ah, you must be Big Mark."
     mark "And I thought you were a government envoy. Now it seems like there's nothing to be afraid of."
     you "The hell you talking about? I am a government envoy."
@@ -329,6 +374,9 @@ label sf_5b:
             mark "Haha! That's what we're talking about!"
             "Mount pulls me over again. For a veteran fighter, he seems to be shaking a little."
             mount "I don't think this is the solution, boss. This guy is more vicious than you think he is."
+            scene bg Openspace
+            show mount at right
+            show big_mark at left
         "Talk your way out of this":
             jump sf_6
 
@@ -415,6 +463,7 @@ label sf_6:
     jump transfer2
 
 label sf_markdead:
+    scene bg Openspace
     $ GoodTalks -= 1
     "You put a bloody hole between Mark's eyes. In that moment, everyone was shocked, including Mount. The next thing you remember was everybody clawing towards you to tear you apart. But Mount was there to protect you. He was on your side."
     "With some scratches and bruises, the two of you managed to get out of prison before anyone can catch you."
@@ -422,12 +471,17 @@ label sf_markdead:
     jump transfer2
 
 label transfer2:
+    scene freeway
+    show mount at right
     "After getting away from San Francisco, you finally get the chance to talk to Mount."
     you "Hey, Mount. I've been meaning to ask, but what happened to everybody back then? Why did you and everybody leave me?"
     "Mount doesn't say anything for a moment. You glance over and notice that he's clutching his hands tightly."
     mount "...it was my fault, boss. I was the one who killed those policemen. You know, that was actually my first time getting my hands dirty."
     mount "I'm a experienced sniper and fighter, yet the worse thing I did was shoot to threaten. That was all. This time, it was different. Everybody didn't know what to do, so we all ran..."
     #Entering Mount's flashback
+    scene bg Openspace
+    show buenos at right
+    show mount at left
     buenos "Mount...mount! Check if the other one is breathing!"
     "After shooting two policemen, Mount dropped his gun. He was shaking."
     "Buenos was the only one who had the courage to go up to them. Because of our countless, successful operations, this was really the first time dealing with a dead body."
@@ -443,6 +497,7 @@ label transfer2:
     buenos "You can't do anything to save anyone right now!" with hpunch
     "Buenos grabs Mount, as well as the other members, and escapes. By the end of the raid, you were the only one there."
     #End of flashback
+    scene bg Freeway
     menu:
         "I understand, Mount":
             you "If you guys hadn't left, this would have been the end for all of us. Buenos made the most reasonable choice."
@@ -461,6 +516,7 @@ label transfer2:
 
  # Chapter 3 (Jason Iino) <- das me :>
 label Sacramento:
+    scene bg Prison_Gate_B
     define baites = Character("Charles Baites")
     define alfred = Character("Alfred")
     define guard = Character("Guard")
@@ -2185,6 +2241,7 @@ label ending4:
             return
 
 label gameEnd:
+    scene bg Openspace
     "You were so close to your freedom and your family, but now you fall in your own blood. Hope you have a better luck next time."
     return
 
