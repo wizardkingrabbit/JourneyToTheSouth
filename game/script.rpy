@@ -1586,6 +1586,7 @@ label SanDiego:
 define protestor = Character("Protestor")
 
 label border:
+    #PROTEST SCENE
     "Riding down the 5 the air starts to get warmer. You see the border just over the horizon"
     you "Finally"
     buenos "What was that?"
@@ -1600,10 +1601,10 @@ label border:
     protestor "We refuse to stand by as these corparate douchebags try and ruin our planet!"
     you "Peace, love, and all that. Can me and my friends just squeeze past those barricades?"
     protestor "Not happening. We dont know who you are or WHO you work for!"
-    "The woman eyes the men in suits around 20 feet away. They are glued to their cell phones"
+    "The woman eyes the men in suits around 20 feet away. One is glued to their smartphone"
 
     menu:
-        "Convince Greta and the group to leave":
+        "Convince the protestor and the group to leave":
             you "Wait aren't you that lady from the news? Greta Scottson right? Funny seeing you here given whats happening in LA just a couple hours away"
             greta "What the hell are you going on about!? Whats in Los Angeles?"
             you "Oh you didnt hear? Extron is building a new pipeline right through the heart of Los Angeles under a lower class neighborhood!"
@@ -1613,16 +1614,20 @@ label border:
             greta "Well I haven't seen anything on my news app, how do I know you are telling the truth? For all I know that could be your address!"
             "You quickly remember a protest occured in that neighborhood after a cop drove into a cyclist about 6 months ago. You scramble onto your phone"
             you "Here, see?"
-            "you hold up a shady news article thats date only shows the year. Of course the title is just clickbait enough it doesnt mention what the protest is about."
+            "you hold up a shady news article with a date that only shows the year. Of course the title is just clickbait enough it doesn't mention what the protest is about."
             greta "Wow I had no idea! We should head there right away!"
             "Greta signals to the rest of the protesters who scramble to their cars, your team travels through the passage amongst the chaos..."
+            mount "That was way to easy"
+            you "Protestor's have good hearts and their head is in the right place, but usually they are pretty easy to trick. I wonder how long it will take them to realise I sent them to a McDonalds parking lot"
+            "The whole team laughs"
             $ GoodTalks += 1
             jump Mexico
-        "Help the Greta with the suits":
-            you "What if we tried to talk to these so called Douchebags for you?"
-            protestor "Be our guest! Talk to the main douche. Gates."
-            "The protestor laughs and goes back to chanting with the crowd"
+        "Help the protestor with the suits":
+            you "What if we tried to talk to these so called douchebags for you?"
+            protestor "Be our guest! Talk to the main douche. Gates. The one on his phone"
+            "The protestor giggles at the thought of you trying to help and goes back to chanting with the crowd"
             "You and the team approach the group of suits."
+            #SCENE CHANGE
             you "Excuse me, are you in charge here?"
             "The man pays you no attention, and continues staring at his phone"
             you "Ok then, hey Mount I think this guy wants to talk to you"
@@ -1638,7 +1643,6 @@ label border:
             jump Mexico
 
 label confront_gates:
-    # talk to gates, dude is an absolute nut job. the idea of extraterrestrial life is not crazy but this dude absolutely is
     menu:
         "Ask gates what the project is about":
             you "What do you guys want a fourth office building for on this street?"
@@ -1649,12 +1653,80 @@ label confront_gates:
             gates "A shining beacon of progress that will finally allow humanity to join the society amongst the stars"
             mount "This dude talkin' about aliens?"
             "Ok we are dealing with a nut job. Great."
-            jump confront_gates
+            you "How are you going to make this building a umm, Beacon was it?"
+            gates "A massive satellite dish array? Duh..."
+            you "Oh you mean like the ones scientists have set up all over the world? What makes yours so special?"
+            "Gates pauses for a moment, as if somehow he has never been asked that question"
+            gates "These are TECHRO satellites... You wouldn't understand even if I had the time to explain it to you..."
+            "Gates pays no attention to you and begins to make a phone call"
+            jump confront_gates2
         "Ask gates to cancel the project":
             you "Listen dude, you dont need a fourth office building in this area. Your company doesnt even have that many employees! Just cancel the project man."
             gates "Oh you are just one of the protestors, move along"
-            "Gates goes back to his phone and pays you no mind"
-            jump confront_gates
+            you "Protestor? No dude I'm just a man on a mission"
+            gates "A mission to piss me off? Why would I throw months of planning and millions of dollars in the trash because some random dude came up to me and told me to cancel? And people think I'm the crazy one? HA!"
+            you "I mean you said it not me"
+            "Gates gives you a piercing glare and goes back to his phone"
+            you "What if you postponed it like a day for me. I just need to get past these protestors man"
+            "Gates pays no attention to you and begins to make a phone call"
+            jump confront_gates3
+        "Kill Gates":
+            "You reach for your weapon..."
+            "But the left bodyguard is faster than you. He draws his weapon and shoots you square in the chest"
+            jump gameEnd
+        "Return to the Protestors":
+            "You begin to realise it is useless to try and talk to this guy and walk back toward the protestors"
+            jump backToGreta
+
+label confront_gates2:
+    menu:
+        "Ask gates to cancel the project":
+            you "Listen dude, you dont need a fourth office building in this area. Your company doesnt even have that many employees! Just cancel the project man"
+            gates "Oh you are just one of the protestors, move along"
+            you "Protestor? No dude I'm just a man on a mission"
+            "Gates angrily hangs up his phone"
+            gates "A mission to piss me off? Why would I throw months of planning and millions of dollars in the trash because some random dude came up to me and told me to cancel? And people think I'm the crazy one? HA!"
+            you "I mean you said it not me"
+            "Gates gives you a piercing glare and goes back to his phone"
+            you "What if you postponed it like a day for me. I just need to get past these protestors man"
+            "Gates pays no attention to you"
+            jump confront_gates4
+        "Kill Gates":
+            "You reach for your weapon..."
+            "But the left bodyguard is faster than you. He draws his weapon and shoots you square in the chest"
+            jump gameEnd
+        "Return to the Protestors":
+            "You begin to realise it is useless to try and talk to this guy and walk back toward the protestors"
+            jump backToGreta
+
+label confront_gates3:
+    menu:
+        "Ask gates what the project is about":
+            you "What do you guys want a fourth office building for on this street?"
+            gates "Oh this is no mere office building you feeble-minded fool"
+            "Feeble-minded? Who says that"
+            you "Ok then what is it Shakespeare?"
+            "Gates mumbles to the person on the phone"
+            gates "Ok I don't have a lot of time but to sum it up, this building is going to be a BEACON"
+            gates "A shining beacon of progress that will finally allow humanity to join the society amongst the stars"
+            mount "This dude talkin' about aliens?"
+            "Ok we are dealing with a nut job. Great."
+            you "How are you going to make this building a umm, Beacon was it?"
+            gates "A massive satellite dish array? Duh..."
+            you "Oh you mean like the ones scientists have set up all over the world? What makes yours so special?"
+            "Gates pauses for a moment, as if somehow he has never been asked that question"
+            gates "These are TECHRO satellites... You wouldn't understand even if I had the time to explain it to you..."
+            "Gates buries his head back into his smartphone and pays no attention to you"
+            jump confront_gates4
+        "Kill Gates":
+            "You reach for your weapon..."
+            "But the left bodyguard is faster than you. He draws his weapon and shoots you square in the chest"
+            jump gameEnd
+        "Return to the Protestors":
+            "You begin to realise it is useless to try and talk to this guy and walk back toward the protestors"
+            jump backToGreta
+label confront_gates4:
+    menu:
         "Kill Gates":
             "You reach for your weapon..."
             "But the left bodyguard is faster than you. He draws his weapon and shoots you square in the chest"
@@ -1663,6 +1735,7 @@ label confront_gates:
             "You begin to realise it is useless to try and talk to this guy and walk back toward the protestors"
             jump backToGreta
 label backToGreta:
+    #SCENE CHANGE
         menu:
             "Convince Greta and the group to leave":
                 you "Wait aren't you that lady from the news? Greta Scottson right? Funny seeing you here given whats happening in LA just a couple hours away"
