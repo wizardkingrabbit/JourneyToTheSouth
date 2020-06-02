@@ -1195,6 +1195,9 @@ label SanDiego:
     define sd_gun = False
     define sd_disguise = False
 
+    define sd_silent = 0
+    define sd_asked = False
+
     "After some time driving, the San Diego prison finally comes into view. This is final stop for getting your crew together"
     "You still wonder how Tsing ended up here, but at this point that's not really important. That can come later"
     "You drive up to the guard house that blocks the entrance to the prison. Two guards stationed there step out to greet you"
@@ -1267,14 +1270,103 @@ label SanDiego:
         sd_warden "We can start with what your actual goal is coming here to release Tsing for. Its clear he has some use to my father and I want to know what"
         "The warden is clearly going to do whatever it takes to get the information out of you. You could simply tell her the truth, but considering the hostility she shows towards her father that might not be a good idea"
         "Lying is also a possible choice, she does not know any of the specifics of what is going on so that leaves a good place to start."
-        menu:
-            "Tell the truth":
-                "not implemented"
-            "Tell a lie":
-                "not implemented"
-            "Stay silent":
-                "not implemented"
-        jump sd_end
+        label sd_route_questions:
+            menu:
+                "Ask her why she is doing this" if sd_asked == False:
+                    $ sd_asked = True
+                    you "So why go to all this trouble to hinder me, all the paperwork I have is legit"
+                    sd_warden "It has nothing to do with it being legit, it has to do with you working for my father. That is where the issue lies"
+                    you "Whatever problem you have with your father is not my problem, I am simply here with orders to get Tsing out"
+                    sd_warden "Yes, and I am sure the reason you are getting him out is to help my father"
+                    you "Why are you so against your father, that you would go this far to cause more trouble for everyone"
+                    sd_warden "Of course you wouldn't know, that man has caused so many problems for our family. I refuse to help him further make problems"
+                    sd_warden "He has torn us apart and made us his enemies, his own family. He chose is addiction and corruption over us. I will make him pay for that"
+                    sd_warden "Hindering you is simply one of those ways to hinder that man. I would say it's nothing personal, but it is very personal"
+                    sd_warden "So tell me, what did he ask you to do?"
+                    jump sd_route_questions
+                "Tell the truth":
+                    you "I was tasked with heading to Mexico to retrieve some drug from a plantation down there. I was not given much information more than that"
+                    you "I will have you know however, that I am not doing this exactly willingly"
+                    sd_warden "Your reasons for taking this task matter little to me, but now it makes sense. He is looking to satisfy is addiction to that damn drug once more."
+                    sd_warden "That drug is the reason for all this, the root all these problems, and yet he continues to make things worse. He just does not know when to stop."
+                    sd_warden "He has already taken so much from me and the rest of the family. I will not let you help him. You and your friends are not going to going anywhere anytime soon"
+                    you "Even if you stop me, I am sure he will just find someone else to take the job"
+                    sd_warden "Sadly, I cannot disagree with that, but this will still set him back, and that is at least something. Even the little hits can still hurt him"
+                    "It's pretty clear the warden and her father are not on great terms, and she fully intends to make sure you do not leave this place. Maybe there is some way to convince her to let you go"
+                    sd_warden "Anyways, you will spending a while here, I suggest you get conformatable"
+                    you "This does not have to go down this way. I hate that man just as much as you right now. But he has me where it hurts right now."
+                    you "However, maybe we can work together, and both get something we want"
+                    "This seems to have peaked the wardens interest as she motions for the guards to stop."
+                    sd_warden "Speak, and you better not be lying to me. My father is not the only one with the power to make certain things happen around here"
+                    "You nod slowly at the warden, taking her threat to heart. After your dealings with the mysterious man, you do not doubt her claim."
+                    you "The plantation he is sending me to, I could destroy it. Shut down the operations there. I am sure with my crews help we could achieve that"
+                    you "Removing that plantation will definitely hurt your father, more so than preventing my crew and I from continuing with the mission"
+                    you "And it lets me get a chance to get back at him as well, its a win win for both of us"
+                    sd_warden "Hmm, that is quite the tempting offer, but once you leave here I still have no way of making sure you stay to your word"
+                    you "True, and I have nothing to give as insurance, but this is still the type of oppurtunity you have been waiting for. I know that much"
+                    you "This is a gamble for both of us, but I believe the odds are in our favor. You would be wise to take advantage of this"
+                    you "In the end, if I fail, noone will know of what we transpired to do here. Your name won't ever be mentioned"
+                    sd_warden "That is true, this is the first chance I have had in a while to truly strike back at that man"
+                    sd_warden "I believe we may just have found some common ground. However, I will remind you once more, do not double cross me. You will regret it"
+                    "The warden is not understating that threat, she clearly means to take you down if you betray her. But she at least seems to have come to agree with your plan, you actually just might get out of here with Tsing after all."
+                    you "So it sounds like we have a deal, if you just get me Tsing, my crew and I can get out of here and stop causing any more problems for you"
+                    jump sd_route_convinced
+                "Tell a lie":
+                    "The warden still does not know what your mission actually is at this point. Maybe there is still a chance to convince her without revealing anything about the actual task"
+                    "The question then is, what can you convince her with that could get you and your crew out of here"
+                    "After thinking to yourself in the few moments you had, you realize that she probably doesn't know about the mysterious man, this could work to your advantage"
+                    you "A mysterious man came to me in the prison I was being held at. He gave me a deal I could not refuse"
+                    you "I do not have many details, as the information the man gave me was minimal at best, but one thing I know is that what I am being asked to do is not to help your father"
+                    you "If anything, what I was asked to do would help take down your father"
+                    "The warden looks at you skeptically, she does not look like she is really buying the lie"
+                    sd_warden "So you expect me to believe that you came here with an executive order signed by my father, the very man your supposedly tasked with helping take down"
+                    you "Once again, the details I know are minimal, I was simply told to come get Tsing out of prison as he is a part of the mysterious mans plan"
+                    you "How the mysterious man got the paperwork is beyond what I know and allowed to know"
+                    you "I am just lowly henchman, nothing more"
+                    "The warden still has the same skeptical look as before, but you can tell she is starting to relax a bit, the lie just might be working"
+                    sd_warden "I still do not find any of this to be believable, for one I find it hard to believe you actually know as little as you do"
+                    sd_warden "You are clearly a decently smart man, you cannot realistically expect me to believe that this is all you have been told"
+                    "You are so close to getting her to believe you, you know it. But you still need something to push her over the edge, anything at this point"
+                    you "I may have overheard a thing or two, but I do not know if I should share anything. You never know who is listening"
+                    "The warden gives you a smile, looks like she may finally have bought it"
+                    sd_warden "Oh really, so you do actually know something, I knew it. Don't worry any said in these walls stays in these walls, I am sure of that"
+                    "You give her a skeptical look of your own, but bow your head a bit and speak quietely, hoping to truly sell the lie"
+                    you "I overheard the man who gave me my orders talking to another person, I do not know who, but they mentioned something about a plantation in Mexico and some drug it produces"
+                    you "I think they were talking about ways to sabotage it, I am not entirely sure though as I had to be careful to not be found out"
+                    sd_warden "Hmm, I have heard about one of my fathers suppliers being in Mexico, that at least checks out"
+                    sd_warden "And if this man is truly trying to sabotage this plantation to get at my father, I would be stupid not help. Anything to hurt my father benefits me."
+                    "The warden goes silent for a while, clearly lost in her own thoughts. After some time she finally looks up"
+                    sd_warden "This is an oppurtunity I will not see often, so I am going to choose to believe you. But, let me warn you now, if you are lying to me and are planning to help my father, I will know1"
+                    sd_warden "If you think the people you work for are powerful, then you should understand what I am capable of. I will not tolerate being betrayed, so you better be telling the truth"
+                    "you give the warden a quick nod, making sure to show you acknowledged her threat, which you doubt she is understating at all"
+                    you "Of course, I am not so foolish as to lie and end up an enemy of someone like you"
+                    sd_warden "Good, seems we have an understanding then"
+                    jump sd_route_convinced
+                "Stay Silent":
+                    if sd_silent == 0:
+                        $ sd_silent += 1
+                        sd_warden "Choosing to hold your tongue I see. You do understand your powerless here. Your better off telling me what I want to know now. It will make both of our lives easier"
+                        sd_warden "Once again, I ask you what your purpose is here and why are you getting Mr. Tsing out of prison?"
+                        jump sd_route_questions
+                    elif sd_silent == 1:
+                        $ sd_silent += 1
+                        sd_warden "Still trying to play hard I see. You know your not the only one your screwing over by staying silent. Your companions probably won't be happy to know that their predictament is entirely your fault"
+                        sd_warden "If you care at all about them, you should start talking. I can cause lots of trouble for you if you don't start talking"
+                        jump sd_route_questions
+                    elif sd_silent == 2:
+                        $ sd_silent += 1
+                        sd_warden "This is my last warning. Continue to hold your tongue and you will truly never see the light of day again. I will make sure you and your friends rot in here"
+                        sd_warden "All you have to do is tell what you are here for, it is that simple. Your an idiot if you cannot understand that."
+                        sd_warden "Last chance, speak, or you will live in hell for the rest of your life"
+                        jump sd_route_questions
+                    else:
+                        sd_warden "Oh well, I tried to work with you. Maybe we could of even worked something out, but no, you just had to hold your tongue. Whether I get that information or not, I still win dthis fight"
+                        sd_warden "I hope you enjoy it here, you are going to be here a while. At least you get to stay with your friends, isn't that nice. Although I would not be happy if I were them"
+                        sd_warden "You are the reason they are getting locked up after all"
+                        "With one last laugh in your direction, the warden walked out of the room, slamming the door behind her. You have failed your mission and get stuck in prison once again."
+                        "Game Over"
+                        return
+
     label sd_route_distract:
         "There is no way your going back into a cell, and there is no way you are going to fail this mission, not with what is at stake"
         "As you get close to the janitor, he moves to the side to allow the guards past. As he does this though, you dash for it and push the cart directly at the guards in front of you. Blocking them off for a moment"
@@ -1416,19 +1508,17 @@ label SanDiego:
                                 sd_warden "I believe we may just have found some common ground. However, I will remind you once more, do not double cross me. You will regret it"
                                 "The warden is not understating that threat, she clearly means to take you down if you betray her. But she at least seems to have come to agree with your plan, you actually just might get out of here with Tsing after all."
                                 you "So it sounds like we have a deal, if you just get me Tsing, my crew and I can get out of here and stop causing any more problems for you"
-                                jump sd_route_confront
+                                jump sd_route_convinced
                             "Surrender":
                                 "There is no talking your way out of this now. Your not armed either, so the chances of fighting your way out are basically nothing. All you can do is go along with her now"
-                                "You throw your hands in the air and surrender to the approaching guards"
-                                "Nothing left to do now but wait and hope something goes right in the future, but that is unlikely to happen. Seems like this whole insane task was truly impossible."
+                                "You throw your hands in the air and surrender to the approaching guards"                                    "Nothing left to do now but wait and hope something goes right in the future, but that is unlikely to happen. Seems like this whole insane task was truly impossible."
                                 "Game Over, you surrendered to the warden and remained in capitivty."
                                 return
                             "Draw your weapon" if sd_gun == True:
                                 jump sd_route_shoot
                     "Tell a lie":
                         "The warden still does not know what your mission actually is at this point. Maybe there is still a chance to convince her without revealing anything about the actual task"
-                        "The question then is, what can you convince her with that could get you and your crew out of here"
-                        "After thinking to yourself int he few moments you had, you realize that she probably doesn't know about the mysterious man, this could work to your advantage"
+                        "The question then is, what can you convince her with that could get you and your crew out of here"                            "After thinking to yourself int he few moments you had, you realize that she probably doesn't know about the mysterious man, this could work to your advantage"
                         you "A mysterious man came to me in the prison I was being held at. He gave me a deal I could not refuse"
                         you "I do not have many details, as the information the man gave me was minimal at best, but one thing I know is that what I am being asked to do is not to help your father"
                         you "If anything, what I was asked to do would help take down your father"
@@ -1560,7 +1650,6 @@ label SanDiego:
             "You ignore the receptionist and make your way quickly towards your car, hopping in as fast as you can and driving off."
             "Finally free of the prison, and hoping no one is following you, you finally relax a bit. It would only be a matter of time before the next trouble occurs"
             jump border
-
 
 # Chapter 5 (Ian Maynard)
 
