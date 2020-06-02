@@ -5,6 +5,25 @@
 
 #art
 image bg Prison_Gate_C = LiveTile("Prison_Gate_C.png")
+image bg Prison_Gate_B = LiveTile("Prison_Gate_B.png")
+image bg Prison_Gate_A = LiveTile("Prison_Gate_A.png")
+image bg Border = LiveTile("Border.png")
+image bg Border_Office = LiveTile("Border_Office.png")
+image bg Border_Protest = LiveTile("Border_Protest.png")
+image bg Cityhall = LiveTile("Cityhall.png")
+image bg Dream = LiveTile("Dream.png")
+image bg Freeway = LiveTile("Freeway.png")
+image bg Gates_Office = LiveTile("Gates_Office.png")
+image bg In_Car = LiveTile("In_Car.png")
+image bg Openspace = LiveTile("Openspace.png")
+image bg Out_Car = LiveTile("Out_Car.png")
+image bg Plantation_Gate = LiveTile("Plantation_Gate.png")
+image bg Plantation_Inside = LiveTile("Plantation_Inside.png")
+image bg Plantation_Farmland = LiveTile("Plantation_Farmland.png")
+image bg Prison_Cell_A = LiveTile("Prison_Cell_A.png")
+image bg Prison_Hall = LiveTile("Prison_Hall.png")
+image bg Prison_Office = LiveTile("Prison_Office.png")
+image bg Underground_Railroad = LiveTile("Underground_Railroad.png")
 
 # Endings
 define GEthresh = 3
