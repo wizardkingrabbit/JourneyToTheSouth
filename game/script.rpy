@@ -30,9 +30,9 @@ image big_markp = LiveTile("big_mark.png")
 image buenosp = LiveTile("buenos.png")
 image buenos_prisonp = LiveTile("buenos_prison.png")
 image gretap = LiveTile("greta.png")
-image guardAp = LiveTile("guardA.png")
-image guardBp = LiveTile("guardB.png")
-image guardCp = LiveTile("guardC.png")
+image guardAp = LiveTile("guard1.png")
+image guardBp = LiveTile("guard2.png")
+image guardCp = LiveTile("guard3.png")
 image little_boyp = LiveTile("little_boy.png")
 image little_girlp = LiveTile("little_girl.png")
 image mountp = LiveTile("mount.png")
@@ -71,9 +71,9 @@ define mark = Character("Big Mark")
 define daughter = Character("Anny")
 define unk = Character("???")
 define guard = Character("Prison Guard")
-define guardA = Character("Prison Guard")
-define guardB = Character("Prison Guard")
-define guardC = Character("Prison Guard")
+image guard1p = LiveTile("guard1.png")
+image guard2p = LiveTile("guard2.png")
+image guard3p = LiveTile("guard3.png")
 define pguard = Character("Guard")
 define officer = Character("Chief Officer")
 define mm = Character("Mysterious Man")
@@ -126,7 +126,6 @@ label start:
             officer "Where do you think this is, asshole? It's a fucking prison, not a luxury hotel. Get your ass up."
             "He handcuffs your hands while you were still recovering from that one-sided beatdown."
     scene bg Prison_Office with dissolve
-    hide police
     show mysterious_man at left
     "The officer takes you through the cell block and into a very fancy dining room."
     "Sitting at the end of the table, you see a man in a suit. His face is covered with a mask."
@@ -175,7 +174,6 @@ label start:
             jump gameEnd
         "Get on your way":
             "You stare at the mysterious man but you decide not to shoot him. He watches you geting into the car with a creepy smile on his face. Revving up the Ford, you step on the gas. A few seconds later, he disappears from the rearview mirror."
-            hide mysterious_man
             jump transfer
 
 
@@ -208,17 +206,18 @@ label SanFrancisco:
             jump gameEnd
         "Knock on the door":
             "A voice calls above you. You see a thin, short jail guard looking at you at the top of the gate."
-    show guardA at left
+    show guard1 at left
     you "Good evening sir, I am sent by the state governor. He issued an executive order to move a prisoner here to another place. I've got the papers with me."
     "The prison guard eyes you suspiciously for only a second before lowering his guard."
     "Years of working in the shady business has refined your improvisation skills indeed."
     guard "I see. Our chief officer will need to see the paperwork. I'll take you over to him."
     scene bg Prison_Office with dissolve
-    show guardB at right
+    show guard1 at left
+    show guard2 at right
     "The guard opens the gate and brings you to the chief's office. You see the chief sitting on his chair enjoying a cup of black coffee."
     guard "This guy says he's here to conduct a prisoner transfer."
     officer "Sigh, this better be important. I'll take it from here."
-    hide guardA
+    hide guard1
     "You take out the paper that the mysterious man gave you and hand it over to the chief officer."
     officer "Hm. Usually we need to do some investigations on these kind of requests. That means it would take a few weeks to verify and get back to you. But..."
     "The officer makes sure no one is watching and makes a gesture that you know all too well."
@@ -334,9 +333,9 @@ label sf_5b:
     scene bg Prison_Hall with dissolve
     "He escorts you to the northern cell block, presumably where Mr. Mount is. As you're passing by, you can hear the hysterical noises from the inmates."
     "You spot Mount in a cell slightly bigger than most. His gaze locks onto yours and you can see a mixture of both relief and happiness in his eyes."
-    hide gaurdB
+    hide gaurd2
     scene bg Prison_Cell_A with dissolve
-    show mount at left
+    show mount_prison at left
     mount "Boss...is that you?"
     you "Long no see, buddy. I got some questions for you, but let's get you out of here first. Hey guard, open this cell up."
     mount "Ah, no need boss. This cell isn't locked."
@@ -384,12 +383,14 @@ label sf_5b:
             mark "Haha! That's what we're talking about!"
             "Mount pulls me over again. For a veteran fighter, he seems to be shaking a little."
             mount "I don't think this is the solution, boss. This guy is more vicious than you think he is."
-            scene bg Openspace with dissolve
         "Talk your way out of this":
             jump sf_6
 
     you "I have plan. He's not going to be able to beat you, and I need you to trust me on that."
     you "Believe in yourself. You're only thinking you can't beat him because you're not believing. Give yourself some more confidence."
+    scene bg Openspace with dissolve
+    show mount_prison at left
+    show big_mark at right
     "Big Mark and other prisoners lead you to the main hall of the prison. The prison guard comes foward to act as the referee."
     "The duel begins without a moment of preperation. Mount's expression still lacks determination."
     "Big Mark charges in, delivering heavy punches to Mount without him being able to retaliate."
@@ -473,6 +474,8 @@ label sf_6:
 
 label sf_markdead:
     scene bg Openspace with dissolve
+    show mount_prison at left
+    show big_mark at right
     $ GoodTalks -= 1
     "You put a bloody hole between Mark's eyes. In that moment, everyone was shocked, including Mount. The next thing you remember was everybody clawing towards you to tear you apart. But Mount was there to protect you. He was on your side."
     hide big_mark
@@ -523,10 +526,8 @@ label transfer2:
             "All you can do is slam on the car horn. Mount waits patiently until blew off your steam."
             you "It doesn't matter anymore. The past is in the past now."
             mount "I'm sorry, boss. Everything we did was shit."
-        you "Sigh. Anyways, let's just get going. Our next stop is Sacramento. Buenos, we're coming to get you."
+    you "Sigh. Anyways, let's just get going. Our next stop is Sacramento. Buenos, we're coming to get you."
     jump Sacramento
-
- #mount is being shown on the left here, so make sure you do hide mount somewhere
     
  # Chapter 3 (Jason Iino) <- das me :>
 label Sacramento:
