@@ -1911,8 +1911,11 @@ label backToGreta:
 
 # Chapter 6 (Jingtian Li & haonan lin)
 label Mexico:
+    scene bg freeway
+    show mount
     "After all kinds of hardships, you and your teammates finally arrived at the destination of this trip"
     mount "Everyone, I am so excited and feels that victory is so closed"
+    scene bg Plantation_Gate
     "However, things are not easy as they seem. Outside your destination, there is a huge wall"
     "The only entrance has many security guards at the door"
     "You and your teammates can try to enter from the main entrance or try to find another way into the plantation"
@@ -1938,6 +1941,8 @@ label Mexico:
     you "Hang in there a little longer and victory is ahead. I think the exit is just ahead"
     "Suddenly you smell the fresh air and everyone gets excited"
     "Finally, you climbed out of a hidden manhole cover"
+    scene bg Plantation_Inside
+    show little_boy
     "You start searching for this plantation"
     lb"Who are you? What are you doing here?"
     "Your whereabouts were caught by a little boy. Buenos rush up and try to cover the little boy's mouth"
@@ -1975,6 +1980,7 @@ label Mexico:
                     buenos"Good news, %(playerName)s, they are going to take us to their boss, Mr. Brit."
                     jump mexico_2
         "Kill this kid":
+            hide little_boy
             $ GoodTalks -= 1
             tsing "WTF, what are you doing"
             you "letting this kid running around would cause trouble."
@@ -1984,6 +1990,9 @@ label Mexico:
             buenos "I can hear some security guys calling him Mr. Brit."
 
 label mexico_2:
+    scene bg Plantation_Farmland
+    show mr_brit
+    show buenos at right
     "Mr. Brit seems to be interested when he sees you. But he does not get down from his horse."
     oop"#Spanish#"
     buenos"He knows we are not locals, and he wants to know why we are here."
@@ -2015,6 +2024,10 @@ label mexico_2:
             jump mexico_3
 
 label mexico_3:
+    scene bg Plantation_Farmland
+    show Mount
+    show tsing at right
+    show buenos at left
     "The face of Brit is furious. His guards also look irritated."
     mount "we should go"
     buenos "He's right, %(playerName)s"
@@ -2043,6 +2056,10 @@ label mexico_3:
 
 # Endings (Jingtian Li & Guozheng Yang)
 label ending1:
+    scene bg Plantation_Farmland
+    show Mount
+    show tsing at right
+    show buenos at left
     "You swiftly put out your gun and shoot Brit. He falls down. It is not a deadly shot, but still shocking enough. Before Brit makes any order, Mount rushes to one of his guard, knocked him out and throws his gun to Tsing."
     "Tsing also reacts quickly, he uses the gun to kill two other guards standing next to Brit. But Tsing also gets one shot on the right arm."
     tsing "Buenos, pick up the gun!"
@@ -2053,7 +2070,10 @@ label ending1:
     buenos"we should bring them back to America."
     mount "I agree boss. you should bring those kids through border. We shall take the drug back by underground railway."
     you "sounds like a nice plan to me."
+    scene bg Border_Office
     "You and the kids reach the US-Mexico border."
+    show police at right
+    show guard3 at left
     you "Police officers, they are refugees from Mexico. I just rescued them from a plantation in Mexico."
     uspa "Who are you? How can you prove they are refugees instead of illegal immigrants."
     uspb "Oh I thought those two are the same things."
@@ -2063,6 +2083,9 @@ label ending1:
     "You see the police searching for something in the drawer. Later, he finds a photo of you."
     uspa "Shit, he is the guy."
     "they knock you off with a electric gun. You fall down without a chance of defending yourself. When you wake up, you find yourself in a big office room. the state governor stands in front of you, aside with the mysterious man."
+    scene bg Prison_Office
+    show mystery
+    show mysterious_man at left
     sgboss "welcome home boy. you have done an excelent job. You friends already gave me what I want. But I still want to thank you in person, and remind you that this is a secret between us. Now you are free to leave."
     you "where are my friends, where are those kids?"
     sgboss "#chuckle# I do not know where your friends are. I gave them freedom as well."
@@ -2070,6 +2093,7 @@ label ending1:
     you "you asshole..."
     "once again you reach your hand to your pocket for gun, but you find it gone."
     sgboss "What are you waiting for, get back to your family, and good luck to rest of your life."
+    hide mystery
     if daughter_die:
         "Before you leave the building, the mysterious man stops you. After he makes sure there is no one around, he drags you to a corner."
         you "What the hell"
@@ -2079,10 +2103,15 @@ label ending1:
         mm "Actually I think I should say thank you."
         you "Thank me for what? I have had enough of you and your father. could you let me leave now?"
         mm "#stare at you# OK... you can leave now."
+    scene Cityhall
     "You head out of building and find yourself at the city hall of Los Angeles. People around you look at you like you are an alien. But whatever, you can return to your family now."
     return
 
 label ending2:
+    scene bg Plantation_Farmland
+    show Mount
+    show tsing at right
+    show buenos at left
     "You swiftly put out your gun and shoot Brit. He falls down. It is not a deadly shot, but still shocking enough. Before Brit makes any order, Mount rushes to one of his guard, knocked him out and throws his gun to Tsing."
     "Tsing also reacts quickly, he uses the gun to kill two other guards standing next to Brit. But Tsing also gets one shot on the right arm."
     mount "Buenos, pick up the gun!"
@@ -2097,6 +2126,8 @@ label ending2:
     you "Mount, GET DOWN!"
     "It is too late, Brit puts a bullet in Mount's head. Next shot, Brit kills Buenos. Sadness overwhelms you and other guards start to gather around you."
     tsing "Boss, we must leave right now!"
+    hide buenos
+    hide mount
     menu:
         "Run, Tsing, Run!":
             "Although both of you are fast, Tsing still sustains a fatal shot. He dies in the plantation. But you escape with the drug."
@@ -2104,10 +2135,17 @@ label ending2:
             "You reload your gun and try to protect Tsing while retreating. You never want to lose one more friend."
             "However, there are too many of them. Short after, both of you are shot."
             jump gameEnd
+    hide tsing
+    scene bg Underground_Railroad
     "Tear covers your face as you travel through the underground railway. When you finally get back to US, there is really nothing left in your brain but tremendous sadness."
+    scene bg Out_Car
     "You find a paper note in the car. There is an address on it. You set it as the destination then follow the GPS system like a robot."
+    scene bg Cityhall
     "You arrive at the city hall of Los Angeles. You park the car at the parking lot. It is around 10:30, so not a lot of people around."
     "Just before you get out of your seat, the back doors and the vice driving door are opened. three men enter the car. One of them is the mysterious man. He is sitting in the back."
+    scene bg In_Car
+    show mystery
+    show mysterious_man at right
     "Another man in the back seat starts to speak."
     sgboss"Hello, my friend %(playerName)s, welcome back. I am the state governor. Now you can give me the drug."
     "You peek at the man seating next to you. He seems to be the bodyguard of the state governor."
@@ -2123,6 +2161,7 @@ label ending2:
             "You are so close to you freedom and your family, but finally you choose the wrong step and fall in blood."
             return
         "Give him the gun":
+            hide mystery
             if daughter_die:
                 "The governor nods and asks the bodyguard to stay in the car before you arrive home. He then gets off the car. But the mysterious man does not follow."
                 mm "Jack, I'll do that. You may leave now."
@@ -2134,16 +2173,22 @@ label ending2:
                 mm "I guess I should say thank you Huh?"
                 you "..."
                 mm "#stare at you# OK... you can leave now."
+                scene bg Dream
                 "After a few days, the governor sends some money and informs you that your files have been cleaned up."
                 "Finally, you can enjoy your life with your family"
                 return
             else:
+                scene bg Dream
                 "The governor nods and asks the bodyguard to stay in the car before you arrive home."
                 "After a few days, the governor sends some money and informs you that your files have been cleaned up."
                 "Finally, you can enjoy your life with your family"
                 return
 
 label ending3:
+    scene bg Plantation_Farmland
+    show Mount
+    show tsing at right
+    show buenos at left
     "You wish you can convince him to give up child labor, but finally, you give up because you see the anger in Brit's eyes. You leave the plantation."
     mount "No boss, we should not leave like this. Where is your courage that you expressed through this journey. Has it all gone?"
     "Buenos and Tsing remain in silence, but you can tell from their faces that they are not happy either."
@@ -2161,6 +2206,10 @@ label ending3:
         "That is enough, Mount. We should leave":
             pass
     "The whole team remains in silence as traveling through the underground railway."
+    scene bg Underground_Railroad
+    show Mount
+    show tsing at right
+    show buenos at left
     menu:
         "Well, maybe I can make the state governor take care of that":
             tsing "Are you kidding us? You know it is not going to happen"
@@ -2175,9 +2224,14 @@ label ending3:
             "You do not know if Buenos is refering to you or the state governor. But you decide not to ask and remain silence in the rest of the trip."
         "Remain in silence":
             pass
+    scene bg In_Car
     "As soon as you get back to US, all of them three leave you without a word. You look at their backs through tears; there is really nothing left in your brain but tremendous sadness."
     "You find a paper note in the car. There is an address on it. You set it as the destination then follow the GPS system like a robot."
+    scene bg Cityhall
     "You arrive at the city hall of Los Angeles. You park the car at the parking lot. It is around 10:30, so not a lot of people around."
+    scene bg In_Car
+    show mystery
+    show mysterious_man
     "Just before you get out of your seat, the back doors and the vice driving door are opened. three men enter the car. One of them is the mysterious man. He is sitting in the back."
     "Another man in the back seat starts to speak."
     sgboss"Hello, my friend %(playerName)s, welcome back. I am the state governor. Now you can give me the drug."
@@ -2195,6 +2249,7 @@ label ending3:
             "You are so close to you freedom and your family, but finally you choose the wrong step and fall in blood."
             return
         "Give him the gun":
+            hide mystery
             if daughter_die:
                 "The governor nods and asks the bodyguard to stay in the car before you arrive home. He then gets off the car. But the mysterious man does not follow."
                 mm "Jack, I'll do that. You may leave now."
@@ -2206,10 +2261,12 @@ label ending3:
                 mm "I guess I should say thank you Huh?"
                 you "..."
                 mm "#stare at you# OK... you can leave now."
+                scene bg Dream
                 "After a few days, the governor sends some money and informs you that your files have been cleaned up."
                 "Finally, you can enjoy your life with your family"
                 return
             else:
+                scene bg Dream
                 "The governor nods and asks the bodyguard to stay in the car before you arrive home."
                 "After a few days, the governor sends some money and informs you that your files have been cleaned up."
                 "Finally, you can enjoy your life with your family"
@@ -2217,8 +2274,17 @@ label ending3:
 
 
 label ending4:
+    scene bg Underground_Railroad
+    show Mount
+    show tsing at right
+    show buenos at left
     "You leave the plantation, get back to US by the underground railway. Find a note in the car with an address on it. Your drive to there, it is the city hall of Los Angeles."
+    scene bg Cityhall
+    show receptionist
     "The front desk lead you and your crew to the top office. You see three men in the room. One of them is the mysterious man. The man sitting in the middle starts to speak."
+    hide receptionist
+    show mystery
+    show mysterious_man at right
     sgboss"Hi, I am the state governor. First thing first, where is my drug"
     "Tsing hands the jar of drug to the state governor. He takes one pill and puts it in his mouth Then you start to hear some strange voices from him."
     sgboss"Yes, yes, it feels so right!"
@@ -2235,7 +2301,9 @@ label ending4:
                     "You are so close to you freedom and your family, but finally you choose the wrong step and fall in blood."
                     return
                 "Give him the gun":
+                    scene bg In_Car
                     "Finally the journey is over. Driving in the LA downtown, you and your friends decide first to have something to eat."
+                    show tsing
                     Tsing "%(playerName)s, watch out!" with vpunch
                     "A big truck bumps into your car at the cross road. That is the last thing you know."
                     jump gameEnd
