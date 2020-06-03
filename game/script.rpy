@@ -1766,6 +1766,7 @@ label border:
     scene bg Freeway with dissolve
     "Riding down the 5 the air starts to get warmer. You see the border just over the horizon"
     you "Finally"
+    scene border with dissolve
     buenos "What was that?"
     you "I see the border... and..."
     "Squinting your eyes as you get off the highway, you see a large crowd near the entrance to the underground passage"
@@ -1773,7 +1774,8 @@ label border:
     scene bg Border_Protest with dissolve
     "You and the team park the car and get out to approach the crowd. They appear to be protesting something. Imagine having that kind of time"
     "You seem to spot their leader, a tall nordic looking woman"
-    show gretap
+    show greta
+    show protester at left
     you "Excuse me, what exactly is goin on here?"
     protestor "We are protesting the absolutely ABSURD notion that Techro needs any more office buildings in this part of town. They already have 3 on this street alone!"
     protestor "To make matters worse, they plan on making this bigger and ,as a result, more environmentally hazardous than their previous offices"
@@ -1807,7 +1809,6 @@ label border:
             "The protestor giggles at the thought of you trying to help and goes back to chanting with the crowd"
             "You and the team approach the group of suits."
             scene bg Gates_Office with dissolve
-            show
             you "Excuse me, are you in charge here?"
             "The man pays you no attention, and continues staring at his phone"
             you "Ok then, hey Mount I think this guy wants to talk to you"
@@ -1826,8 +1827,8 @@ label confront_gates:
     menu:
         "Ask gates what the project is about":
             you "What do you guys want a fourth office building for on this street?"
-            gates "Oh this is no mere office building you feeble-minded fool"
-            "Feeble-minded? Who says that"
+            gates "Oh this is no mere office building you feeble-minded fool!"
+            "Feeble-minded? Who says that!?"
             you "Ok then what is it Shakespeare?"
             gates "This building shall be a BEACON"
             gates "A shining beacon of progress that will finally allow humanity to join the society amongst the stars"
@@ -1844,7 +1845,7 @@ label confront_gates:
             you "Listen dude, you dont need a fourth office building in this area. Your company doesnt even have that many employees! Just cancel the project man."
             gates "Oh you are just one of the protestors, move along"
             you "Protestor? No dude I'm just a man on a mission"
-            gates "A mission to piss me off? Why would I throw months of planning and millions of dollars in the trash because some random dude came up to me and told me to cancel? And people think I'm the crazy one? HA!"
+            gates "A mission to piss me off? Why would I throw months of planning and millions of dollars in the trash because some random dude came up to me and told me to cancel? And people think I'm the crazy one? HA!" with hpunch
             you "I mean you said it not me"
             "Gates gives you a piercing glare and goes back to his phone"
             you "What if you postponed it like a day for me. I just need to get past these protestors man"
@@ -1865,7 +1866,7 @@ label confront_gates2:
             gates "Oh you are just one of the protestors, move along"
             you "Protestor? No dude I'm just a man on a mission"
             "Gates angrily hangs up his phone"
-            gates "A mission to piss me off? Why would I throw months of planning and millions of dollars in the trash because some random dude came up to me and told me to cancel? And people think I'm the crazy one? HA!"
+            gates "A mission to piss me off? Why would I throw months of planning and millions of dollars in the trash because some random dude came up to me and told me to cancel? And people think I'm the crazy one? HA!" with hpunch
             you "I mean you said it not me"
             "Gates gives you a piercing glare and goes back to his phone"
             you "What if you postponed it like a day for me. I just need to get past these protestors man"
@@ -1916,7 +1917,8 @@ label confront_gates4:
             jump backToGreta
 label backToGreta:
     scene bg Border_Protest with dissolve
-    show gretap
+    show greta
+    show protester at left
     menu:
         "Convince Greta and the group to leave":
             you "Wait aren't you that lady from the news? Greta Scottson right? Funny seeing you here given whats happening in LA just a couple hours away"
