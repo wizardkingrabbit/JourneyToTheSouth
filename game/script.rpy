@@ -531,6 +531,13 @@ label transfer2:
 
  # Chapter 3 (Jason Iino) <- das me :>
 label Sacramento:
+    transform sac_left:
+        xalign 0.9
+        yalign 1.0
+
+    transform sac_right:
+        xalign 0.2
+        yalign 1.0
 
     scene bg Prison_Gate_B with dissolve
 
@@ -547,22 +554,30 @@ label Sacramento:
     #to do the things he does, but feels he needs to for the greater good"
 
     "You drive up to Sacramento's county prison, Buenos' current holding place"
+    show mount at sac_left
     mount "I don't know what he was brought in for exactly"
     mount "We all lost contact with eachother after splitting up"
     you "I heard this prison is run by Sacramento's Republican mayor"
     you "So we'll probably have to go through him to get to Buenos"
     "You pull up to the parking lot, shaded by the prison towering before you"
+    hide mount
 
     "As you walk up to the entrance, you show the guard your papers from the governor"
     "He looks at them confused, then reluctantly lets you in"
     "As you make your way through the courtyard, a large snake the size of a man slithers out the front door"
     "He's wearing a sleeveless white business suit..."
     "...well, sleveless in the sense there are no arm holes, it just wraps around his body"
+    show baites at sac_right
     "Following closely to his side is a tall, slender man in a pitch black suit"
+    show alfred at sac_left
 
+    hide alfred
+    show mount at sac_left
+    hide mount
     mount "Geez, what are you supposed to be?"
     "The man turns towards the large snake and pronounces a series of hisses to him"
     "The snake returns in kind, before the man turns back to you and Mount"
+    show alfred at sac_left
     alfred "\"Hello gentlemen, my name is Charles Baites, and this man in the black suit here is my translator Alfred\""
 
     menu:
@@ -618,19 +633,27 @@ label Sacramento:
         alfred "\"Excelent, I'll see that your friend is released safely\""
         "Baites slithers away back into the prison, Alfred tailing behind him"
 
+        hide baites
+        hide alfred
+
         "After a few minutes of waiting, you see Buenos walking put of the prison"
+        show buenos_prison at right
         buenos "Man I cannot believe what is happening. You made a deal with this devil?"
         you "Whether you come with me or stay here, keep complaining and get killed."
         "Buenos relunctantly follows you and get into the car. However, when you start the engine, you hear Mount whispering from the back seat."
+        show mount at left
         mount "Boss..."
+        hide buenos_prison
+        hide mount
         "You look back and see the mysterious man holding two guns, one pointing at Mount, one pointing at you."
+        show mysterious_man
         you "Okay, should I be nervous now?"
         mm "I think you should. Prove to me that you did not betray me."
         menu:
             "It was a lie. I only work for someone who can give me freedom and secure my family.":
                 mm "I don't like liars, and I don't need one working for me."
 
-            "I had to do that or I woul've died.":
+            "I had to do that or I would've died.":
                 mm "Buenos, is that the case?"
                 buenos "Sorry boss, but I am tired working with you now."
                 mm "Well, well, well"
@@ -646,7 +669,11 @@ label Sacramento:
         "Baites rears back his tail, before swinging it in a wide arc at you and Mount"
         "It knocks the two of you clean out of the front gate, you see Baites slithering away"
 
+        hide baites
+        hide alfred
+
         you "Well that was a bust"
+        show mount
         mount "You're telling me, urgh my aching back"
         you "You okay? That looks bad"
         mount "Yeah I'll be fine"
@@ -672,6 +699,7 @@ label Sacramento:
         mount "How about I cause a distraction and you sneak around the back"
         you "Sounds good, what are you going to do?"
         mount "I'll think of something, just get into position and wait for something excessive"
+        hide mount
         "You make your way around the courtyard gate near a laoding bay"
         "You look through the chainlink fence to see Mount moving towards the courtyard entrance"
         "He steps up to the guard in the booth, looking like he's about to strike up a conversation"
@@ -685,8 +713,10 @@ label Sacramento:
     label sac_bargain:
         you "Lets try talking to the guards again, maybe they'll be more lenient with us"
         mount "Likely, old scales over there looks like he's harboring quite the grudge"
+        hide mount
 
         "You make your way to the entrance again, the guard in the booth raising an eyebrow in suspicion"
+        show guard1
         guard "I thought the mayor told you two to get out?"
 
         menu:
@@ -711,6 +741,7 @@ label Sacramento:
         mount "You know what, that's fair"
         mount "Good luck in there %(playerName)s, give my regards to Buenos, I'll guard the car"
         guard "Okay, get on in, but don't run into Baites while you're in there, I don't want to get on his bad size"
+        hide guard1
         "you make your way through the courtyard and into the prison"
         jump sac_buenos
 
@@ -721,12 +752,15 @@ label Sacramento:
         menu:
             "Shoot the guard":
                 "Before he can react, you shoot the guard in the chest with your silenced pistol"
+                hide guard1
                 "You scan around to see if anyone noticed"
                 "You see Mount obstructing the view between you and the rest of the complex"
                 "He gives you a nod"
+                show mount
                 mount "Well that was abrupt"
                 you "You mind guarding this mess until I get back?"
                 mount "Sure thing %(playerName)s, good luck in there, give my regards to Buenos"
+                hide mount
                 $ GoodTalks -= 1
                 jump sac_buenos
 
@@ -739,6 +773,7 @@ label Sacramento:
     label sac_bad_shoot:
         "Before you can get a word in, the guard capitalizes on your brief pause to hit a button above the booth window"
         "He then dives down into the booth, as it's shutters slam shut over the window"
+        hide guard1
         "You hear alarms blaring, and the sound of heavy boots rushing towars you"
         "You turn to see guards rushing out of the front door of the prison"
         "Before you can react, they shoot you down with their handguns"
@@ -749,14 +784,17 @@ label Sacramento:
 
 
     label sac_buenos:
+        scene bg Prison_Hall with dissolve
         "The halls inside the prison are dimly lit and seem to go on forever"
         "There doesn't seem to be many people here"
-        you "Baites presence must demand a lot of security"
+        you "Baites' presence must demand a lot of security"
         "You find one of the holding rooms, cells lining the many floors"
         "You scan a clipboard listing all the inmates names for Buenos"
         "You find his cell number, it appears to be in this room"
         "You approach the cell"
+        scene bg Prison_Cell_A with dissolve
         "You see a man slumped over on the prison bed, not noticing your presence"
+        show buenos_prison
 
         menu:
             "Knock on the bars":
@@ -943,15 +981,18 @@ label Sacramento:
 
 
     label sac_boss:
+        scene bg Prison_Gate_B with dissolve
         "You make your out of the prison courtyard, the harsh sun beating down on you"
         you "Buenos seems set on staying, maybe we could..."
         "*quick aggressive hiss*" # Maybe play a snake hissing sound
         you "ARRRGHH"
         "A sharp pain flares up in your arm"
         "You turn to see Baites sinking his teeth into you"
+        show baites at sac_right
         "You struggle in an attempt to break free, the pain becoming almost ubearable"
         "Baites releases you from his grasp, causing you to colapse to your knees"
         "As the pain courses through you, you notice Alfred appearing from behind the large snake towering over you"
+        show alfred at sac_left
 
         baites "*slow hiss*"
         alfred "\"My apologies good sir, I really wish it didn't have to come to this\""
@@ -963,7 +1004,7 @@ label Sacramento:
 
         menu:
             "Accept the offer":
-                jump gameEnd
+                jump sac_accept
 
             "Decline the offer":
                 jump sac_boss2
@@ -976,6 +1017,7 @@ label Sacramento:
         baites "*reluctant hiss*"
         alfred "\"Fine, be stubborn\""
         alfred "\"You'll perish where you stand\""
+        hide alfred
 
         $ sac_turns = 0 # Turn count
         $ sac_cry = False # If you call for help or not
@@ -1009,9 +1051,11 @@ label Sacramento:
                         "You let out a loud scream for help"
                         "..."
                         "Suddenly, you hear the sound of heavy footsteps rushing frm behind you"
+                        show mount at sac_left
                         mount "Don't worry %(playerName)s, I'm coming!" #Make this text better
                         "Mount rushes towards Baites, at a speed you didn't know was possible for a man of his size"
                         "But Baites dodges to the side, wrapping Mount with his tail, before slamming him into the pavement knocking him out cold"
+                        hide mount
                         jump sac_boss_loop1
 
                     else:
@@ -1030,6 +1074,7 @@ label Sacramento:
     label sac_boss3:
         buenos "Get away from them!"
         "Through the pain you can vaguely make out Buenos, staring down Baites as he rushes to your side"
+        show buenos_prison at sac_left
         baites "*abrubt hiss*"
         alfred "\"What, what are you doing out here\""
         "Buenos lets out a series of hiss like sounds towards Baites, before turning to you with a smirk"
@@ -1152,6 +1197,7 @@ label Sacramento:
             "Baite's form begins to go muddy"
             "You turn to Buenos, you can barely make out the features of his face"
             "Your vision begins to black out"
+            scene black_bg with dissolve
             "..."
             "..."
             "The venom finally cauht up to you"
@@ -1179,12 +1225,15 @@ label Sacramento:
             "Baite's form begins to go muddy"
             "You turn to Buenos, you can barely make out the features of his face"
             "Your vision begins to black out"
+            scene black_bg with dissolve
             "..."
             "..."
             "...%(playerName)s..."
             buenos "%(playerName)s"
             buenos "Wake up!"
-            #scene fade back in
+            scene bg Prison_Gate_B with dissolve
+            show baites at sac_right
+            show buenos_prison at sac_left
 
             baites "*calm hisses*"
             buenos "\"I've injected you with the antivenom, the pain should go away within the hour\""
@@ -1215,10 +1264,11 @@ label Sacramento:
         "Even though the venom is slowing your movements, you manage to draw and shoot your pistol before Baites can react"
         "You hit him right between the eyes"
         "Baites collapses to the ground, blood pooling around his head on the hot asphault"
+        hide baites
         "Alfred flees at the sight of his boss' corpse lying lifeless on the stone"
         "Suddenly, Buenos comes out the front door of the prison, looking both horrified and confused"
         "He runs over to Baites, then to you, injecting you with the antivenom"
-
+        show buenos_prison
         buenos "I heard the guards talking about hat you were doing"
         buenos"I came to help, but it looks like you handled it"
         buenos "I'm sorry I gave you the cold shoulder earlier, but it took me time to realize that you're right"
@@ -1241,6 +1291,7 @@ label Sacramento:
 
         baites "*abrupt hiss*"
         "Baites collapses to the ground, blood pooling around his head on the hot asphault"
+        hide baites
         "Alfred flees at the sight of his boss' corpse lying lifeless on the stone"
         "Buenos runs over to Baites, then to you, injecting you with the antivenom"
         "Your vision begins to clear up, the pain begins to fade"
@@ -1307,7 +1358,6 @@ label SanDiego:
     hide receptionist
     "As you walk down the hallway, you start to feel uneasy, something feels off with all of this, but there is not much you can do about it at this point. You reach room that was mentioned and head inside"
     "Well, seems that uneasy feeling was correct, as you enter the room you are met by a quite a few guards and in front of them a women in business attire. She clearly is in charge right now."
-    show warden at center
     sd_warden "Welcome to my prison, I am the warden here, may I know who I am speaking to?"
     menu:
         "Tell her your name":
@@ -1329,7 +1379,6 @@ label SanDiego:
     "You throw up your arms, your companions following suit, as the guard quickly move in to subdue you. Zip-tying your hands behind your back. Your then quickly ushered down another hallway"
     show bg Prison_Hall
     "As you are forced down the hallway, you keep thinking about some way of getting out of this situation. As you get lost in your thoughts, the warden speaks up from in front of you"
-    show warden at center
     sd_warden "You know, when I saw that order come in for a prison release, I was quite suprised, I wasn't expecting to have to be dealing with my father's antics today"
     sd_warden "He just does not know when to stop causing problems. But do not worry, I will make sure that he doesn't get what he wants this time."
     "As she says this, her tones quickly changes from one of authority to one of a person who has been deeply hurt"
@@ -1350,7 +1399,6 @@ label SanDiego:
         "Before long, you come up to a secure door which is opened as you reach it, inside is a bare room with a concrete floor. You are tossed inside and left alone"
         "The guards and the warden leave you be in the room for some time, you do not know exactly how long"
         "Finally you hear the door open, and the warden walks in, with a face that shows shes clearly pleased with how you have been treated so far"
-        show warden at center
         sd_warden "So I hope you have been enjoying your stay in my prison so far"
         "She snickers as she says this to you, she clearly loves to torment people"
         sd_warden "Now then, onto business. I want to know what you are doing for my father and what this Mr. Tsing has to do with it"
@@ -1559,7 +1607,6 @@ label SanDiego:
     label sd_route_confront:
         scene bg Prison_Cell_A
         "Upon entering the solitary area, you are almost not suprised that waiting before you stood the Warden"
-        show warden at center
         sd_warden "How nice of you to join me, although it seems you have lost your friends in process"
         "She smiles at you, two guards move forward, one on each side of here"
         sd_warden "You really made it easy for us, coming right here. Moving Tsing made good bait. And I am sure we will find your friends soon enough"
@@ -1686,7 +1733,6 @@ label SanDiego:
         $ GoodTalks -= 1
         $ daughter_die = True
         "You have had enough of this. You quickly reach down and draw your weapon you picked up earlier and aim it towards the warden."
-        hide warden
         "Its over in an instant, and before you lie three bodies. Their blood is on your hands now, but thinking aobu that can come later. You still have your mission to complete"
         "Now that threat was out of the way, and no one seems to have noticed the small gun fight, it was time to get Tsing and get out"
         "Hopefully the warden was at least telling the truth about Tsing being in solitary"
@@ -1718,15 +1764,13 @@ label SanDiego:
             tsing "It's risky, but I guess its the quickest and safest way right now"
             "Getting up, Tsing heads over to and places his hands in front of you"
             tsing "Your going to have to cuff me if we want this to work"
-            scene Prison_Hall
             "You nod your head, and put Tsing in cuffs, and head out towards the exit"
             "Thankfully, not many guards were around, so you quickly were able to move Tsing out of solitary and into the maze of the prison"
             "Trying to remember the way your came, you quickly moved down each hallway, avoid guards where you could. Those you could not avoid, you made sure to show you were moving Tsing, the prisoner"
             "After many minutes of traveling, you finally arrive at the maintainence room from the beginning, hoping that the rest of your crew is waiting inside"
             "Taking a deep breath you open the door, and luck seems to be on your side right now, as both Mount and Buenos are standing inside. Neither look happy for having to wait so long"
             show mount at right
-            show tsing at center
-            show buenos at left
+            show beuenos at left
             mount "You took your damn time"
             buenos "We were beginning to think you screwed up and we were going to have to leave you ... again"
             you "Ran into some trouble, but it has been dealth with. Let's get out of here quickly"
@@ -1736,12 +1780,9 @@ label SanDiego:
             "With one last nod of agreement by everyone, you set out towards the entrance"
             "Seems like no one is really focusing on this part the prison right now, so getting to the reception area was quite easy"
             "Quickly walking through the reception area and out to the parking area, the reception looked up confused to see three guards walking out with a prisoner"
-            scene Prison_Office
-            show receptionist
             sd_receptionist "Hey what are you guys doing, I did not hear anything about a prisoner release?"
             you "Direct orders from the warden. If you want to know more ask her. We were just old to bring this man outside"
             "The receptionist does not look happy when you say that, but grabs the phone and goes to make a phone call. while she is distracted doing that, you walk outside and head towards the car"
-            hide receptionist
             "Quickly undoing Tsing's cuffs, you all get into the car and drive off, thankful to be free of that prison, and back on the path to finishing this crazy mission"
             jump border
         else:
@@ -1773,7 +1814,7 @@ label SanDiego:
 # Chapter 5 (Ian Maynard)
 
 label border:
-    scene bg Freeway with dissolve
+    #PROTEST SCENE
     "Riding down the 5 the air starts to get warmer. You see the border just over the horizon"
     you "Finally"
     scene border with dissolve
@@ -1781,7 +1822,6 @@ label border:
     you "I see the border... and..."
     "Squinting your eyes as you get off the highway, you see a large crowd near the entrance to the underground passage"
     you "Oh give me a fuckin break..."
-    scene bg Border_Protest with dissolve
     "You and the team park the car and get out to approach the crowd. They appear to be protesting something. Imagine having that kind of time"
     "You seem to spot their leader, a tall nordic looking woman"
     show greta
