@@ -1773,15 +1773,17 @@ label SanDiego:
 # Chapter 5 (Ian Maynard)
 
 label border:
-    #PROTEST SCENE
+    scene bg Freeway with dissolve
     "Riding down the 5 the air starts to get warmer. You see the border just over the horizon"
     you "Finally"
     buenos "What was that?"
     you "I see the border... and..."
     "Squinting your eyes as you get off the highway, you see a large crowd near the entrance to the underground passage"
     you "Oh give me a fuckin break..."
+    scene bg Border_Protest with dissolve
     "You and the team park the car and get out to approach the crowd. They appear to be protesting something. Imagine having that kind of time"
     "You seem to spot their leader, a tall nordic looking woman"
+    show gretap
     you "Excuse me, what exactly is goin on here?"
     protestor "We are protesting the absolutely ABSURD notion that Techro needs any more office buildings in this part of town. They already have 3 on this street alone!"
     protestor "To make matters worse, they plan on making this bigger and ,as a result, more environmentally hazardous than their previous offices"
@@ -1814,7 +1816,8 @@ label border:
             protestor "Be our guest! Talk to the main douche. Gates. The one on his phone"
             "The protestor giggles at the thought of you trying to help and goes back to chanting with the crowd"
             "You and the team approach the group of suits."
-            #SCENE CHANGE
+            scene bg Gates_Office with dissolve
+            show
             you "Excuse me, are you in charge here?"
             "The man pays you no attention, and continues staring at his phone"
             you "Ok then, hey Mount I think this guy wants to talk to you"
@@ -1922,29 +1925,30 @@ label confront_gates4:
             "You begin to realise it is useless to try and talk to this guy and walk back toward the protestors"
             jump backToGreta
 label backToGreta:
-    #SCENE CHANGE
-        menu:
-            "Convince Greta and the group to leave":
-                you "Wait aren't you that lady from the news? Greta Scottson right? Funny seeing you here given whats happening in LA just a couple hours away"
-                greta "What the hell are you going on about!? Whats in Los Angeles?"
-                you "Oh you didnt hear? Extron is building a new pipeline right through the heart of Los Angeles under a lower class neighborhood!"
-                greta "Oh yeah which one then smart guy?"
-                "You remember in your days of hustling that you once delivered to a real shady neighborhood in LA once. You are able to name an adress almost immediately"
-                "Greta is shocked"
-                greta "Well I haven't seen anything on my news app, how do I know you are telling the truth? For all I know that could be your address!"
-                "You quickly remember a protest occured in that neighborhood after a cop drove into a cyclist about 6 months ago. You scramble onto your phone"
-                you "Here, see?"
-                "you hold up a shady news article thats date only shows the year. Of course the title is just clickbait enough it doesnt mention what the protest is about."
-                greta "Wow I had no idea! We should head there right away!"
-                "Greta signals to the rest of the protesters who scramble to their cars, your team travels through the passage amongst the chaos..."
-                $ GoodTalks += 1
-                jump Mexico
-            "Shoot Greta and run for the Passage":
-                you "Alright screw it, we are so close I dont have time for this"
-                "You pull out your gun and shoot the woman, amongst the chaos your team travels through the passage"
-                "Buenos glares at you but says nothing"
-                $ GoodTalks -= 1
-                jump Mexico
+    scene bg Border_Protest with dissolve
+    show gretap
+    menu:
+        "Convince Greta and the group to leave":
+            you "Wait aren't you that lady from the news? Greta Scottson right? Funny seeing you here given whats happening in LA just a couple hours away"
+            greta "What the hell are you going on about!? Whats in Los Angeles?"
+            you "Oh you didnt hear? Extron is building a new pipeline right through the heart of Los Angeles under a lower class neighborhood!"
+            greta "Oh yeah which one then smart guy?"
+            "You remember in your days of hustling that you once delivered to a real shady neighborhood in LA once. You are able to name an adress almost immediately"
+            "Greta is shocked"
+            greta "Well I haven't seen anything on my news app, how do I know you are telling the truth? For all I know that could be your address!"
+            "You quickly remember a protest occured in that neighborhood after a cop drove into a cyclist about 6 months ago. You scramble onto your phone"
+            you "Here, see?"
+            "you hold up a shady news article thats date only shows the year. Of course the title is just clickbait enough it doesnt mention what the protest is about."
+            greta "Wow I had no idea! We should head there right away!"
+            "Greta signals to the rest of the protesters who scramble to their cars, your team travels through the passage amongst the chaos..."
+            $ GoodTalks += 1
+            jump Mexico
+        "Shoot Greta and run for the Passage":
+            you "Alright screw it, we are so close I dont have time for this"
+            "You pull out your gun and shoot the woman, amongst the chaos your team travels through the passage"
+            "Buenos glares at you but says nothing"
+            $ GoodTalks -= 1
+            jump Mexico
 
 # Chapter 6 (Jingtian Li & haonan lin)
 label Mexico:
