@@ -1307,6 +1307,7 @@ label SanDiego:
     hide receptionist
     "As you walk down the hallway, you start to feel uneasy, something feels off with all of this, but there is not much you can do about it at this point. You reach room that was mentioned and head inside"
     "Well, seems that uneasy feeling was correct, as you enter the room you are met by a quite a few guards and in front of them a women in business attire. She clearly is in charge right now."
+    show warden at center
     sd_warden "Welcome to my prison, I am the warden here, may I know who I am speaking to?"
     menu:
         "Tell her your name":
@@ -1328,6 +1329,7 @@ label SanDiego:
     "You throw up your arms, your companions following suit, as the guard quickly move in to subdue you. Zip-tying your hands behind your back. Your then quickly ushered down another hallway"
     show bg Prison_Hall
     "As you are forced down the hallway, you keep thinking about some way of getting out of this situation. As you get lost in your thoughts, the warden speaks up from in front of you"
+    show warden at center
     sd_warden "You know, when I saw that order come in for a prison release, I was quite suprised, I wasn't expecting to have to be dealing with my father's antics today"
     sd_warden "He just does not know when to stop causing problems. But do not worry, I will make sure that he doesn't get what he wants this time."
     "As she says this, her tones quickly changes from one of authority to one of a person who has been deeply hurt"
@@ -1348,6 +1350,7 @@ label SanDiego:
         "Before long, you come up to a secure door which is opened as you reach it, inside is a bare room with a concrete floor. You are tossed inside and left alone"
         "The guards and the warden leave you be in the room for some time, you do not know exactly how long"
         "Finally you hear the door open, and the warden walks in, with a face that shows shes clearly pleased with how you have been treated so far"
+        show warden at center
         sd_warden "So I hope you have been enjoying your stay in my prison so far"
         "She snickers as she says this to you, she clearly loves to torment people"
         sd_warden "Now then, onto business. I want to know what you are doing for my father and what this Mr. Tsing has to do with it"
@@ -1556,6 +1559,7 @@ label SanDiego:
     label sd_route_confront:
         scene bg Prison_Cell_A
         "Upon entering the solitary area, you are almost not suprised that waiting before you stood the Warden"
+        show warden at center
         sd_warden "How nice of you to join me, although it seems you have lost your friends in process"
         "She smiles at you, two guards move forward, one on each side of here"
         sd_warden "You really made it easy for us, coming right here. Moving Tsing made good bait. And I am sure we will find your friends soon enough"
@@ -1682,6 +1686,7 @@ label SanDiego:
         $ GoodTalks -= 1
         $ daughter_die = True
         "You have had enough of this. You quickly reach down and draw your weapon you picked up earlier and aim it towards the warden."
+        hide warden
         "Its over in an instant, and before you lie three bodies. Their blood is on your hands now, but thinking aobu that can come later. You still have your mission to complete"
         "Now that threat was out of the way, and no one seems to have noticed the small gun fight, it was time to get Tsing and get out"
         "Hopefully the warden was at least telling the truth about Tsing being in solitary"
@@ -1713,13 +1718,15 @@ label SanDiego:
             tsing "It's risky, but I guess its the quickest and safest way right now"
             "Getting up, Tsing heads over to and places his hands in front of you"
             tsing "Your going to have to cuff me if we want this to work"
+            scene Prison_Hall
             "You nod your head, and put Tsing in cuffs, and head out towards the exit"
             "Thankfully, not many guards were around, so you quickly were able to move Tsing out of solitary and into the maze of the prison"
             "Trying to remember the way your came, you quickly moved down each hallway, avoid guards where you could. Those you could not avoid, you made sure to show you were moving Tsing, the prisoner"
             "After many minutes of traveling, you finally arrive at the maintainence room from the beginning, hoping that the rest of your crew is waiting inside"
             "Taking a deep breath you open the door, and luck seems to be on your side right now, as both Mount and Buenos are standing inside. Neither look happy for having to wait so long"
             show mount at right
-            show beuenos at left
+            show tsing at center
+            show buenos at left
             mount "You took your damn time"
             buenos "We were beginning to think you screwed up and we were going to have to leave you ... again"
             you "Ran into some trouble, but it has been dealth with. Let's get out of here quickly"
@@ -1729,9 +1736,12 @@ label SanDiego:
             "With one last nod of agreement by everyone, you set out towards the entrance"
             "Seems like no one is really focusing on this part the prison right now, so getting to the reception area was quite easy"
             "Quickly walking through the reception area and out to the parking area, the reception looked up confused to see three guards walking out with a prisoner"
+            scene Prison_Office
+            show receptionist
             sd_receptionist "Hey what are you guys doing, I did not hear anything about a prisoner release?"
             you "Direct orders from the warden. If you want to know more ask her. We were just old to bring this man outside"
             "The receptionist does not look happy when you say that, but grabs the phone and goes to make a phone call. while she is distracted doing that, you walk outside and head towards the car"
+            hide receptionist
             "Quickly undoing Tsing's cuffs, you all get into the car and drive off, thankful to be free of that prison, and back on the path to finishing this crazy mission"
             jump border
         else:
