@@ -1330,7 +1330,7 @@ label Sacramento:
 
 #Chapter 4(Michael Kahn)
 label SanDiego:
-    scene bg Prison_Gate_B
+    scene bg Prison_Gate_B with dissolve
     "After some time driving, the San Diego prison finally comes into view. This is final stop for getting your crew together"
     "You still wonder how Tsing ended up here, but at this point that's not really important. That can come later"
     "You drive up to the guard house that blocks the entrance to the prison. Two guards stationed there step out to greet you"
@@ -1341,7 +1341,7 @@ label SanDiego:
     "You can see the guard making a phone call and have a brief conversation before coming back to you"
     sd_guard "Seems like everything is order, head on in"
     "You take the paperwork back, and drive into the prison as the gate opens. Seems like this should be fairly straightforward"
-    scene bg Out_Car
+    scene bg Out_Car with dissolve
     "You pull out your gun and put in the glove box. There was no way you were getting that inside."
     you "You both stay here in the car, I will go in and get Tsing"
     show mount at right
@@ -1350,7 +1350,7 @@ label SanDiego:
     buenos "I agree, we would just be sitting ducks out here otherwise, we would be much more help inside"
     you "Very well, but I will do allt he talking if it comes to it"
     "Both of your crew members nod in agreement as you all exit the car and head inside"
-    scene bg Prison_Office
+    scene bg Prison_Office with dissolve
     "You approach the receptionist in the lobby and show her the paperwork to get Tsing out"
     show receptionist at right
     sd_receptionist "We have be waiting for you, please head down that hallway to the right, there is a room at the end you will wait in as we process everything"
@@ -1377,7 +1377,7 @@ label SanDiego:
     "Things have quickly turned for the worse, and the warden clearly knows something about your mission, just to what extent you do not know"
     "However, you do not have much choice in the matter right now, you are unarmed and surrounded by armed guards. Even if you did make a break for it, chances are one or more of you was not going ot make it"
     "You throw up your arms, your companions following suit, as the guard quickly move in to subdue you. Zip-tying your hands behind your back. Your then quickly ushered down another hallway"
-    show bg Prison_Hall
+    scene bg Prison_Hall with dissolve
     "As you are forced down the hallway, you keep thinking about some way of getting out of this situation. As you get lost in your thoughts, the warden speaks up from in front of you"
     sd_warden "You know, when I saw that order come in for a prison release, I was quite suprised, I wasn't expecting to have to be dealing with my father's antics today"
     sd_warden "He just does not know when to stop causing problems. But do not worry, I will make sure that he doesn't get what he wants this time."
@@ -1395,7 +1395,7 @@ label SanDiego:
         "It is clearly to risky to attempt such a feat. You are better of waiting this out and hoping a better oppurtunity comes, hopefully soon"
         "After being pushed through the prison for a while, you come to a split in the hallways. You are pushed down one hallway, while your crew is pushed down the other."
         "Things are getting worse and worse, especially now with you being seperated from you crew. You have no clue how you are going to get out of this now"
-        scene bg Prison_Cell_A
+        scene bg Prison_Cell_A with dissolve
         "Before long, you come up to a secure door which is opened as you reach it, inside is a bare room with a concrete floor. You are tossed inside and left alone"
         "The guards and the warden leave you be in the room for some time, you do not know exactly how long"
         "Finally you hear the door open, and the warden walks in, with a face that shows shes clearly pleased with how you have been treated so far"
@@ -1510,7 +1510,7 @@ label SanDiego:
                         return
 
     label sd_route_distract:
-        scene bg Prison_Hall
+        scene bg Prison_Hall with dissolve
         "There is no way your going back into a cell, and there is no way you are going to fail this mission, not with what is at stake"
         "As you get close to the janitor, he moves to the side to allow the guards past. As he does this though, you dash for it and push the cart directly at the guards in front of you. Blocking them off for a moment"
         "Buenos and Mount quickly realized what you are doing and bashed the guards next to them over, give the three of you a chance. You make a brek for it down the side hallway and into another section of the prison"
@@ -1605,7 +1605,7 @@ label SanDiego:
         jump sd_route_confront
 
     label sd_route_confront:
-        scene bg Prison_Cell_A
+        scene bg Prison_Cell_A with dissolve
         "Upon entering the solitary area, you are almost not suprised that waiting before you stood the Warden"
         sd_warden "How nice of you to join me, although it seems you have lost your friends in process"
         "She smiles at you, two guards move forward, one on each side of here"
@@ -1706,7 +1706,7 @@ label SanDiego:
         sd_warden "Do not make me regret this"
         "The guards quickly approach you and start pushing out towards the exit. Seems like something is finally going right in this damn place."
         "You are escorted quickly back out the way you came in and before you know it, you are standing out front of the prison, Mount and Buenos appearing beside you shortly after"
-        scene bg Out_Car
+        scene bg Out_Car with dissolve
         show mount at right
         show buenos at left
         mount "So, is everything good? I was not expecting to be escorted out of the prison of all things"
@@ -1994,11 +1994,11 @@ label backToGreta:
 
 # Chapter 6 (Jingtian Li & haonan lin)
 label Mexico:
-    scene bg freeway
+    scene bg freeway with dissolve
     show mount
     "After all kinds of hardships, you and your teammates finally arrived at the destination of this trip"
     mount "Everyone, I am so excited and feels that victory is so closed"
-    scene bg Plantation_Gate
+    scene bg Plantation_Gate with dissolve
     "However, things are not easy as they seem. Outside your destination, there is a huge wall"
     "The only entrance has many security guards at the door"
     "You and your teammates can try to enter from the main entrance or try to find another way into the plantation"
@@ -2024,7 +2024,7 @@ label Mexico:
     you "Hang in there a little longer and victory is ahead. I think the exit is just ahead"
     "Suddenly you smell the fresh air and everyone gets excited"
     "Finally, you climbed out of a hidden manhole cover"
-    scene bg Plantation_Inside
+    scene bg Plantation_Inside with dissolve
     show little_boy
     "You start searching for this plantation"
     lb"Who are you? What are you doing here?"
@@ -2073,7 +2073,7 @@ label Mexico:
             buenos "I can hear some security guys calling him Mr. Brit."
 
 label mexico_2:
-    scene bg Plantation_Farmland
+    scene bg Plantation_Farmland with dissolve
     show mr_brit
     show buenos at right
     "Mr. Brit seems to be interested when he sees you. But he does not get down from his horse."
@@ -2107,7 +2107,7 @@ label mexico_2:
             jump mexico_3
 
 label mexico_3:
-    scene bg Plantation_Farmland
+    scene bg Plantation_Farmland with dissolve
     show Mount
     show tsing at right
     show buenos at left
@@ -2139,7 +2139,7 @@ label mexico_3:
 
 # Endings (Jingtian Li & Guozheng Yang)
 label ending1:
-    scene bg Plantation_Farmland
+    scene bg Plantation_Farmland with dissolve
     show Mount
     show tsing at right
     show buenos at left
@@ -2153,7 +2153,7 @@ label ending1:
     buenos"we should bring them back to America."
     mount "I agree boss. you should bring those kids through border. We shall take the drug back by underground railway."
     you "sounds like a nice plan to me."
-    scene bg Border_Office
+    scene bg Border_Office with dissolve
     "You and the kids reach the US-Mexico border."
     show police at right
     show guard3 at left
@@ -2166,7 +2166,7 @@ label ending1:
     "You see the police searching for something in the drawer. Later, he finds a photo of you."
     uspa "Shit, he is the guy."
     "they knock you off with a electric gun. You fall down without a chance of defending yourself. When you wake up, you find yourself in a big office room. the state governor stands in front of you, aside with the mysterious man."
-    scene bg Prison_Office
+    scene bg Prison_Office with dissolve
     show mystery
     show mysterious_man at left
     sgboss "welcome home boy. you have done an excelent job. You friends already gave me what I want. But I still want to thank you in person, and remind you that this is a secret between us. Now you are free to leave."
@@ -2186,12 +2186,12 @@ label ending1:
         mm "Actually I think I should say thank you."
         you "Thank me for what? I have had enough of you and your father. could you let me leave now?"
         mm "#stare at you# OK... you can leave now."
-    scene Cityhall
+    scene Cityhall with dissolve
     "You head out of building and find yourself at the city hall of Los Angeles. People around you look at you like you are an alien. But whatever, you can return to your family now."
     return
 
 label ending2:
-    scene bg Plantation_Farmland
+    scene bg Plantation_Farmland with dissolve
     show Mount
     show tsing at right
     show buenos at left
@@ -2219,14 +2219,14 @@ label ending2:
             "However, there are too many of them. Short after, both of you are shot."
             jump gameEnd
     hide tsing
-    scene bg Underground_Railroad
+    scene bg Underground_Railroad with dissolve
     "Tear covers your face as you travel through the underground railway. When you finally get back to US, there is really nothing left in your brain but tremendous sadness."
-    scene bg Out_Car
+    scene bg Out_Car with dissolve
     "You find a paper note in the car. There is an address on it. You set it as the destination then follow the GPS system like a robot."
-    scene bg Cityhall
+    scene bg Cityhall with dissolve
     "You arrive at the city hall of Los Angeles. You park the car at the parking lot. It is around 10:30, so not a lot of people around."
     "Just before you get out of your seat, the back doors and the vice driving door are opened. three men enter the car. One of them is the mysterious man. He is sitting in the back."
-    scene bg In_Car
+    scene bg In_Car with dissolve
     show mystery
     show mysterious_man at right
     "Another man in the back seat starts to speak."
@@ -2268,7 +2268,7 @@ label ending2:
                 return
 
 label ending3:
-    scene bg Plantation_Farmland
+    scene bg Plantation_Farmland with dissolve
     show Mount
     show tsing at right
     show buenos at left
@@ -2289,7 +2289,7 @@ label ending3:
         "That is enough, Mount. We should leave":
             pass
     "The whole team remains in silence as traveling through the underground railway."
-    scene bg Underground_Railroad
+    scene bg Underground_Railroad with dissolve
     show Mount
     show tsing at right
     show buenos at left
@@ -2307,12 +2307,12 @@ label ending3:
             "You do not know if Buenos is refering to you or the state governor. But you decide not to ask and remain silence in the rest of the trip."
         "Remain in silence":
             pass
-    scene bg In_Car
+    scene bg In_Car with dissolve
     "As soon as you get back to US, all of them three leave you without a word. You look at their backs through tears; there is really nothing left in your brain but tremendous sadness."
     "You find a paper note in the car. There is an address on it. You set it as the destination then follow the GPS system like a robot."
-    scene bg Cityhall
+    scene bg Cityhall with dissolve
     "You arrive at the city hall of Los Angeles. You park the car at the parking lot. It is around 10:30, so not a lot of people around."
-    scene bg In_Car
+    scene bg In_Car with dissolve
     show mystery
     show mysterious_man
     "Just before you get out of your seat, the back doors and the vice driving door are opened. three men enter the car. One of them is the mysterious man. He is sitting in the back."
@@ -2344,12 +2344,12 @@ label ending3:
                 mm "I guess I should say thank you Huh?"
                 you "..."
                 mm "#stare at you# OK... you can leave now."
-                scene bg Dream
+                scene bg Dream with dissolve
                 "After a few days, the governor sends some money and informs you that your files have been cleaned up."
                 "Finally, you can enjoy your life with your family"
                 return
             else:
-                scene bg Dream
+                scene bg Dream with dissolve
                 "The governor nods and asks the bodyguard to stay in the car before you arrive home."
                 "After a few days, the governor sends some money and informs you that your files have been cleaned up."
                 "Finally, you can enjoy your life with your family"
@@ -2357,12 +2357,12 @@ label ending3:
 
 
 label ending4:
-    scene bg Underground_Railroad
+    scene bg Underground_Railroad with dissolve
     show Mount
     show tsing at right
     show buenos at left
     "You leave the plantation, get back to US by the underground railway. Find a note in the car with an address on it. Your drive to there, it is the city hall of Los Angeles."
-    scene bg Cityhall
+    scene bg Cityhall with dissolve
     show receptionist
     "The front desk lead you and your crew to the top office. You see three men in the room. One of them is the mysterious man. The man sitting in the middle starts to speak."
     hide receptionist
@@ -2384,7 +2384,7 @@ label ending4:
                     "You are so close to you freedom and your family, but finally you choose the wrong step and fall in blood."
                     return
                 "Give him the gun":
-                    scene bg In_Car
+                    scene bg In_Car with dissolve
                     "Finally the journey is over. Driving in the LA downtown, you and your friends decide first to have something to eat."
                     show tsing
                     Tsing "%(playerName)s, watch out!" with vpunch
@@ -2397,7 +2397,7 @@ label ending4:
             return
 
 label gameEnd:
-    scene bg Openspace
+    scene bg Openspace with dissolve
     "You were so close to your freedom and your family, but now you fall in your own blood. Hope you have a better luck next time."
     return
 
