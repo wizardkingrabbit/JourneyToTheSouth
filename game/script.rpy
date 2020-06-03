@@ -531,6 +531,13 @@ label transfer2:
 
  # Chapter 3 (Jason Iino) <- das me :>
 label Sacramento:
+    transform sac_left:
+        xalign 0.9
+        yalign 1.0
+
+    transform sac_right:
+        xalign 0.2
+        yalign 1.0
 
     scene bg Prison_Gate_B with dissolve
 
@@ -547,22 +554,30 @@ label Sacramento:
     #to do the things he does, but feels he needs to for the greater good"
 
     "You drive up to Sacramento's county prison, Buenos' current holding place"
+    show mount at sac_left
     mount "I don't know what he was brought in for exactly"
     mount "We all lost contact with eachother after splitting up"
     you "I heard this prison is run by Sacramento's Republican mayor"
     you "So we'll probably have to go through him to get to Buenos"
     "You pull up to the parking lot, shaded by the prison towering before you"
+    hide mount
 
     "As you walk up to the entrance, you show the guard your papers from the governor"
     "He looks at them confused, then reluctantly lets you in"
     "As you make your way through the courtyard, a large snake the size of a man slithers out the front door"
     "He's wearing a sleeveless white business suit..."
     "...well, sleveless in the sense there are no arm holes, it just wraps around his body"
+    show baites at sac_right
     "Following closely to his side is a tall, slender man in a pitch black suit"
+    show alfred at sac_left
 
+    hide alfred
+    show mount at sac_left
+    hide mount
     mount "Geez, what are you supposed to be?"
     "The man turns towards the large snake and pronounces a series of hisses to him"
     "The snake returns in kind, before the man turns back to you and Mount"
+    show alfred at sac_left
     alfred "\"Hello gentlemen, my name is Charles Baites, and this man in the black suit here is my translator Alfred\""
 
     menu:
@@ -618,19 +633,27 @@ label Sacramento:
         alfred "\"Excelent, I'll see that your friend is released safely\""
         "Baites slithers away back into the prison, Alfred tailing behind him"
 
+        hide baites
+        hide alfred
+
         "After a few minutes of waiting, you see Buenos walking put of the prison"
+        show buenos_prison at right
         buenos "Man I cannot believe what is happening. You made a deal with this devil?"
         you "Whether you come with me or stay here, keep complaining and get killed."
         "Buenos relunctantly follows you and get into the car. However, when you start the engine, you hear Mount whispering from the back seat."
+        show mount at left
         mount "Boss..."
+        hide buenos_prison
+        hide mount
         "You look back and see the mysterious man holding two guns, one pointing at Mount, one pointing at you."
+        show mysterious_man
         you "Okay, should I be nervous now?"
         mm "I think you should. Prove to me that you did not betray me."
         menu:
             "It was a lie. I only work for someone who can give me freedom and secure my family.":
                 mm "I don't like liars, and I don't need one working for me."
 
-            "I had to do that or I woul've died.":
+            "I had to do that or I would've died.":
                 mm "Buenos, is that the case?"
                 buenos "Sorry boss, but I am tired working with you now."
                 mm "Well, well, well"
@@ -646,7 +669,11 @@ label Sacramento:
         "Baites rears back his tail, before swinging it in a wide arc at you and Mount"
         "It knocks the two of you clean out of the front gate, you see Baites slithering away"
 
+        hide baites
+        hide alfred
+
         you "Well that was a bust"
+        show mount
         mount "You're telling me, urgh my aching back"
         you "You okay? That looks bad"
         mount "Yeah I'll be fine"
@@ -672,6 +699,7 @@ label Sacramento:
         mount "How about I cause a distraction and you sneak around the back"
         you "Sounds good, what are you going to do?"
         mount "I'll think of something, just get into position and wait for something excessive"
+        hide mount
         "You make your way around the courtyard gate near a laoding bay"
         "You look through the chainlink fence to see Mount moving towards the courtyard entrance"
         "He steps up to the guard in the booth, looking like he's about to strike up a conversation"
@@ -685,8 +713,10 @@ label Sacramento:
     label sac_bargain:
         you "Lets try talking to the guards again, maybe they'll be more lenient with us"
         mount "Likely, old scales over there looks like he's harboring quite the grudge"
+        hide mount
 
         "You make your way to the entrance again, the guard in the booth raising an eyebrow in suspicion"
+        show guard1
         guard "I thought the mayor told you two to get out?"
 
         menu:
@@ -711,6 +741,7 @@ label Sacramento:
         mount "You know what, that's fair"
         mount "Good luck in there %(playerName)s, give my regards to Buenos, I'll guard the car"
         guard "Okay, get on in, but don't run into Baites while you're in there, I don't want to get on his bad size"
+        hide guard1
         "you make your way through the courtyard and into the prison"
         jump sac_buenos
 
@@ -721,12 +752,15 @@ label Sacramento:
         menu:
             "Shoot the guard":
                 "Before he can react, you shoot the guard in the chest with your silenced pistol"
+                hide guard1
                 "You scan around to see if anyone noticed"
                 "You see Mount obstructing the view between you and the rest of the complex"
                 "He gives you a nod"
+                show mount
                 mount "Well that was abrupt"
                 you "You mind guarding this mess until I get back?"
                 mount "Sure thing %(playerName)s, good luck in there, give my regards to Buenos"
+                hide mount
                 $ GoodTalks -= 1
                 jump sac_buenos
 
@@ -739,6 +773,7 @@ label Sacramento:
     label sac_bad_shoot:
         "Before you can get a word in, the guard capitalizes on your brief pause to hit a button above the booth window"
         "He then dives down into the booth, as it's shutters slam shut over the window"
+        hide guard1
         "You hear alarms blaring, and the sound of heavy boots rushing towars you"
         "You turn to see guards rushing out of the front door of the prison"
         "Before you can react, they shoot you down with their handguns"
@@ -749,14 +784,17 @@ label Sacramento:
 
 
     label sac_buenos:
+        scene bg Prison_Hall with dissolve
         "The halls inside the prison are dimly lit and seem to go on forever"
         "There doesn't seem to be many people here"
-        you "Baites presence must demand a lot of security"
+        you "Baites' presence must demand a lot of security"
         "You find one of the holding rooms, cells lining the many floors"
         "You scan a clipboard listing all the inmates names for Buenos"
         "You find his cell number, it appears to be in this room"
         "You approach the cell"
+        scene bg Prison_Cell_A with dissolve
         "You see a man slumped over on the prison bed, not noticing your presence"
+        show buenos_prison
 
         menu:
             "Knock on the bars":
@@ -943,15 +981,18 @@ label Sacramento:
 
 
     label sac_boss:
+        scene bg Prison_Gate_B with dissolve
         "You make your out of the prison courtyard, the harsh sun beating down on you"
         you "Buenos seems set on staying, maybe we could..."
         "*quick aggressive hiss*" # Maybe play a snake hissing sound
         you "ARRRGHH"
         "A sharp pain flares up in your arm"
         "You turn to see Baites sinking his teeth into you"
+        show baites at sac_right
         "You struggle in an attempt to break free, the pain becoming almost ubearable"
         "Baites releases you from his grasp, causing you to colapse to your knees"
         "As the pain courses through you, you notice Alfred appearing from behind the large snake towering over you"
+        show alfred at sac_left
 
         baites "*slow hiss*"
         alfred "\"My apologies good sir, I really wish it didn't have to come to this\""
@@ -963,7 +1004,7 @@ label Sacramento:
 
         menu:
             "Accept the offer":
-                jump gameEnd
+                jump sac_accept
 
             "Decline the offer":
                 jump sac_boss2
@@ -976,6 +1017,7 @@ label Sacramento:
         baites "*reluctant hiss*"
         alfred "\"Fine, be stubborn\""
         alfred "\"You'll perish where you stand\""
+        hide alfred
 
         $ sac_turns = 0 # Turn count
         $ sac_cry = False # If you call for help or not
@@ -1009,9 +1051,11 @@ label Sacramento:
                         "You let out a loud scream for help"
                         "..."
                         "Suddenly, you hear the sound of heavy footsteps rushing frm behind you"
+                        show mount at sac_left
                         mount "Don't worry %(playerName)s, I'm coming!" #Make this text better
                         "Mount rushes towards Baites, at a speed you didn't know was possible for a man of his size"
                         "But Baites dodges to the side, wrapping Mount with his tail, before slamming him into the pavement knocking him out cold"
+                        hide mount
                         jump sac_boss_loop1
 
                     else:
@@ -1030,6 +1074,7 @@ label Sacramento:
     label sac_boss3:
         buenos "Get away from them!"
         "Through the pain you can vaguely make out Buenos, staring down Baites as he rushes to your side"
+        show buenos_prison at sac_left
         baites "*abrubt hiss*"
         alfred "\"What, what are you doing out here\""
         "Buenos lets out a series of hiss like sounds towards Baites, before turning to you with a smirk"
@@ -1152,6 +1197,7 @@ label Sacramento:
             "Baite's form begins to go muddy"
             "You turn to Buenos, you can barely make out the features of his face"
             "Your vision begins to black out"
+            scene black_bg with dissolve
             "..."
             "..."
             "The venom finally cauht up to you"
@@ -1179,12 +1225,15 @@ label Sacramento:
             "Baite's form begins to go muddy"
             "You turn to Buenos, you can barely make out the features of his face"
             "Your vision begins to black out"
+            scene black_bg with dissolve
             "..."
             "..."
             "...%(playerName)s..."
             buenos "%(playerName)s"
             buenos "Wake up!"
-            #scene fade back in
+            scene bg Prison_Gate_B with dissolve
+            show baites at sac_right
+            show buenos_prison at sac_left
 
             baites "*calm hisses*"
             buenos "\"I've injected you with the antivenom, the pain should go away within the hour\""
@@ -1215,10 +1264,11 @@ label Sacramento:
         "Even though the venom is slowing your movements, you manage to draw and shoot your pistol before Baites can react"
         "You hit him right between the eyes"
         "Baites collapses to the ground, blood pooling around his head on the hot asphault"
+        hide baites
         "Alfred flees at the sight of his boss' corpse lying lifeless on the stone"
         "Suddenly, Buenos comes out the front door of the prison, looking both horrified and confused"
         "He runs over to Baites, then to you, injecting you with the antivenom"
-
+        show buenos_prison
         buenos "I heard the guards talking about hat you were doing"
         buenos"I came to help, but it looks like you handled it"
         buenos "I'm sorry I gave you the cold shoulder earlier, but it took me time to realize that you're right"
@@ -1241,6 +1291,7 @@ label Sacramento:
 
         baites "*abrupt hiss*"
         "Baites collapses to the ground, blood pooling around his head on the hot asphault"
+        hide baites
         "Alfred flees at the sight of his boss' corpse lying lifeless on the stone"
         "Buenos runs over to Baites, then to you, injecting you with the antivenom"
         "Your vision begins to clear up, the pain begins to fade"
@@ -1279,7 +1330,7 @@ label Sacramento:
 
 #Chapter 4(Michael Kahn)
 label SanDiego:
-    scene bg Prison_Gate_B with dissolve
+    scene bg Prison_Gate_B
     "After some time driving, the San Diego prison finally comes into view. This is final stop for getting your crew together"
     "You still wonder how Tsing ended up here, but at this point that's not really important. That can come later"
     "You drive up to the guard house that blocks the entrance to the prison. Two guards stationed there step out to greet you"
@@ -1290,7 +1341,7 @@ label SanDiego:
     "You can see the guard making a phone call and have a brief conversation before coming back to you"
     sd_guard "Seems like everything is order, head on in"
     "You take the paperwork back, and drive into the prison as the gate opens. Seems like this should be fairly straightforward"
-    scene bg Out_Car with dissolve
+    scene bg Out_Car
     "You pull out your gun and put in the glove box. There was no way you were getting that inside."
     you "You both stay here in the car, I will go in and get Tsing"
     show mount at right
@@ -1299,7 +1350,7 @@ label SanDiego:
     buenos "I agree, we would just be sitting ducks out here otherwise, we would be much more help inside"
     you "Very well, but I will do allt he talking if it comes to it"
     "Both of your crew members nod in agreement as you all exit the car and head inside"
-    scene bg Prison_Office with dissolve
+    scene bg Prison_Office
     "You approach the receptionist in the lobby and show her the paperwork to get Tsing out"
     show receptionist at right
     sd_receptionist "We have be waiting for you, please head down that hallway to the right, there is a room at the end you will wait in as we process everything"
@@ -1307,7 +1358,6 @@ label SanDiego:
     hide receptionist
     "As you walk down the hallway, you start to feel uneasy, something feels off with all of this, but there is not much you can do about it at this point. You reach room that was mentioned and head inside"
     "Well, seems that uneasy feeling was correct, as you enter the room you are met by a quite a few guards and in front of them a women in business attire. She clearly is in charge right now."
-    show warden at center
     sd_warden "Welcome to my prison, I am the warden here, may I know who I am speaking to?"
     menu:
         "Tell her your name":
@@ -1327,9 +1377,8 @@ label SanDiego:
     "Things have quickly turned for the worse, and the warden clearly knows something about your mission, just to what extent you do not know"
     "However, you do not have much choice in the matter right now, you are unarmed and surrounded by armed guards. Even if you did make a break for it, chances are one or more of you was not going ot make it"
     "You throw up your arms, your companions following suit, as the guard quickly move in to subdue you. Zip-tying your hands behind your back. Your then quickly ushered down another hallway"
-    scene bg Prison_Hall with dissolve
+    show bg Prison_Hall
     "As you are forced down the hallway, you keep thinking about some way of getting out of this situation. As you get lost in your thoughts, the warden speaks up from in front of you"
-    show warden at center
     sd_warden "You know, when I saw that order come in for a prison release, I was quite suprised, I wasn't expecting to have to be dealing with my father's antics today"
     sd_warden "He just does not know when to stop causing problems. But do not worry, I will make sure that he doesn't get what he wants this time."
     "As she says this, her tones quickly changes from one of authority to one of a person who has been deeply hurt"
@@ -1346,11 +1395,10 @@ label SanDiego:
         "It is clearly to risky to attempt such a feat. You are better of waiting this out and hoping a better oppurtunity comes, hopefully soon"
         "After being pushed through the prison for a while, you come to a split in the hallways. You are pushed down one hallway, while your crew is pushed down the other."
         "Things are getting worse and worse, especially now with you being seperated from you crew. You have no clue how you are going to get out of this now"
-        scene bg Prison_Cell_A with dissolve
+        scene bg Prison_Cell_A
         "Before long, you come up to a secure door which is opened as you reach it, inside is a bare room with a concrete floor. You are tossed inside and left alone"
         "The guards and the warden leave you be in the room for some time, you do not know exactly how long"
         "Finally you hear the door open, and the warden walks in, with a face that shows shes clearly pleased with how you have been treated so far"
-        show warden at center
         sd_warden "So I hope you have been enjoying your stay in my prison so far"
         "She snickers as she says this to you, she clearly loves to torment people"
         sd_warden "Now then, onto business. I want to know what you are doing for my father and what this Mr. Tsing has to do with it"
@@ -1462,7 +1510,7 @@ label SanDiego:
                         return
 
     label sd_route_distract:
-        scene bg Prison_Hall with dissolve
+        scene bg Prison_Hall
         "There is no way your going back into a cell, and there is no way you are going to fail this mission, not with what is at stake"
         "As you get close to the janitor, he moves to the side to allow the guards past. As he does this though, you dash for it and push the cart directly at the guards in front of you. Blocking them off for a moment"
         "Buenos and Mount quickly realized what you are doing and bashed the guards next to them over, give the three of you a chance. You make a brek for it down the side hallway and into another section of the prison"
@@ -1557,9 +1605,8 @@ label SanDiego:
         jump sd_route_confront
 
     label sd_route_confront:
-        scene bg Prison_Cell_A with dissolve
+        scene bg Prison_Cell_A
         "Upon entering the solitary area, you are almost not suprised that waiting before you stood the Warden"
-        show warden at center
         sd_warden "How nice of you to join me, although it seems you have lost your friends in process"
         "She smiles at you, two guards move forward, one on each side of here"
         sd_warden "You really made it easy for us, coming right here. Moving Tsing made good bait. And I am sure we will find your friends soon enough"
@@ -1659,7 +1706,7 @@ label SanDiego:
         sd_warden "Do not make me regret this"
         "The guards quickly approach you and start pushing out towards the exit. Seems like something is finally going right in this damn place."
         "You are escorted quickly back out the way you came in and before you know it, you are standing out front of the prison, Mount and Buenos appearing beside you shortly after"
-        scene bg Out_Car with dissolve
+        scene bg Out_Car
         show mount at right
         show buenos at left
         mount "So, is everything good? I was not expecting to be escorted out of the prison of all things"
@@ -1686,7 +1733,6 @@ label SanDiego:
         $ GoodTalks -= 1
         $ daughter_die = True
         "You have had enough of this. You quickly reach down and draw your weapon you picked up earlier and aim it towards the warden."
-        hide warden
         "Its over in an instant, and before you lie three bodies. Their blood is on your hands now, but thinking aobu that can come later. You still have your mission to complete"
         "Now that threat was out of the way, and no one seems to have noticed the small gun fight, it was time to get Tsing and get out"
         "Hopefully the warden was at least telling the truth about Tsing being in solitary"
@@ -1718,15 +1764,13 @@ label SanDiego:
             tsing "It's risky, but I guess its the quickest and safest way right now"
             "Getting up, Tsing heads over to and places his hands in front of you"
             tsing "Your going to have to cuff me if we want this to work"
-            scene bg Prison_Hall with dissolve
             "You nod your head, and put Tsing in cuffs, and head out towards the exit"
             "Thankfully, not many guards were around, so you quickly were able to move Tsing out of solitary and into the maze of the prison"
             "Trying to remember the way your came, you quickly moved down each hallway, avoid guards where you could. Those you could not avoid, you made sure to show you were moving Tsing, the prisoner"
             "After many minutes of traveling, you finally arrive at the maintainence room from the beginning, hoping that the rest of your crew is waiting inside"
             "Taking a deep breath you open the door, and luck seems to be on your side right now, as both Mount and Buenos are standing inside. Neither look happy for having to wait so long"
             show mount at right
-            show tsing at center
-            show buenos at left
+            show beuenos at left
             mount "You took your damn time"
             buenos "We were beginning to think you screwed up and we were going to have to leave you ... again"
             you "Ran into some trouble, but it has been dealth with. Let's get out of here quickly"
@@ -1736,12 +1780,9 @@ label SanDiego:
             "With one last nod of agreement by everyone, you set out towards the entrance"
             "Seems like no one is really focusing on this part the prison right now, so getting to the reception area was quite easy"
             "Quickly walking through the reception area and out to the parking area, the reception looked up confused to see three guards walking out with a prisoner"
-            scene Prison_Office
-            show receptionist
             sd_receptionist "Hey what are you guys doing, I did not hear anything about a prisoner release?"
             you "Direct orders from the warden. If you want to know more ask her. We were just old to bring this man outside"
             "The receptionist does not look happy when you say that, but grabs the phone and goes to make a phone call. while she is distracted doing that, you walk outside and head towards the car"
-            hide receptionist
             "Quickly undoing Tsing's cuffs, you all get into the car and drive off, thankful to be free of that prison, and back on the path to finishing this crazy mission"
             jump border
         else:
@@ -1773,17 +1814,18 @@ label SanDiego:
 # Chapter 5 (Ian Maynard)
 
 label border:
-    scene bg Freeway with dissolve
+    #PROTEST SCENE
     "Riding down the 5 the air starts to get warmer. You see the border just over the horizon"
     you "Finally"
+    scene border with dissolve
     buenos "What was that?"
     you "I see the border... and..."
     "Squinting your eyes as you get off the highway, you see a large crowd near the entrance to the underground passage"
     you "Oh give me a fuckin break..."
-    scene bg Border_Protest with dissolve
     "You and the team park the car and get out to approach the crowd. They appear to be protesting something. Imagine having that kind of time"
     "You seem to spot their leader, a tall nordic looking woman"
-    show gretap
+    show greta
+    show protester at left
     you "Excuse me, what exactly is goin on here?"
     protestor "We are protesting the absolutely ABSURD notion that Techro needs any more office buildings in this part of town. They already have 3 on this street alone!"
     protestor "To make matters worse, they plan on making this bigger and ,as a result, more environmentally hazardous than their previous offices"
@@ -1817,7 +1859,6 @@ label border:
             "The protestor giggles at the thought of you trying to help and goes back to chanting with the crowd"
             "You and the team approach the group of suits."
             scene bg Gates_Office with dissolve
-            show gates
             you "Excuse me, are you in charge here?"
             "The man pays you no attention, and continues staring at his phone"
             you "Ok then, hey Mount I think this guy wants to talk to you"
@@ -1836,8 +1877,8 @@ label confront_gates:
     menu:
         "Ask gates what the project is about":
             you "What do you guys want a fourth office building for on this street?"
-            gates "Oh this is no mere office building you feeble-minded fool"
-            "Feeble-minded? Who says that"
+            gates "Oh this is no mere office building you feeble-minded fool!"
+            "Feeble-minded? Who says that!?"
             you "Ok then what is it Shakespeare?"
             gates "This building shall be a BEACON"
             gates "A shining beacon of progress that will finally allow humanity to join the society amongst the stars"
@@ -1854,7 +1895,7 @@ label confront_gates:
             you "Listen dude, you dont need a fourth office building in this area. Your company doesnt even have that many employees! Just cancel the project man."
             gates "Oh you are just one of the protestors, move along"
             you "Protestor? No dude I'm just a man on a mission"
-            gates "A mission to piss me off? Why would I throw months of planning and millions of dollars in the trash because some random dude came up to me and told me to cancel? And people think I'm the crazy one? HA!"
+            gates "A mission to piss me off? Why would I throw months of planning and millions of dollars in the trash because some random dude came up to me and told me to cancel? And people think I'm the crazy one? HA!" with hpunch
             you "I mean you said it not me"
             "Gates gives you a piercing glare and goes back to his phone"
             you "What if you postponed it like a day for me. I just need to get past these protestors man"
@@ -1875,7 +1916,7 @@ label confront_gates2:
             gates "Oh you are just one of the protestors, move along"
             you "Protestor? No dude I'm just a man on a mission"
             "Gates angrily hangs up his phone"
-            gates "A mission to piss me off? Why would I throw months of planning and millions of dollars in the trash because some random dude came up to me and told me to cancel? And people think I'm the crazy one? HA!"
+            gates "A mission to piss me off? Why would I throw months of planning and millions of dollars in the trash because some random dude came up to me and told me to cancel? And people think I'm the crazy one? HA!" with hpunch
             you "I mean you said it not me"
             "Gates gives you a piercing glare and goes back to his phone"
             you "What if you postponed it like a day for me. I just need to get past these protestors man"
@@ -1926,7 +1967,8 @@ label confront_gates4:
             jump backToGreta
 label backToGreta:
     scene bg Border_Protest with dissolve
-    show gretap
+    show greta
+    show protester at left
     menu:
         "Convince Greta and the group to leave":
             you "Wait aren't you that lady from the news? Greta Scottson right? Funny seeing you here given whats happening in LA just a couple hours away"
@@ -1956,7 +1998,7 @@ label Mexico:
     show mount
     "After all kinds of hardships, you and your teammates finally arrived at the destination of this trip"
     mount "Everyone, I am so excited and feels that victory is so closed"
-    scene bg Plantation_Gate with dissolve
+    scene bg Plantation_Gate
     "However, things are not easy as they seem. Outside your destination, there is a huge wall"
     "The only entrance has many security guards at the door"
     "You and your teammates can try to enter from the main entrance or try to find another way into the plantation"
@@ -1982,7 +2024,7 @@ label Mexico:
     you "Hang in there a little longer and victory is ahead. I think the exit is just ahead"
     "Suddenly you smell the fresh air and everyone gets excited"
     "Finally, you climbed out of a hidden manhole cover"
-    scene bg Plantation_Inside with dissolve
+    scene bg Plantation_Inside
     show little_boy
     "You start searching for this plantation"
     lb"Who are you? What are you doing here?"
@@ -2031,7 +2073,7 @@ label Mexico:
             buenos "I can hear some security guys calling him Mr. Brit."
 
 label mexico_2:
-    scene bg Plantation_Farmland with dissolve
+    scene bg Plantation_Farmland
     show mr_brit
     show buenos at right
     "Mr. Brit seems to be interested when he sees you. But he does not get down from his horse."
@@ -2065,7 +2107,7 @@ label mexico_2:
             jump mexico_3
 
 label mexico_3:
-    scene bg Plantation_Farmland with dissolve
+    scene bg Plantation_Farmland
     show Mount
     show tsing at right
     show buenos at left
@@ -2097,7 +2139,7 @@ label mexico_3:
 
 # Endings (Jingtian Li & Guozheng Yang)
 label ending1:
-    scene bg Plantation_Farmland with dissolve
+    scene bg Plantation_Farmland
     show Mount
     show tsing at right
     show buenos at left
@@ -2111,7 +2153,7 @@ label ending1:
     buenos"we should bring them back to America."
     mount "I agree boss. you should bring those kids through border. We shall take the drug back by underground railway."
     you "sounds like a nice plan to me."
-    scene bg Border_Office with dissolve
+    scene bg Border_Office
     "You and the kids reach the US-Mexico border."
     show police at right
     show guard3 at left
@@ -2124,7 +2166,7 @@ label ending1:
     "You see the police searching for something in the drawer. Later, he finds a photo of you."
     uspa "Shit, he is the guy."
     "they knock you off with a electric gun. You fall down without a chance of defending yourself. When you wake up, you find yourself in a big office room. the state governor stands in front of you, aside with the mysterious man."
-    scene bg Prison_Office with dissolve
+    scene bg Prison_Office
     show mystery
     show mysterious_man at left
     sgboss "welcome home boy. you have done an excelent job. You friends already gave me what I want. But I still want to thank you in person, and remind you that this is a secret between us. Now you are free to leave."
@@ -2144,12 +2186,12 @@ label ending1:
         mm "Actually I think I should say thank you."
         you "Thank me for what? I have had enough of you and your father. could you let me leave now?"
         mm "#stare at you# OK... you can leave now."
-    scene Cityhall with dissolve
+    scene Cityhall
     "You head out of building and find yourself at the city hall of Los Angeles. People around you look at you like you are an alien. But whatever, you can return to your family now."
     return
 
 label ending2:
-    scene bg Plantation_Farmland with dissolve
+    scene bg Plantation_Farmland
     show Mount
     show tsing at right
     show buenos at left
@@ -2177,14 +2219,14 @@ label ending2:
             "However, there are too many of them. Short after, both of you are shot."
             jump gameEnd
     hide tsing
-    scene bg Underground_Railroad with dissolve
+    scene bg Underground_Railroad
     "Tear covers your face as you travel through the underground railway. When you finally get back to US, there is really nothing left in your brain but tremendous sadness."
-    scene bg Out_Car with dissolve
+    scene bg Out_Car
     "You find a paper note in the car. There is an address on it. You set it as the destination then follow the GPS system like a robot."
-    scene bg Cityhall with dissolve
+    scene bg Cityhall
     "You arrive at the city hall of Los Angeles. You park the car at the parking lot. It is around 10:30, so not a lot of people around."
     "Just before you get out of your seat, the back doors and the vice driving door are opened. three men enter the car. One of them is the mysterious man. He is sitting in the back."
-    scene bg In_Car with dissolve
+    scene bg In_Car
     show mystery
     show mysterious_man at right
     "Another man in the back seat starts to speak."
@@ -2226,7 +2268,7 @@ label ending2:
                 return
 
 label ending3:
-    scene bg Plantation_Farmland with dissolve
+    scene bg Plantation_Farmland
     show Mount
     show tsing at right
     show buenos at left
@@ -2247,7 +2289,7 @@ label ending3:
         "That is enough, Mount. We should leave":
             pass
     "The whole team remains in silence as traveling through the underground railway."
-    scene bg Underground_Railroad with dissolve
+    scene bg Underground_Railroad
     show Mount
     show tsing at right
     show buenos at left
@@ -2265,12 +2307,12 @@ label ending3:
             "You do not know if Buenos is refering to you or the state governor. But you decide not to ask and remain silence in the rest of the trip."
         "Remain in silence":
             pass
-    scene bg In_Car with dissolve
+    scene bg In_Car
     "As soon as you get back to US, all of them three leave you without a word. You look at their backs through tears; there is really nothing left in your brain but tremendous sadness."
     "You find a paper note in the car. There is an address on it. You set it as the destination then follow the GPS system like a robot."
-    scene bg Cityhall with dissolve
+    scene bg Cityhall
     "You arrive at the city hall of Los Angeles. You park the car at the parking lot. It is around 10:30, so not a lot of people around."
-    scene bg In_Car with dissolve
+    scene bg In_Car
     show mystery
     show mysterious_man
     "Just before you get out of your seat, the back doors and the vice driving door are opened. three men enter the car. One of them is the mysterious man. He is sitting in the back."
@@ -2302,12 +2344,12 @@ label ending3:
                 mm "I guess I should say thank you Huh?"
                 you "..."
                 mm "#stare at you# OK... you can leave now."
-                scene bg Dream with dissolve
+                scene bg Dream
                 "After a few days, the governor sends some money and informs you that your files have been cleaned up."
                 "Finally, you can enjoy your life with your family"
                 return
             else:
-                scene bg Dream with dissolve
+                scene bg Dream
                 "The governor nods and asks the bodyguard to stay in the car before you arrive home."
                 "After a few days, the governor sends some money and informs you that your files have been cleaned up."
                 "Finally, you can enjoy your life with your family"
@@ -2315,12 +2357,12 @@ label ending3:
 
 
 label ending4:
-    scene bg Underground_Railroad with dissolve
+    scene bg Underground_Railroad
     show Mount
     show tsing at right
     show buenos at left
     "You leave the plantation, get back to US by the underground railway. Find a note in the car with an address on it. Your drive to there, it is the city hall of Los Angeles."
-    scene bg Cityhall with dissolve
+    scene bg Cityhall
     show receptionist
     "The front desk lead you and your crew to the top office. You see three men in the room. One of them is the mysterious man. The man sitting in the middle starts to speak."
     hide receptionist
@@ -2342,7 +2384,7 @@ label ending4:
                     "You are so close to you freedom and your family, but finally you choose the wrong step and fall in blood."
                     return
                 "Give him the gun":
-                    scene bg In_Car with dissolve
+                    scene bg In_Car
                     "Finally the journey is over. Driving in the LA downtown, you and your friends decide first to have something to eat."
                     show tsing
                     Tsing "%(playerName)s, watch out!" with vpunch
@@ -2355,7 +2397,7 @@ label ending4:
             return
 
 label gameEnd:
-    scene bg Openspace with dissolve
+    scene bg Openspace
     "You were so close to your freedom and your family, but now you fall in your own blood. Hope you have a better luck next time."
     return
 
